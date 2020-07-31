@@ -1,0 +1,84 @@
+@font-face {
+  font-family: Zelda;
+  src: url(font.ttf);
+}
+
+html {
+	background-color: black;
+	text-align: center
+	
+}
+
+div #container {
+	text-align: center
+}
+
+div #left, #right, #moblin, #container{
+	display:inline-block;
+	margin: auto;
+}
+
+div #moblin {
+	margin-right: 128px;
+	margin-left: 128px;
+}
+
+div #rupee {
+	margin: auto;
+	margin-top: 32px
+}
+
+img {
+	image-rendering: pixelated;
+	height:64px;
+}
+
+p {
+	font-family: Zelda;
+	font-size: 32px;
+	display:inline-block;
+	color: white;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+	div #moblin {
+		margin-right: 64px;
+		margin-left: 64px;
+	}
+
+	div #rupee {
+		margin-top: 16px
+	}
+
+	img {
+		height:32px;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+}
+
+@media only screen and (max-width: 250px) {
+
+	div #moblin {
+		margin-right: 32px;
+		margin-left: 32px;
+	}
+
+	div #rupee {
+		margin-top: 8px
+	}
+
+	img {
+		height:16px;
+	}
+
+	p {
+		font-size: 8px;
+	}
+
+}
