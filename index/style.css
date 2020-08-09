@@ -1,0 +1,88 @@
+@font-face {
+  font-family: DSMenu;
+  src: url(../orange%20soapstone/font.ttf);
+}
+
+
+html {
+	background-image: url(bg.png);
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+	background-attachment: fixed;
+	color: white;
+	font-family: Arial;
+	font-size: 22px
+}
+
+body {
+	margin:0px;
+	display:grid;
+}
+
+img {
+	float:left;
+	margin:2px;
+}
+
+p {
+	margin:5px;
+}
+
+#header {
+	background-image: url(Top.png);
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+	padding: 10px 0px 40px 0px;
+	text-align: center;
+}
+
+#content {
+	text-align: center;
+}
+
+.item {
+	vertical-align: middle;
+	width:25%;
+	min-width: 260px;
+	padding: 5px;
+	margin:5px;
+	display: inline-block;
+	transition: 0.2s transform;
+}
+
+.item:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.title {
+	font-size: 30px;
+}
+
+#social {
+	position: absolute;
+	top:20px;
+	right:5px;
+	display: block;
+}
+
+#social img {
+	height:25px;
+}
+
+#soapstone {
+	font-family: DSMenu;
+	text-rendering: geometricPrecision;
+	border-top: 25px solid;
+	border-right: 22px solid;
+	border-bottom: 27px solid;
+	border-left: 17px solid;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-left: 10px;
+	border-image-source: url(../orange%20soapstone/bg/border.png);
+	border-image-slice: 25 22 27 17 fill;
+	border-image-repeat: round;
+}

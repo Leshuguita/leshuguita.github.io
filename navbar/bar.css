@@ -1,0 +1,52 @@
+@font-face {
+	font-family: tic;
+	src: url(font.ttf);
+}
+
+html {
+	background-color: #383838;
+}
+
+body {
+	margin:2px;
+	display:grid;
+	font-family: tic;
+	font-size: 12px;
+	color:white;
+}
+
+span {
+	margin: -10px;
+}
+
+img {
+	margin-right: 5px;
+	image-rendering: pixelated;
+	position:relative;
+	top: -2px;
+}
+
+a {
+	color:white;
+	text-decoration: none;
+	text-rendering: geometricPrecision;
+}
+
+a:hover {
+	color:gray;
+	
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+	display:inline;
+}
+
+#first {
+	margin-left: 10px;
+}
