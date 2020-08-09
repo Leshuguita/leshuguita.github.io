@@ -122,8 +122,12 @@ function updateselected(fill) {
 }
 
 function generatestring() {
-	fullstring = selectedtemp.replace(/[*]+/g, selectedopt);
+	fullstring = capitalizeFirstLetter(selectedtemp.replace(/[*]+/g, selectedopt.toLowerCase()));
 	drawtocanvas();
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function drawtocanvas() {

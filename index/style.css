@@ -29,6 +29,10 @@ p {
 	margin:5px;
 }
 
+iframe{
+    overflow:hidden;
+}
+
 #header {
 	background-image: url(Top.png);
 	background-position: center;
