@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="Orange Guidance Soapstone" property="og:title">
+
+	<meta content="In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another." property="og:description">
+
+	<meta content='https://leshuguita.github.io/orange%20soapstone/base.png' property='og:image'>
+
+	<meta name="keywords" content="Dark Souls"/>
+
+	<link rel="stylesheet" type="text/css" href="soapstone.css">
+
+	<link rel="icon" 
+      type="image/png" 
+      href="nobase.png">
+
+	<title>Orange Guidance Soapstone</title>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<script src="FileSaver.js"></script>
+	<script src="perlin.js"></script>
+
+	<script async src="soapstone.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174249054-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-174249054-1');
+	</script>
+</head>
+<body onload = "generatestring();" onresize="formheight()">
+	<iframe src="../navbar/bar.html" height="16" width="100%" frameBorder="0" scrolling="no">
+	</iframe>
+	<div id="content">
+		<svg width="0" height="0">
+			<defs>
+				<filter id="displacementFilter">
+					<feTurbulence type="turbulence" baseFrequency="0.1" numOctaves="2" result="turbulence"/>
+					<feDisplacementMap in2="turbulence" in="SourceGraphic" scale="30" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+					<feOffset result="offOut" in="displaced" dx="-6" dy="-6" />
+				</filter>
+			</defs>
+		</svg>
+
+		<table id="Header">
+			<td id="headerImg" style="font-family: Message"><img src="base.png"></td>
+			<td id="headerText">
+				<p>Messages transmit to other worlds, where they are rated.</p>
+				<p>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</p>
+			</td>
+		</table>
+
+
+		<canvas id="output" width="600" onclick="copyImage()" height="300"></canvas>
+
+		<canvas id="cropped"  width="600" height="300" style="display: none"></canvas>
+		<canvas id="blurmask" width="600" height="300" style="display: none"></canvas>
+		<canvas id="noiselayer" width="600" height="300" style="display: none"></canvas>
+
+		<button id="savebutton" onclick="saveImage()">Download</button><br>
+
+		<p id="gray">You can also click the image to copy it, but transparency may not be kept because of browser/OS limitations.</p>
+
+		<table class="lines">
+			<td>
+				<form id="templates" name="templatesform">
+					<p>test</p>
+				</form>
+			</td>
+			<td>
+				<form id="categories" name="categoriesform">
+					
+				</form>
+			</td>
+			<td>
+				<form id="options" class="scroll" name="optionsform">
+					
+				</form>
+			</td>
+		</table>
+		<p id="gray">Made by Leshuguita, fonts by <a href="https://www.reddit.com/r/darksouls/comments/5ioguo/dark_souls_menu_font_dl/" target="_blank">Satorilotus (Menu font)</a> and <a href="https://www.dafont.com/es/ramadhan-karim.font" target="_blank">Mikrojihad Typography (Message font)</a>, <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js by Eligray</a> and <a href="https://github.com/josephg/noisejs" target="_blank">noise.js by josephg</a>.</p>
+
+		<p id="gray"><a href="https://forms.gle/MrTBPKnBNXETtB967" target="_blank">Found and issue or have an idea? Put it here!</a></p>
+
+	</div>
+</body>
+</html>
