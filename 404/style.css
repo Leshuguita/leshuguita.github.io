@@ -6,7 +6,11 @@
 html {
 	background-color: black;
 	text-align: center
-	
+}
+
+body {
+	margin:0px;
+	display:grid;
 }
 
 div #container {
