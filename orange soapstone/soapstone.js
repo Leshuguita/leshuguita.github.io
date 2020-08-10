@@ -14,11 +14,16 @@ var blurctx = blurcan.getContext("2d");
 var noisecan = document.getElementById("noiselayer");
 var noisectx = noisecan.getContext("2d");
 
+var noiseImage = noisectx.createImageData(canvas.width, canvas.height);
+var noiseData = noiseImage.data;
+
 var selectedtemp = "**** ahead"
 var selectedcat = "Characters"
 var selectedopt = "Enemy"
 
 var fullstring = ""
+
+var lines = []
 
 var templatesarr = []
 var categoriesdict = []
@@ -33,6 +38,7 @@ $("html").css({'background-image': 'url(bg/places/' + images[Math.floor(Math.ran
 noise.seed(Math.random());
 filltemp();
 fillcat();
+generatenoise();
 
 //fill templates in html
 function filltemp() {
@@ -46,7 +52,7 @@ function filltemp() {
 				if (thing == selectedtemp) {
 					c = "checked";
 				}
-					var input = "<td><input type='radio' onclick='updateselected(true)' id='" + thing + "' name= 'templates' "+ c +" />";
+					var input = "<td><input type='radio' onclick='updateselected()' id='" + thing + "' name= 'templates' "+ c +" />";
 					var label = "<label for='" + thing + "'>" + thing + "</label></td><br>";
 					template_html+= input + label;
 				});
@@ -71,7 +77,7 @@ function fillcat() {
 				if (thing.key == selectedcat) {
 					c = "checked";
 				}
-				var input = "<td><input onclick='fillobj();updateselected(true)' type='radio' id='" + thing.key + "' name= 'categories' "+ c +" />";
+				var input = "<td><input onclick='updatecat();fillobj()' type='radio' id='" + thing.key + "' name= 'categories' "+ c +" />";
 				var label = "<label for='" + thing.key + "'>" + thing.key + "</label></td><br>";
 				categories_html+= input + label;
 			});
@@ -92,7 +98,7 @@ function fillobj() {
 			if (v == selectedopt) {
 				c = "checked";
 			}
-			var input = "<td><input type='radio' onclick='updateselected(false)' id='" + v + "' name= 'options' "+ c +" />";
+			var input = "<td><input type='radio' onclick='updateselected()' id='" + v + "' name= 'options' "+ c +" />";
 			var label = "<label for='" + v + "'>" + v + "</label></td><br>";
 			options_html += input + label
 		});
@@ -102,27 +108,30 @@ function fillobj() {
     html_options.innerHTML = options_html;
 }
 
-function updateselected(fill) {
+function updateselected() {
 	$("input[type='radio']:checked").each(function() {
-
        	if ($(this).attr("name") == "templates") {
        		selectedtemp = $("label[for='"+$(this).attr("id")+"']").text();
-       	} else if ($(this).attr("name") == "categories") {
-       		selectedcat = $("label[for='"+$(this).attr("id")+"']").text();
        	} else if ($(this).attr("name") == "options") {
        		selectedopt = $("label[for='"+$(this).attr("id")+"']").text();
        	}
     });
 
-    if (fill) {fillobj()};
-
     generatestring();
-    drawtocanvas()
 
+}
+
+function updatecat() {
+	$("input[type='radio']:checked").each(function() {
+		if ($(this).attr("name") == "categories") {
+	       	selectedcat = $("label[for='"+$(this).attr("id")+"']").text();
+	    }
+	});
 }
 
 function generatestring() {
 	fullstring = capitalizeFirstLetter(selectedtemp.replace(/[*]+/g, selectedopt.toLowerCase()));
+	lines = getLines(ctx,fullstring, canvas.width-30);
 	drawtocanvas();
 }
 
@@ -130,38 +139,8 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function drawtocanvas() {
-	croppedcan.width=canvas.width;
-	croppedcan.height=canvas.height;
-	var lines = getLines(ctx,fullstring, canvas.width-30);
-
-	//blurred outline mask
-	blurctx.clearRect(0, 0, canvas.width, canvas.height);
-	
-	blurctx.font = "100px Message";
-	blurctx.fillStyle = "orange";
-	blurctx.strokeStyle = "orange";
-	blurctx.lineWidth = 20;
-	blurctx.textAlign = "center";
-	blurctx.filter = 'url(#displacementFilter) blur(5px)';
-
-	lines.forEach( (line,id) => {
-		blurctx.fillText(line, canvas.width/2, canvas.height/2 - (30*(lines.length-1)) + (60*id) + 15);
-		blurctx.strokeText(line, canvas.width/2, canvas.height/2 - (30*(lines.length-1)) + (60*id) + 15);
-	});
-
-	//add noise onto mask
-	noisectx.clearRect(0, 0, canvas.width, canvas.height);
-	noisectx.drawImage(blurcan,0,0);
-	noisectx.globalCompositeOperation = "source-in";
-	noisectx.filter = 'contrast(100%)';
-
-	var image = noisectx.createImageData(canvas.width, canvas.height);
-	var data = image.data;
+function generatenoise() {
 	var scale=1.3
-
-	var mask = blurctx.getImageData(0,0, canvas.width, canvas.height);
-	var mdata = mask.data;
 
 	var col1 = [54,-1,-30]
 	var col2 = [239,135,58]
@@ -188,25 +167,46 @@ function drawtocanvas() {
 			var cell = (x + y * canvas.width) * 4;
 
 			if (value<middle) {
-				data[cell] = col1[0] + (value)*((col2[0]-col1[0])/middle);
-				data[cell + 1] = col1[1] + (value)*((col2[1]-col1[1])/middle);
-				data[cell + 2] = col1[2] + (value)*((col2[2]-col1[2])/middle);
+				noiseData[cell] = col1[0] + (value)*((col2[0]-col1[0])/middle);
+				noiseData[cell + 1] = col1[1] + (value)*((col2[1]-col1[1])/middle);
+				noiseData[cell + 2] = col1[2] + (value)*((col2[2]-col1[2])/middle);
 			} else {
-				data[cell] = col2[0] + (value-middle)*((col3[0]-col2[0])/middle);
-				data[cell + 1] = col2[1] + (value-middle)*((col3[1]-col2[1])/middle);
-				data[cell + 2] = col2[2] + (value-middle)*((col3[2]-col2[2])/middle);
+				noiseData[cell] = col2[0] + (value-middle)*((col3[0]-col2[0])/middle);
+				noiseData[cell + 1] = col2[1] + (value-middle)*((col3[1]-col2[1])/middle);
+				noiseData[cell + 2] = col2[2] + (value-middle)*((col3[2]-col2[2])/middle);
 			}
 			
-			data[cell + 3] = mdata[cell + 3]; // alpha.
-			//data[cell + 3] = 255
+			//data[cell + 3] = mdata[cell + 3]; // alpha.
+			noiseData[cell + 3] = 255
 		}
 	}
-	noisectx.putImageData(image, 0, 0);
 
-	//actual output
+	noisectx.putImageData(noiseImage,0,0);
+}
+
+function drawtocanvas() {
+	croppedcan.width=canvas.width;
+	croppedcan.height=canvas.height;
+
+	//blurred outline mask
+	blurctx.clearRect(0, 0, canvas.width, canvas.height);
+	
+	blurctx.font = "100px Message";
+	blurctx.lineWidth = 20;
+	blurctx.textAlign = "center";
+	blurctx.filter = 'url(#displacementFilter) blur(5px)';
+
+	lines.forEach( (line,id) => {
+		blurctx.fillText(line, canvas.width/2, canvas.height/2 - (30*(lines.length-1)) + (60*id) + 15);
+		blurctx.strokeText(line, canvas.width/2, canvas.height/2 - (30*(lines.length-1)) + (60*id) + 15);
+	});
+
+	//combine noise and mask
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+	ctx.drawImage(blurcan,0,0);
+	ctx.globalCompositeOperation = "source-in";
 	ctx.drawImage(noisecan,0,0);
+	ctx.globalCompositeOperation = "source-over";
 
 	ctx.font = "100px Message";
 	ctx.fillStyle = "black";
