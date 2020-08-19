@@ -5,14 +5,12 @@
 
 
 html {
-	background-image: url(bg.png);
-	background-position: center;
-  	background-repeat: no-repeat;
-  	background-size: cover;
-	background-attachment: fixed;
+	background-color: #181818;
 	color: white;
 	font-family: Arial;
-	font-size: 22px
+	font-size: 22px;
+	overflow: auto;
+	overflow-x: hidden;
 }
 
 body {
@@ -89,4 +87,11 @@ iframe{
 	border-image-source: url(../orange%20soapstone/bg/border.png);
 	border-image-slice: 25 22 27 17 fill;
 	border-image-repeat: round;
+}
+
+#canvasbg {
+	position:fixed;
+	width:100%;
+	height:100%;
+	z-index: -1;
 }
