@@ -73,6 +73,9 @@ iframe{
 #social img {
 	height:25px;
 }
+#social img:hover{
+	filter:brightness(130%);
+}
 
 #soapstone {
 	font-family: DSMenu;
@@ -94,4 +97,23 @@ iframe{
 	width:100%;
 	height:100%;
 	z-index: -1;
+}
+
+iframe	{
+	position:sticky;
+	top:0;
+	z-index:2;
+}
+
+
+/*mobile*/
+
+@media (max-width: 480px) {
+	#social {
+		position: relative;
+		top:0;
+		right:0;
+		float:right;
+		display:inline;
+	}
 }

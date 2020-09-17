@@ -12,7 +12,6 @@ function resize() {
 
 function setbg() {
 	var selected = bgscripts[Math.round(Math.random()*(bgscripts.length-1))];
-	console.log(selected);
 	var head = document.getElementsByTagName('head')[0];
 	var script = document.createElement('script');
 	script.type = 'text/javascript';

@@ -16,6 +16,12 @@ trianglesUnique = [];
 generatepoints();
 findtriangles();
 
+//just so it doesnt look bad if you resize the window
+window.addEventListener("resize", function(event) {
+	generatepoints();
+	findtriangles();
+});
+
 document.addEventListener('visibilitychange', function(event) {
   if (document.hidden) {
     hidden=true;
@@ -27,6 +33,7 @@ document.addEventListener('visibilitychange', function(event) {
 });
 
 function generatepoints() {
+	points = [];
 	for (i=0;i<50;i++) {
 		var x = Math.random()*canvas.width;
 		var y = Math.random()*canvas.height;
@@ -43,7 +50,6 @@ function generatepoints() {
 	}
 
 	//generate static point ouside of view, just so the edges look nice. Apparently if they are on the same y everything breaks???
-	//looks bad if the window resizes
 	var amount = 5;
 	var vdist = canvas.height/amount;
 	var hdist = canvas.width/amount;
@@ -85,12 +91,21 @@ function mainloop(now) {
 
  	delta = Math.max(delta,0);
 
- 	update(delta);
- 	draw();
+ 	//only update stuff if something moves
+ 	if (points[1].vx!=0 && points[2].vy!=0) {
+ 		if (delta>60) {
+ 			points.shift();
+ 		}
+
+
+ 		update(delta);
+ 		draw();
+ 	}
 
  	if (!hidden) {
 		window.requestAnimationFrame(mainloop);
 	}
+	
 }
 
 function update(delta) {
