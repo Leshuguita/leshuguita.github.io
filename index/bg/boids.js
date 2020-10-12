@@ -210,7 +210,7 @@ function topi(r) {
 }
 
 function dist(x,y,x2,y2) {
-	return Math.hypot(x-x2,y-y2);
+	return Math.sqrt((x-x2)*(x-x2)+(y-y2)*(y-y2));
 }
 
 function lerp(value1, value2, amount) {
