@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
 
-const bgscripts = ["boids.js","delaunay.js"];
+const bgscripts = ["boids.js","delaunay.js","digRain.js"];
 
 resize();
 

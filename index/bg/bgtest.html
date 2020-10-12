@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index BG test</title>
+</head>
+	<body onresize="resize()" style="margin:0px;display:grid;">
+		<canvas id="canvasbg" width=10 height=10></canvas>
+		<script>
+			var canvas = document.getElementById("canvasbg");
+			var ctx = canvas.getContext("2d");
+
+			resize();
+
+			function resize() {
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+			}
+		</script>
+		<script src="digRain.js"></script>
+	</body>
+</html>
