@@ -56,7 +56,7 @@ function makeRow() {
 	for (o = 0; o < rows; o++) {
 		var ch = {
 			character: possiblechars[Math.floor(Math.random()*possiblechars.length)],
-			timer: 10+Math.floor(Math.random()*240),
+			timer: 1000+Math.floor(Math.random()*3600),
 			state: 0,
 			//0=off,1=fade,2=normal,3=white
 		}
@@ -92,18 +92,18 @@ function update(delta) {
 	//update char timers
 	columns.forEach((row,x)=>{
 		row.forEach((ch,y)=>{
-			if (ch.timer==0) {
-				ch.timer = 10+Math.floor(Math.random()*240);
+			if (ch.timer<=0) {
+				ch.timer = 1000+Math.floor(Math.random()*3600);
 				ch.character = possiblechars[Math.floor(Math.random()*possiblechars.length)];
 			} else {
-				ch.timer=ch.timer-1;
+				ch.timer=ch.timer-delta;
 			}
 		});
 	});
 
 	//update drops
 	drops.forEach((drop,id)=>{
-		drop.y=drop.y+drop.speed;
+		drop.y=drop.y+drop.speed*delta;
 		if (drop.y-drop.length*cellheight > canvas.height) {
 			addDrop(id);
 		}
@@ -169,7 +169,7 @@ function addDrop(index) {
 	var drop = {
 		y:0,
 		length:5+Math.floor(Math.random()*15),
-		speed:0.1+Math.random()*5
+		speed:0.01+Math.random()*0.3
 	}
 
 	drops[index] = drop;
