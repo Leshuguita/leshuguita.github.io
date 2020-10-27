@@ -91,14 +91,14 @@ function update(delta) {
 				var a = sightangle*pi/180;
 				var c = fatan2(b.y - boid.y, b.x - boid.x)
 				if (c < boid.dir+a || c > boid.dir-a) {
-					var d=dist(boid.x,boid.y,b.x,b.y);
-					if (d<avoidrad) {
+					var d=distsq(boid.x,boid.y,b.x,b.y);
+					if (d<avoidrad*avoidrad) {
 						avoidb.push(b);	
 					}
-					if (d<approachrad) {
+					if (d<approachrad*approachrad) {
 						approachb.push(b);	
 					}
-					if (d<alignrad) {
+					if (d<alignrad*alignrad) {
 						alignb.push(b);	
 					}
 				}
@@ -118,10 +118,10 @@ function update(delta) {
 }
 
 function followmouse(boid,delta) {
-	var d = dist(boid.x,boid.y,mouse.x,mouse.y);
-	if (d<mouserad) {
+	var d = distsq(boid.x,boid.y,mouse.x,mouse.y);
+	if (d<mouserad*mouserad) {
 		var angleto = fatan2(mouse.y - boid.y, mouse.x - boid.x);
-		boid.dir+=topi((angleto-boid.dir)+pi)*mousestr*delta*(d/mouserad);
+		boid.dir+=topi((angleto-boid.dir)+pi)*mousestr*delta*(d/(mouserad*mouserad));
 	}
 }
 
@@ -155,7 +155,7 @@ function align(boid,near,delta) {
 function avoid(boid,near,delta) {
 	near.forEach( (b) => {
 		var angleto = topi(fatan2(b.y - boid.y, b.x - boid.x));
-		boid.dir+=topi((angleto-boid.dir)+pi)*avoidstr*delta*(dist(boid.x,boid.y,b.x,b.y)/avoidrad);
+		boid.dir+=topi((angleto-boid.dir)+pi)*avoidstr*delta*(distsq(boid.x,boid.y,b.x,b.y)/(avoidrad*avoidrad));
 	});
 }
 
@@ -209,8 +209,8 @@ function topi(r) {
 	return fatan2(Math.sin(r),Math.cos(r));
 }
 
-function dist(x,y,x2,y2) {
-	return Math.sqrt((x-x2)*(x-x2)+(y-y2)*(y-y2));
+function distsq(x,y,x2,y2) {
+	return (x-x2)*(x-x2)+(y-y2)*(y-y2);
 }
 
 function lerp(value1, value2, amount) {
