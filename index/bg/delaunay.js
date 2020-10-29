@@ -3,6 +3,7 @@ var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
 
 var lastupdate = Date.now();
+var lastdelta = 0;
 
 var hidden = false;
 
@@ -10,8 +11,6 @@ const maxSpeed =0.05;
 
 points = [];
 triangles = new Set;
-
-trianglesUnique = [];
 
 generatepoints();
 findtriangles();
@@ -91,16 +90,16 @@ function mainloop(now) {
 
  	delta = Math.max(delta,0);
 
- 	//only update stuff if something moves
- 	if (points[1].vx!=0 && points[2].vy!=0) {
- 		if (delta>60) {
+ 	if (delta>60 && lastdelta>60) {
+ 		for (i=delta-60;i>0;i-=30) {
  			points.shift();
  		}
-
-
- 		update(delta);
- 		draw();
  	}
+
+ 	update(delta);
+ 	draw();
+
+ 	lastdelta = delta;
 
  	if (!hidden) {
 		window.requestAnimationFrame(mainloop);
@@ -110,13 +109,13 @@ function mainloop(now) {
 
 function update(delta) {
 	points.forEach((p)=>{
-		p.x+=p.vx*delta;
-		p.y+=p.vy*delta;
+		if (p.vx==0 && p.vy==0) {
 
-		if (p.vx!=0) {
+		} else {
+			p.x+=p.vx*delta;
+			p.y+=p.vy*delta;
+
 			p.x=(p.x+canvas.width)%canvas.width;
-		}
-		if (p.vy!=0) {
 			p.y=(p.y+canvas.height)%canvas.height;
 		}
 	});

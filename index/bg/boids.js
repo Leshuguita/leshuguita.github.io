@@ -4,6 +4,7 @@ var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
 
 var lastupdate = Date.now();
+var lastdelta = 0;
 
 var mouse = {x:0,y:0};
 
@@ -14,8 +15,8 @@ var avoidrad = 15;
 var alignrad = 40;
 var approachrad = 100;
 var sightangle = 120;
-var minspeed = 80;
-var maxspeed = 100;
+var minspeed = 70;
+var maxspeed = 90;
 var alignstr = 0.0002;
 var cohstr = 0.0005;
 var avoidstr = 0.002;
@@ -48,14 +49,7 @@ document.addEventListener('visibilitychange', function(event) {
 function init() {
 	for (i=1;i<=boidamount;i++) {
 
-		var boid = {
-			x:Math.random()*canvas.width,
-			y:Math.random()*canvas.height,
-			dir:topi(Math.random()*2*pi),
-			speed:(minspeed + Math.random()*(maxspeed-minspeed))/1000,
-		};
-
-		boids.push(boid);
+		newBoid();
 	}
 }
 
@@ -65,13 +59,17 @@ function mainloop(now) {
 
  	delta = Math.max(delta,0);
 
- 	if (delta>60) {
- 		boids.pop();
+ 	if (delta>30 && lastdelta>30) {
+ 		for (i=delta-30;i>0;i-=10) {
+ 			boids.pop();
+ 		}
  	}
 
  	update(delta);
  	draw();
 
+ 	lastdelta=delta;
+ 	
  	if (!hidden) {
 		window.requestAnimationFrame(mainloop);
 	}
@@ -111,6 +109,8 @@ function update(delta) {
 
 		avoidwalls(boid,delta);
 		followmouse(boid,delta);
+
+		boid.life++
 
 		boid.x+=Math.cos(boid.dir)*boid.speed*delta;
 		boid.y+=Math.sin(boid.dir)*boid.speed*delta;
@@ -159,10 +159,6 @@ function avoid(boid,near,delta) {
 	});
 }
 
-function topi(x) {
-	return x%(2*pi)-pi;
-}
-
 function fatan2(y,x) {
 	var ax = Math.abs(x);
 	var ay = Math.abs(y);
@@ -197,7 +193,6 @@ function draw() {
 		ctx.lineTo(boid.x+2*boidsize*Math.cos(boid.dir-4*pi/5),boid.y+2*boidsize*Math.sin(boid.dir-4*pi/5));
 		ctx.closePath();
 		ctx.fill();
-
 	});
 
 	ctx.font = "bold 15px Verdana";
@@ -219,4 +214,14 @@ function lerp(value1, value2, amount) {
 	return (1 - amount) * value1 + amount * value2;
 }
 
+function newBoid() {
+	var boid = {
+		x:Math.random()*canvas.width,
+		y:Math.random()*canvas.height,
+		dir:topi(Math.random()*2*pi),
+		speed:(minspeed + Math.random()*(maxspeed-minspeed))/1000,
+	};
+
+	boids.push(boid);
+}
 window.requestAnimationFrame(mainloop);
