@@ -16,12 +16,6 @@ triangles = new Set;
 generatepoints();
 findtriangles();
 
-//just so it doesnt look bad if you resize the window
-window.addEventListener("resize", function(event) {
-	generatepoints();
-	findtriangles();
-});
-
 document.addEventListener('visibilitychange', function(event) {
   if (document.hidden) {
     hidden=true;

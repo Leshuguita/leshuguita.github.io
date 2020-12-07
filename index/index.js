@@ -3,12 +3,8 @@ var ctx = canvas.getContext("2d");
 
 const bgscripts = ["boids.js","delaunay.js","digRain.js"];
 
-resize();
-
-function resize() {
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-}
+canvas.width = window.screen.availWidth;
+canvas.height = window.screen.availHeight;
 
 function setbg() {
 	var selected = bgscripts[Math.round(Math.random()*(bgscripts.length-1))];

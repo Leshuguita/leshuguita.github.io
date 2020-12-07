@@ -30,14 +30,6 @@ document.addEventListener('visibilitychange', function(event) {
   }
 });
 
-function resize() {
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	columns = [];
-	drops = [];
-	init();
-}
-
 function makeColumns() {
 	var cols = Math.floor(canvas.width/cellwidth) + 1;
 	for (i = 0; i < cols; i++) {
