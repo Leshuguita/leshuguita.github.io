@@ -8,6 +8,7 @@ var lastdelta = 0;
 var hidden = false;
 
 const maxSpeed =0.05;
+const minPoints = 3;
 
 points = [];
 triangles = new Set;
@@ -92,7 +93,9 @@ function mainloop(now) {
 
  	if (delta>60 && lastdelta>60) {
  		for (i=delta-60;i>0;i-=30) {
- 			points.shift();
+ 			if (points.length>28+minPoints) {
+ 				points.shift();
+ 			}
  		}
  	}
 

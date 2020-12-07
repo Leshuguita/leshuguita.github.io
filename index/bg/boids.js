@@ -8,21 +8,22 @@ var lastdelta = 0;
 
 var mouse = {x:0,y:0};
 
-var boidamount = 500;
+const boidamount = 500;
+const minboid = 20;
 
-var boidsize = 3;
-var avoidrad = 15;
-var alignrad = 40;
-var approachrad = 100;
-var sightangle = 120;
-var minspeed = 70;
-var maxspeed = 90;
-var alignstr = 0.0002;
-var cohstr = 0.0005;
-var avoidstr = 0.002;
+const boidsize = 3;
+const avoidrad = 15;
+const alignrad = 40;
+const approachrad = 100;
+const sightangle = 120;
+const minspeed = 70;
+const maxspeed = 90;
+const alignstr = 0.0002;
+const cohstr = 0.0005;
+const avoidstr = 0.002;
 
-var mouserad = 30;
-var mousestr = 0.005;
+const mouserad = 30;
+const mousestr = 0.005;
 
 var boids = [];
 var copyb = [];
@@ -61,7 +62,9 @@ function mainloop(now) {
 
  	if (delta>30 && lastdelta>30) {
  		for (i=delta-30;i>0;i-=10) {
- 			boids.pop();
+ 			if (boids.length>minboid) {
+ 				boids.pop();
+ 			}
  		}
  	}
 

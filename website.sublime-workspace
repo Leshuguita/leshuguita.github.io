@@ -1,0 +1,997 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"all",
+				"allfonts"
+			],
+			[
+				"guildMem",
+				"guildMembers"
+			],
+			[
+				"va",
+				"variables"
+			],
+			[
+				"guildmem",
+				"guildMembers"
+			],
+			[
+				"get",
+				"getNicknames"
+			],
+			[
+				"poem",
+				"poemindex\tany | number"
+			],
+			[
+				"ex",
+				"exports"
+			],
+			[
+				"prefi",
+				"prefixCommands"
+			],
+			[
+				"des",
+				"description"
+			],
+			[
+				"pref",
+				"prefixCommands"
+			],
+			[
+				"set",
+				"setup"
+			],
+			[
+				"punch",
+				"punchlineEmotes"
+			],
+			[
+				"punc",
+				"punchlineEmotes"
+			],
+			[
+				"canvas",
+				"canvaswidth"
+			],
+			[
+				"req",
+				"requestAnimationFrame"
+			],
+			[
+				"upda",
+				"updateRoles"
+			],
+			[
+				"reac",
+				"reactionCommands"
+			],
+			[
+				"beg",
+				"begunTheCloneWarsHas"
+			],
+			[
+				"unlimi",
+				"unlimitedPower"
+			],
+			[
+				"readferpy",
+				"readFerpy"
+			],
+			[
+				"cell",
+				"cellheight"
+			],
+			[
+				"addD",
+				"addDrop"
+			],
+			[
+				"make",
+				"makeColumns"
+			],
+			[
+				"trans",
+				"translateFerpy"
+			],
+			[
+				"end",
+				"endpoint"
+			],
+			[
+				"reci",
+				"recievedcard"
+			],
+			[
+				"conn",
+				"connui\tany"
+			],
+			[
+				"connec",
+				"connectionUI"
+			],
+			[
+				"liga",
+				"ligaEmbed"
+			],
+			[
+				"li",
+				"ligaEmbed"
+			],
+			[
+				"te",
+				"textEmbed"
+			],
+			[
+				"max",
+				"maxSpeed"
+			],
+			[
+				"close",
+				"closePath"
+			],
+			[
+				"trian",
+				"triangles"
+			],
+			[
+				"unfu",
+				"unfunnyMeme"
+			],
+			[
+				"what",
+				"whatIsAMan"
+			],
+			[
+				"conf",
+				"confusables"
+			],
+			[
+				"confus",
+				"confusables.txt"
+			],
+			[
+				"inui",
+				"inquisition"
+			],
+			[
+				"h",
+				"hcells"
+			],
+			[
+				"this",
+				"thisCamera"
+			],
+			[
+				"Cursor",
+				"CursorLockMode.Locked"
+			],
+			[
+				"Mou",
+				"Mouselook"
+			],
+			[
+				"gr",
+				"gravity"
+			],
+			[
+				"veloci",
+				"velocity.y"
+			],
+			[
+				"gro",
+				"groundDistance"
+			],
+			[
+				"ed",
+				"edgerad"
+			],
+			[
+				"align",
+				"alignrad"
+			],
+			[
+				"approa",
+				"approachb"
+			],
+			[
+				"avoid",
+				"avoidrad"
+			],
+			[
+				"al",
+				"alignstr"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"boids",
+				"boidsight"
+			],
+			[
+				"boidsi",
+				"boidsight"
+			],
+			[
+				"avera",
+				"averagesep"
+			],
+			[
+				"average",
+				"averagepos"
+			],
+			[
+				"ave",
+				"averagepos"
+			],
+			[
+				"a",
+				"averagepos"
+			],
+			[
+				"boi",
+				"boidsight"
+			],
+			[
+				"av",
+				"averagevect"
+			],
+			[
+				"ele",
+				"getElementById\t(elementId: string) => (HTMLElement | null)"
+			],
+			[
+				"pu",
+				"putImageData"
+			],
+			[
+				"noise",
+				"noisectx"
+			],
+			[
+				"noi",
+				"noisecan"
+			],
+			[
+				"combine",
+				"combinedctx"
+			],
+			[
+				"ge",
+				"geometricPrecision\ttext-rendering"
+			],
+			[
+				"op",
+				"optimizeLegibility\ttext-rendering"
+			],
+			[
+				"ren",
+				"text-rendering\tproperty"
+			],
+			[
+				"soapse",
+				"soapstone.html"
+			],
+			[
+				"x",
+				"x-small\tfont-size"
+			],
+			[
+				"padd",
+				"padding-left\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"line",
+				"linear-gradient"
+			],
+			[
+				"rel",
+				"relative\tposition"
+			],
+			[
+				"ali",
+				"align-self\tproperty"
+			],
+			[
+				"paddin",
+				"padding-left\tproperty"
+			],
+			[
+				"co",
+				"cover\tbackground-size"
+			],
+			[
+				"no",
+				"no-repeat\tbackground-repeat"
+			],
+			[
+				"backgroun",
+				"background-repeat\tproperty"
+			],
+			[
+				"block",
+				"block\tdisplay"
+			],
+			[
+				"fon",
+				"font-size\tproperty"
+			],
+			[
+				"proper",
+				"property\t(e: any, p: any) => any"
+			],
+			[
+				"cropped",
+				"croppedcan"
+			],
+			[
+				"cropp",
+				"croppedcan\tHTMLElement | null"
+			],
+			[
+				"croppe",
+				"croppedcan"
+			],
+			[
+				"cro",
+				"cropped"
+			],
+			[
+				"draw",
+				"drawImage"
+			],
+			[
+				"border",
+				"border-bottom\tproperty"
+			],
+			[
+				"border-c",
+				"border-color\tproperty"
+			],
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"inline",
+				"inline-block\tdisplay"
+			],
+			[
+				"ba",
+				"background-color\tproperty"
+			],
+			[
+				"tr",
+				"tr\tTag"
+			],
+			[
+				"padding",
+				"padding-top\tproperty"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"border-ima",
+				"border-image\tproperty"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"backgr",
+				"background-size\tproperty"
+			],
+			[
+				"inli",
+				"inline-block\tdisplay"
+			],
+			[
+				"header",
+				"headerText"
+			],
+			[
+				"edge",
+				"edgectx"
+			],
+			[
+				"form",
+				"formheight\t() => any"
+			],
+			[
+				"blur",
+				"blurctx"
+			],
+			[
+				"tra",
+				"transparent"
+			],
+			[
+				"font-s",
+				"font-size\tproperty"
+			],
+			[
+				"bac",
+				"background-image\tproperty"
+			],
+			[
+				"text",
+				"text-align\tproperty"
+			],
+			[
+				"in",
+				"inline-table\tdisplay"
+			],
+			[
+				"readAs",
+				"readAsDataURL\t(blob: Blob) => void"
+			],
+			[
+				"FIl",
+				"FileReader\t[class: FileReader]"
+			],
+			[
+				"to",
+				"toDataURL"
+			],
+			[
+				"cop",
+				"copyImage"
+			],
+			[
+				"sele",
+				"selectedopt"
+			],
+			[
+				"selected",
+				"selectedtemp"
+			],
+			[
+				"selec",
+				"selectedcat"
+			],
+			[
+				"cate",
+				"categories"
+			],
+			[
+				"fillob",
+				"fillobj\t() => any"
+			],
+			[
+				"options",
+				"options_html"
+			],
+			[
+				"html",
+				"html_templates"
+			],
+			[
+				"objects",
+				"objects_html"
+			],
+			[
+				"categor",
+				"categories_html"
+			],
+			[
+				"template",
+				"template_html"
+			],
+			[
+				"tem",
+				"template_html\tstring"
+			],
+			[
+				"categ",
+				"categoriesarr"
+			],
+			[
+				"size",
+				"font-size\tproperty"
+			],
+			[
+				"Discor",
+				"Discord.MessageEmbed"
+			],
+			[
+				"comman",
+				"commandName"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2061,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ins\t",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"View Package File"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/ianar/Desktop/Discord Bot/bot.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/ascii.js",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/nicks.json",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/unnick.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/everyoneIs.js",
+		"/C/Users/ianar/Desktop/Discord Bot/variables.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/status.js",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/ferpy.json",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/roles.json",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/nicks - backup.json",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/ban.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/newEmpire.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/summon.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/thisIsTheWay.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/twoOfThem.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/emoji.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/help.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/avatar.js",
+		"/C/Users/ianar/Documents/Unity/Ray",
+		"/C/Users/ianar/Documents/Unity/Ray Tracing/Tracing/Assets/Scripts/RayTracingMaster.cs.cs",
+		"/C/Users/ianar/Desktop/ResourcePack/pack.mcmeta",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/poems.json",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/poem.js",
+		"/C/Users/ianar/Desktop/Discord Bot/runBot.bat",
+		"/C/Users/ianar/Desktop/TestShader/shaders/shadow.fsh",
+		"/C/Users/ianar/Desktop/TestShader/shaders/gbuffers_basic.fsh",
+		"/C/Users/ianar/Desktop/TestShader/shaders/gbuffers_basic.vsh",
+		"/C/Users/ianar/Desktop/TestShader/README.md",
+		"/C/Users/ianar/Desktop/TestShader/effectsLib/2d_clouds.glsl",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/nya.js",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/banned.json",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/wookies.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/whatIsAMan.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/unlimitedPower.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/spanishInquisition.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/notIfAnythingToSay.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/notYet.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/incompleteArchives.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/helloThere.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/doIt.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/begunTheCloneWarsHas.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/league.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/ferpyTranslate.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/unfunny.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/stare.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/joke.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/wynaut.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/bgtest.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/delaunay.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boids.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boidWorker.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/digRain.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boidsWorkersDraw.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boidsWorkers.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/GPUboids.js",
+		"/D/documents/Quino/Mafalda 1 - Quino.sdr/Mafalda 1 - Quino.apnx",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/reddit.js",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Gourmet Race - Trumpet.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Fur Elise.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Gourmet Race - Bass.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Wanderlust Battle - Electric Bass.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Gourmet Race - Trombone.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Gourmet Race - Bass - Silence.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Gourmet Race - Tuba.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Gourmet Race - Flute.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Stardew Valley - Grandpa's Theme.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Zelda Main Title.abc",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/debug.js",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/config/tconstruct.cfg",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/config/vanillafix.cfg",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Never Gonna Give You Up - Winds.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Gourmet Race.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/config/splash.properties",
+		"/C/Users/ianar/Desktop/1.12.2 Emissive/assets/tconstruct/textures/blocks/fluids/molten_metal_e.png.mcmeta",
+		"/C/Users/ianar/AppData/Local/Temp/7zO4F6CF740/lava_still.png.mcmeta",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Never Gonna Give You Up - Melody.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Never Gonna Give You Up - Drums.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Never Gonna Give You Up.abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Never Gonna Give You Up - Bass.abc",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/cardjitsu/connection.js",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/Zelda's Lullaby (Clarinet).abc",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/mods/clef/abc/12 Days Of Christmas.abc",
+		"/C/Users/ianar/Desktop/Zelda Main Title.abc",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/aaa.html",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/nya.json",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/summon - copia.js",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/status.json",
+		"/C/Users/ianar/Desktop/Discord Bot/config.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/status.js",
+		"/C/Users/ianar/Desktop/Discord Bot/common.js",
+		"/C/Users/ianar/Desktop/Discord Bot/commands/unfunny.js",
+		"/C/Users/ianar/Desktop/Discord Bot/index.js",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/jokes.json",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/style.css",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/index.js",
+		"/C/Users/ianar/Desktop/Discord Bot/JSON/ferpy.beautified.json",
+		"/C/Users/ianar/Downloads/main.js",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/config/dynamicswordskills.cfg",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/config/backtools.cfg",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/config/TinkerToolLeveling.cfg",
+		"/C/Users/ianar/Desktop/1.12.2 Emissive/assets/optifine/emissive.properties",
+		"/C/Users/ianar/Desktop/1.12.2 Emissive/assets/chisel/textures/blocks/magma/weaver.png.mcmeta",
+		"/C/Users/ianar/Desktop/1.12.2 Emissive/assets/minecraft/textures/blocks/fire_layer_0.png.mcmeta",
+		"/C/Users/ianar/Desktop/Botw music Resource Pack/pack.mcmeta",
+		"/C/Users/ianar/Desktop/1.12.2 Emissive/pack.mcmeta",
+		"/C/Users/ianar/AppData/Roaming/.minecraft/config/chiselsandbits.cfg",
+		"/C/Users/ianar/Downloads/website-cam.html",
+		"/C/Users/ianar/Desktop/aadsad.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/cardjitsu/cardjitsu.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/cardjitsu/index.html",
+		"/C/Users/ianar/Desktop/Discord Bot/Hall of Fame.json",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/multiplayer test/connection.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/multiplayer test/cardjitsu.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/multiplayer test/index.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/multiplayer test/a.js",
+		"/C/Users/ianar/Desktop/Discord Bot/banned.json",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/soapstone.css",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/index.html",
+		"/C/Users/ianar/Desktop/Discord Bot/poems.json",
+		"/C/Users/ianar/Desktop/Discord Bot/status.json",
+		"/C/Users/ianar/Desktop/Discord Bot/confusables.json",
+		"/C/Users/ianar/Desktop/Discord Bot/confusables.txt",
+		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Mirror/Runtime/NetworkIdentity.cs",
+		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Scripts/PlayerMovement.cs",
+		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Scripts/MouseLook.cs",
+		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Mirror/Components/NetworkTransform.cs",
+		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Scripts/PlayerLook.cs"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			"claire.json",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"updateRoles()",
+			"disco",
+			"();\n",
+			"\"Ayana\"",
+			"trianglesUnique",
+			"al",
+			"dist",
+			"sqrt",
+			"predict",
+			"upload",
+			"simpleflips",
+			"console.log(",
+			"console.log",
+			"userfrom",
+			"ferpy",
+			"console",
+			"liga",
+			"save",
+			"saves",
+			"poems",
+			"banned",
+			"saves",
+			"sendImageEmbed",
+			"imageEmbed",
+			"but",
+			"common.sendImageEmbed",
+			"sendImageEmbed",
+			"3",
+			"má",
+			"komo",
+			"aber ",
+			"framesize",
+			"flash",
+			"modelPath",
+			"stream",
+			"table",
+			"pred",
+			"modelPath",
+			"if",
+			"[2]",
+			"[1]",
+			"(\"0+)",
+			"0071",
+			"A731",
+			"1D07",
+			"0071",
+			"wildcardToRegExp",
+			"\\x{FEFF}",
+			"[a\\uFEFFe]",
+			" ,",
+			":\\s",
+			"\"\\n",
+			",",
+			"\\s;",
+			"[\\n]",
+			"\\t",
+			"\\t [^\\n]",
+			"[\\t\\s]",
+			"(;\\sMA)",
+			"[; MA]",
+			"^[\\n]",
+			"[#].*",
+			"boids",
+			"Math.PI",
+			"30",
+			"atan2",
+			"50",
+			"5",
+			"fillobj",
+			"fillcat",
+			"filltemp",
+			"formh",
+			"banned",
+			"console.log",
+			"objects",
+			"claire",
+			"600",
+			"end.ogg",
+			";\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"null",
+			"variables.sendImageEmbed",
+			"sendImageEmbed",
+			"common.sendImageEmbed",
+			".y",
+			".x",
+			"\"",
+			"",
+			"\" ,",
+			": \"",
+			"\"",
+			",\\n\"",
+			"\" : ",
+			",\\n",
+			"",
+			"\\1",
+			"options",
+			"neutral",
+			"/*---------------------------\n",
+			"}"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2061,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"glslvalidator_configured": true,
+							"glslvalidator_enabled": 1,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 132.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 132.0
+	},
+	"output.variable_get":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "website.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 273.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
