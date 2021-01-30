@@ -52,9 +52,9 @@ var categories_html = "";
 var options_html = "";
 
 var images = ['anorLondo.webp', 'firelinkShrine.webp', 'lowerUndeadBurg.webp', 'praiseTheSun.webp', 'undeadBurg.webp', 'firelinkShrineDS3.webp','banner.webp','ariandel.webp','ariamis.webp'];
+
 $("html").css({'background-image': 'url(bg/places/' + images[Math.floor(Math.random() * images.length)] + ')'});
-
-
+    
 getdata().catch(e => console.log(e)).then( (v) => {
 	filltemp();
 	fillcat();

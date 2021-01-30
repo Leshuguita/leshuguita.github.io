@@ -14,8 +14,12 @@
 	<meta name="theme-color" content="#383838">
 
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<link rel="preload" as="style" href="ds1.css">
+	<link rel="preload" as="style" href="ds3.css">
 
-	<link rel="stylesheet" type="text/css" href="ds1.css" id="ds1t">
+	<link rel="stylesheet" type="text/css" href="common.css">
+	<link rel="stylesheet" type="text/css" href="ds1.css" id="ds1t" disabled>
 	<link rel="stylesheet" type="text/css" href="ds3.css" id="ds3t" disabled>
 
 	<link rel="icon" 
@@ -24,7 +28,7 @@
 
 	<title>Orange Guidance Soapstone</title>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 	<script async src="FileSaver.js"></script>
 	<script async src="perlin.js"></script>
@@ -35,11 +39,14 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174249054-1"></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+		if(window.location.hostname != "localhost") {
+			
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
 
-		gtag('config', 'UA-174249054-1');
+			gtag('config', 'UA-174249054-1');
+		}
 	</script>
 </head>
 <body onload = "generatestring();" onresize="formheight()">
@@ -58,14 +65,14 @@
 		</svg>
 
 		<table id="Header">
-			<td id="headerImg" style="font-family: Message"><img src="base.webp"></td>
+			<td id="headerImg" style="font-family: Message"><img src="base.webp" width="102" height="120" alt="Orange Soapstone"></td>
 			<td id="headerText">
 				<p>Messages transmit to other worlds, where they are rated.</p>
 				<p>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</p>
 			</td>
 		</table>
 
-		<div id="cols">
+		<main id="cols">
 			<div id="topRight">
 				<canvas id="output" width="600" onclick="copyImage()" height="300"></canvas>
 
@@ -128,7 +135,8 @@
 				</p>
 				-->
 
-				<p class="optionsText" id="fontp">Font:
+				<p class="optionsText" id="fontp">
+					<label for="font">Font:</label>
 					<select class="optionsInp" id="font" onchange='setFont(this.value); drawtocanvas();'>
 						<option value="Message">Handwritten</option>
 						<option value="DSMenu">Serif</option>
@@ -154,7 +162,8 @@
 				</p>
 				-->
 
-				<p class="optionsText">Theme:
+				<p class="optionsText">
+					<label for="theme">Theme:</label>
 					<select class="optionsInp" id="theme" onchange='setTheme(this.value)'>
 						<option value="ds1">Dark Souls 1</option>
 						<option value="ds3">Dark Souls 3</option>
@@ -171,10 +180,30 @@
 				-->
 			</div>
 
-		</div>
+		</main>
 
 		<div id="footer">
-			<p class="gray">Made by Leshuguita, fonts by <a href="https://www.reddit.com/r/darksouls/comments/5ioguo/dark_souls_menu_font_dl/" target="_blank" rel="noopener">Satorilotus (Menu font)</a> and <a href="https://www.dafont.com/es/ramadhan-karim.font" target="_blank" rel="noopener">Mikrojihad Typography (Message font)</a>, <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js by Eligray</a> and <a href="https://github.com/josephg/noisejs" target="_blank" rel="noopener">noise.js by josephg</a>, Dark Souls 3 UI ripped by <a href="https://www.reddit.com/r/darksouls3/comments/4nkc4q/dark_souls_iii_assets/" target="_blank" rel="noopener">Apomelasma</a>.</p>
+			<p class="gray">Made by Leshuguita, fonts by 
+				<a href="https://www.reddit.com/r/darksouls/comments/5ioguo/dark_souls_menu_font_dl/" target="_blank" rel="noopener">
+					Satorilotus (Menu font)
+				</a>
+			and
+				<a href="https://www.dafont.com/es/ramadhan-karim.font" target="_blank" rel="noopener">
+					Mikrojihad Typography (Message font)
+				</a>
+			, 
+				<a href="https://github.com/eligrey/FileSaver.js" target="_blank" rel="noopener">
+					FileSaver.js by Eligray
+				</a>
+			 and 
+				<a href="https://github.com/josephg/noisejs" target="_blank" rel="noopener">
+			 		noise.js by josephg
+				</a>
+			, Dark Souls 3 UI ripped by 
+				<a href="https://www.reddit.com/r/darksouls3/comments/4nkc4q/dark_souls_iii_assets/" target="_blank" rel="noopener">
+					Apomelasma
+				</a>.
+			</p>
 
 			<p class="gray">Thanks to From Software for making this amazing series!</p>
 

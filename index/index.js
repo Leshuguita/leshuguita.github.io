@@ -10,6 +10,7 @@ function setbg() {
 	var selected = bgscripts[Math.round(Math.random()*(bgscripts.length-1))];
 	var head = document.getElementsByTagName('head')[0];
 	var script = document.createElement('script');
+	script.async = true;
 	script.type = 'text/javascript';
 	script.src = 'index/bg/' + selected;
 	head.appendChild(script);

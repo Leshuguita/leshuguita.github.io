@@ -1,6 +1,13 @@
 @font-face {
   font-family: DSMenu;
+  font-display: swap;
   src: url(../orange%20soapstone/font.ttf);
+}
+
+@font-face{
+	font-family: Mukta Mahee;
+	font-display: swap;
+	src:url(https://fonts.gstatic.com/s/muktamahee/v7/XRXQ3IOIi0hcP8iVU67hA9vKUT8tDnti.woff2);
 }
 
 html {

@@ -1,19 +1,5 @@
-@font-face {
-  font-family: DSMenu;
-  src: url(font.ttf);
-}
-
-@font-face {
-	font-family: Message;
-	src: url(msgfont.otf);
-}
-
 html {
 	--selected: url(bg/ds1/selected.webp);
-	background-position: center;
-  	background-repeat: no-repeat;
-  	background-size: cover;
-	background-attachment: fixed;
 }
 
 body {
@@ -24,89 +10,17 @@ body {
 }
 
 #content {
-	width:100%;
-	margin:auto;
-	display: block;
-	text-align: center;
-	border: 0px solid transparent;
 	border-image-source:  url(bg/ds1/border.webp);
 	border-image-slice: 25 22 27 17 fill;
 	border-image-repeat: round;
-	padding-bottom: 10px;
-}
-
-#Header {
-	margin: auto;
-	border: none;
-}
-
-#headerImg, #headerText {
-	width: fit-content;
-	vertical-align: middle;
-}
-
-br {
-	height:0px;
-}
-
-canvas {
-	margin:auto;
-	display:block;
-}
-
-button {
-	margin: auto;
-	display:inline-block;
-	border: none;
-	font-family: DSMenu;
-	font-size:23px;
-	color: white;
-	border-radius:3px;
-	background-color: #3b1a0c;
-	transition-duration: 0.2s;
-}
-
-button:hover {
-	background-color: #423623;
-}
-
-#savebutton {
-	padding-left:10px;
-	padding-right:10px;
-	padding-top: 5px;
-	padding-bottom:4px;
-}
-
-table {
-	width: 95%;
-	margin:auto;
-	text-align:left;
-}
-
-td {
-	vertical-align: top;
-	width: 33%;
-	font-family: DSMenu
-}
-
-form {
-	overflow: auto;
 }
 
 .tableLabel {
-	display:inline-block;
-	width:95%;
-	cursor: pointer;
-	padding-left: 2%;
-	padding-top:1%;
-	padding-bottom:1%;
 	margin-top: 1px;
-	margin-bottom: 1px;
 	border-top: white 6px solid;
 	border-bottom: white 6px  solid;
 	border-image: url(bg/ds1/tableborder.webp);
 	border-image-slice: 33%;
-	border-image-repeat: stretch;
 	transition-duration: 0.2s;
 }
 
@@ -114,157 +28,35 @@ form {
 	border-bottom: white 6px  solid;
 	border-image: url(bg/ds1/tableborder.webp);
 	border-image-slice: 33%;
-	border-image-repeat: stretch;
-}
-
-input.tableInp {
-    display:none;
-}
-
-input.tableInp:checked + label {
-    background-image: var(--selected);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
 }
 
 .tableLabel:hover{
 	background-image: url(bg/ds1/over.webp);
-	background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-.gray {
-	font-size: 16px;
-	color:gray;
-}
-
-.gray a {
-	color:gray;
-}
-
-iframe {
-   	position:sticky;
-   	top:0;
-   	z-index:2;
 }
 
 .optionsText {
-	text-align: left;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-
 	border-bottom: white 6px  solid;
 	border-image: url(bg/ds1/tableborder.webp);
 	border-image-slice: 33%;
-	border-image-repeat: stretch;
-
-}
-
-select.optionsInp {
-	display:inline;
-	float: right;
-}
-
-select {
-	border: none;
-	font-family: DSMenu;
-	font-size:22px;
-	padding-bottom: 1px;
-	padding-top: 1px;
-	padding-right: 1px;
-	padding-left: 1px;
-	color: white;
-	border-radius:3px;
-	background-color: #3b1a0c;
-}
-
-.suboption {
-	margin-left: 10%;
-}
-
-#output {
-	width: 100%;
-}
-
-#footer {
-	margin-top: 7%;
-}
-
-#tabs {
-	display: block;
-	align-items: stretch;
-	width:90%;
-	margin: auto;
-	padding-top: 5px;
 }
 
 #usetwolabel {
-	display: table;
-	float:right;
-	flex-grow:1;
-	font-size:23px;
-	background-color: rgba(0, 0, 0, 0);
 	border-top: white 6px  solid;
 	border-bottom: white 6px  solid;
 	border-image: url(bg/ds1/tableborder.webp);
 	border-image-slice: 33%;
-	border-image-repeat: stretch;
-	border-radius: 0;
-	background-size: cover;
-	background-repeat: no-repeat;
 }
-
-#usetwolabel:hover {
-	background-color: #423623;
-}
-
 
 .tabButton {
-	float:left;
-	flex-grow:2;
-	display: table;
-	background-color: rgba(0, 0, 0, 0);
 	border-top: white 6px  solid;
 	border-bottom: white 6px  solid;
 	border-image: url(bg/ds1/tableborder.webp);
 	border-image-slice: 33%;
-	border-image-repeat: stretch;
-	border-radius: 0;
-	transition-duration: 0s;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-/*Two columns*/
-@media (min-width:800px) {
-	#cols {
-		display: block;
-		overflow: auto;
-	}
-	#leftCol {
-		float:left;
-		width: 60%;
-	}
-
-	#topRight {
-		float: right;
-		width: 40%;
-	}
-
-	#bottomRight {
-		float: right;
-		width: 40%;
-	}
-
 }
 
 /*For desktop*/
 @media (min-width: 480px) {
-
 	#content {
-		width:80%;
 		margin-top:10px;
 		border-top: 25px solid;
 		border-right: 22px solid;
@@ -277,13 +69,4 @@ select {
 		border-image-slice: 25 22 27 17 fill;
 		border-image-repeat: round;
 	}
-
-	table {
-		width:90%;
-	}
-	
-	#tabs {
-		width:90%;
-	}
-
 }
