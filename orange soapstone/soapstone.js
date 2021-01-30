@@ -1,7 +1,9 @@
 var html_templates = document.getElementById("templates");
 var html_categories = document.getElementById("categories");
 var html_options = document.getElementById("options");
-var image = document.getElementById("image");
+var html_conjunctions = document.getElementById("conjf");
+var html_maintable = document.getElementById("lines");
+var html_contable = document.getElementById("conjt");
 var canvas = document.getElementById("output");
 var ctx = canvas.getContext("2d");
 
@@ -14,108 +16,163 @@ var blurctx = blurcan.getContext("2d");
 var noisecan = document.getElementById("noiselayer");
 var noisectx = noisecan.getContext("2d");
 
+var canvassize = {
+	one: {width:600,height:300},
+	two: {width:800,height:400}
+}
+
 var noiseImage = noisectx.createImageData(canvas.width, canvas.height);
 var noiseData = noiseImage.data;
 
-var selectedtemp = "**** ahead"
-var selectedcat = "Characters"
-var selectedopt = "Enemy"
+var data;
 
-var fullstring = ""
+var currentPhrase = 0;
+var usetwo = false;
 
-var lines = []
+var imgStyle = "floor";
 
-var templatesarr = []
-var categoriesdict = []
+var selectedtemp = "**** ahead";
+var selectedcat = "Characters";
+var selectedopt = "Enemy";
 
-var template_html = ""
-var categories_html = ""
-var options_html = ""
+var selectedcon = "And then";
 
-var images = ['anorLondo.jpg', 'firelinkShrine.jpg', 'lowerUndeadBurg.jpg', 'praiseTheSun.jpg', 'undeadBurg.jpg'];
+var selectedtemp2 = "**** ahead";
+var selectedcat2 = "Characters";
+var selectedopt2 = "Enemy";
+
+var fullstring = "";
+
+var lines = [];
+
+var signfont = "message";
+
+var template_html = "";
+var categories_html = "";
+var options_html = "";
+
+var images = ['anorLondo.webp', 'firelinkShrine.webp', 'lowerUndeadBurg.webp', 'praiseTheSun.webp', 'undeadBurg.webp', 'firelinkShrineDS3.webp','banner.webp','ariandel.webp','ariamis.webp'];
 $("html").css({'background-image': 'url(bg/places/' + images[Math.floor(Math.random() * images.length)] + ')'});
 
-noise.seed(Math.random());
-filltemp();
-fillcat();
-generatenoise();
 
+getdata().catch(e => console.log(e)).then( (v) => {
+	filltemp();
+	fillcat();
+	fillcon();
+	formheight();
+});
+useTwo();
+noise.seed(Math.random());
+generatenoise();
+changeTabs("first");
+
+async function getdata() {
+	await $.getJSON("./data.json", d => {
+		data = d;
+	})
+}
 //fill templates in html
-function filltemp() {
-	$.getJSON("./templates.json", function( data ) {
-		$.when($.each( data, function( key, val ) {
-			templatesarr.push(val);
-		})).then( () => {
-				template_html = "";
-				templatesarr.forEach( (thing,id) => {
-					var c = ""
-				if (thing == selectedtemp) {
-					c = "checked";
-				}
-					var input = "<td><input type='radio' onclick='updateselected()' id='" + thing + "' name= 'templates' "+ c +" />";
-					var label = "<label for='" + thing + "'>" + thing + "</label></td><br>";
-					template_html+= input + label;
-				});
-			}).then( () => {
-				html_templates.innerHTML = template_html;
-				formheight();
-			});
+async function filltemp() {
+	template_html = "";
+	data.templates.forEach( (thing) => {
+		var c = ""
+		if (thing == selectedtemp) {
+			c = "checked";
+		}
+		var input = "<td><input type='radio' class='tableInp' onclick='updateselected()' id='" + thing + "' name= 'templates' "+ c +" />";
+		var label = "<label class='tableLabel' for='" + thing + "'>" + thing + "</label></td><br>";
+		template_html+= input + label;
 	});
+
+	html_templates.innerHTML = template_html;
 }
 
 //fill categories in html
-function fillcat() {
-	$.getJSON("./categories.json", function( data ) {
-		$.when($.each( data, function( k, val ) {
-			categoriesdict.push({
-		    	key: k,
-		   		value: val
-		   	});
-		})).then( () => {
-			categoriesdict.forEach( (thing,id) => {
-				var c = ""
-				if (thing.key == selectedcat) {
-					c = "checked";
-				}
-				var input = "<td><input onclick='updatecat();fillobj()' type='radio' id='" + thing.key + "' name= 'categories' "+ c +" />";
-				var label = "<label for='" + thing.key + "'>" + thing.key + "</label></td><br>";
-				categories_html+= input + label;
-			});
-		}).then( () => {
-			html_categories.innerHTML = categories_html;
-			fillobj();
-		});
+async function fillcat() {
+	categories_html = "";
+	var cat = selectedcat;
+	if (currentPhrase==1) {
+		cat = selectedcat2;
+	}
+	Object.keys(data.categories).forEach( (key) => {
+		var c = ""
+		if (key == cat) {
+			c = "checked";
+		}
+		var input = "<td><input onclick='updatecat();fillobj()' type='radio' class='tableInp' id='" + key + "' name= 'categories' "+ c +" />";
+		var label = "<label class='tableLabel' for='" + key + "'>" + key + "</label></td><br>";
+		categories_html+= input + label;
 	});
+
+	html_categories.innerHTML = categories_html;
+	fillobj();
 }
 
 //fill objects in html
 function fillobj() {
-	categoriesdict.forEach( (thing) => {
-		if (thing.key == selectedcat) {
-			options_html = "";
-			thing.value.forEach( (v) => {
-			var c = ""
-			if (v == selectedopt) {
-				c = "checked";
-			}
-			var input = "<td><input type='radio' onclick='updateselected()' id='" + v + "' name= 'options' "+ c +" />";
-			var label = "<label for='" + v + "'>" + v + "</label></td><br>";
-			options_html += input + label
-		});
+	var cat = selectedcat;
+	if (currentPhrase==1) {
+		cat = selectedcat2;
 	}
+	var opt = selectedopt;
+	if (currentPhrase==1) {
+		opt = selectedopt2;
+	}
+
+	Object.keys(data.categories).forEach( (key) => {
+		if (key == cat) {
+			options_html = "";
+			data.categories[key].forEach( (v) => {
+				var c = ""
+				if (v == opt) {
+					c = "checked";
+				}
+				var input = "<td><input type='radio' onclick='updateselected()' class='tableInp' id='" + v + "' name= 'options' "+ c +" />";
+				var label = "<label class='tableLabel' for='" + v + "'>" + v + "</label></td><br>";
+				options_html += input + label
+			});
+		}
 	});
 
     html_options.innerHTML = options_html;
 }
 
-function updateselected() {
+//fill conjunctions in html
+async function fillcon() {
+	conjunctions_html = "";
+	data.conjunctions.forEach( (thing) => {
+		var c = ""
+		if (thing == selectedcon) {
+			c = "checked";
+		}
+		var input = "<td><input type='radio' class='tableInp' onclick='updateselected()' id='" + thing + "' name= 'conjunctions' "+ c +" />";
+		var label = "<label class='tableLabel' for='" + thing + "'>" + thing + "</label></td><br>";
+		conjunctions_html+= input + label;
+	});
+
+	html_conjunctions.innerHTML = conjunctions_html;
+}
+
+async function updateselected() {
 	$("input[type='radio']:checked").each(function() {
        	if ($(this).attr("name") == "templates") {
-       		selectedtemp = $("label[for='"+$(this).attr("id")+"']").text();
+       		if (currentPhrase == 1) {
+       			selectedtemp2 = $("label[for='"+$(this).attr("id")+"']").text();
+       		} else {
+       			selectedtemp = $("label[for='"+$(this).attr("id")+"']").text();
+       		}
        	} else if ($(this).attr("name") == "options") {
-       		selectedopt = $("label[for='"+$(this).attr("id")+"']").text();
+       		if (currentPhrase == 1) {
+       			selectedopt2 = $("label[for='"+$(this).attr("id")+"']").text();
+       		} else {
+       			selectedopt = $("label[for='"+$(this).attr("id")+"']").text();
+       		}
+       	} else if ($(this).attr("name") == "conjunctions") {
+       		selectedcon = $("label[for='"+$(this).attr("id")+"']").text();
        	}
     });
+
+    usetwo = $('#usetwo').is(":checked");
 
     generatestring();
 
@@ -124,14 +181,28 @@ function updateselected() {
 function updatecat() {
 	$("input[type='radio']:checked").each(function() {
 		if ($(this).attr("name") == "categories") {
-	       	selectedcat = $("label[for='"+$(this).attr("id")+"']").text();
+			if (currentPhrase == 1) {
+				selectedcat2 = $("label[for='"+$(this).attr("id")+"']").text();
+			} else {
+	       		selectedcat = $("label[for='"+$(this).attr("id")+"']").text();
+	    	}
 	    }
 	});
 }
 
 function generatestring() {
+	var w = canvassize.one.width
 	fullstring = capitalizeFirstLetter(selectedtemp.replace(/[*]+/g, selectedopt.toLowerCase()));
-	lines = getLines(ctx,fullstring, canvas.width-30);
+	if (usetwo) {
+		fullstring += (" "+selectedcon.toLowerCase()+" ").replace(" , ", ", ");
+		fullstring += selectedtemp2.toLowerCase().replace(/[*]+/g, selectedopt2.toLowerCase());
+
+		w = canvassize.two.width
+	}
+
+	fullstring = fullstring.replace(/(\u200B\S)|((\?|\!|\.)\s\S)/g, s => s.toUpperCase());
+
+	lines = getLines(ctx,fullstring, w-50);
 	drawtocanvas();
 }
 
@@ -185,20 +256,47 @@ function generatenoise() {
 }
 
 function drawtocanvas() {
+	if (usetwo) {
+		canvas.width = canvassize.two.width;
+		canvas.height = canvassize.two.height;
+	} else {
+		canvas.width = canvassize.one.width;
+		canvas.height = canvassize.one.height;
+	}
+
+	blurcan.width = canvas.width;
+	blurcan.height = canvas.height;
+
+	if (imgStyle=="floor") {
+		drawFloor();
+	}
+
+	//crop
+	croppedctx.drawImage(canvas,0,0);
+	cropImageFromCanvas(croppedctx);
+}
+
+function drawFloor() {
+	noisecan.width = canvas.width;
+	noisecan.height = canvas.height;
+	noiseImage = noisectx.createImageData(canvas.width, canvas.height);
+	noiseData = noiseImage.data;
+	generatenoise();
+
 	croppedcan.width=canvas.width;
 	croppedcan.height=canvas.height;
 
 	//blurred outline mask
 	blurctx.clearRect(0, 0, canvas.width, canvas.height);
 	
-	blurctx.font = "100px Message";
+	blurctx.font = "100px " + signfont;
 	blurctx.lineWidth = 20;
 	blurctx.textAlign = "center";
 	blurctx.filter = 'url(#displacementFilter) blur(5px)';
 
 	lines.forEach( (line,id) => {
-		blurctx.fillText(line, canvas.width/2, canvas.height/2 - (30*(lines.length-1)) + (60*id) + 15);
-		blurctx.strokeText(line, canvas.width/2, canvas.height/2 - (30*(lines.length-1)) + (60*id) + 15);
+		blurctx.fillText(line, canvas.width/2, canvas.height/2 - (36*(lines.length-1)) + (72*id) + 18);
+		blurctx.strokeText(line, canvas.width/2, canvas.height/2 - (36*(lines.length-1)) + (72*id) + 18);
 	});
 
 	//combine noise and mask
@@ -208,17 +306,24 @@ function drawtocanvas() {
 	ctx.drawImage(noisecan,0,0);
 	ctx.globalCompositeOperation = "source-over";
 
-	ctx.font = "100px Message";
+	ctx.font = "100px " + signfont;
 	ctx.fillStyle = "black";
 	ctx.textAlign = "center";
 	
 	lines.forEach( (line,id) => { 
-		ctx.fillText(line, canvas.width/2, canvas.height/2 - (30*(lines.length-1)) + (60*id) + 15);
+		ctx.fillText(line, canvas.width/2, canvas.height/2 - (36*(lines.length-1)) + (72*id) + 18);
 	});
+}
 
-	//crop
-	croppedctx.drawImage(canvas,0,0);
-	cropImageFromCanvas(croppedctx);
+function drawMenu() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	if (!document.getElementById("ds1t").disabled) {
+		var img = fetch("/menumsg/ds1base.webp").then(blob => ctx.drawImage(blob,0,0));
+		canvas.width = img.width;
+		canvas.height = img.height;
+		//ctx.drawImage(img,0,0);
+	}
 }
 
 function getLines(ctx, text, maxWidth) {
@@ -254,9 +359,11 @@ function saveImage() {
 }
 
 function formheight() {
-	var height = html_templates.offsetHeight;
+	var height = document.getElementById("topRight").offsetHeight + document.getElementById("bottomRight").offsetHeight;
 	html_options.style.height = height + "px";
 	html_categories.style.height = height + "px";
+	html_templates.style.height = height + "px";
+	html_conjunctions.style.height = height + "px";
 }
 
 function cropImageFromCanvas(ctx) {
@@ -286,6 +393,92 @@ function cropImageFromCanvas(ctx) {
   canvas.width = w;
   canvas.height = h;
   ctx.putImageData(cut, 0, 0);
+}
+
+function changeTabs(tab) {
+	if (tab=="first") {
+		html_maintable.style.display = "table";
+		html_contable.style.display = "none";
+		document.getElementById("first").style.backgroundImage = "var(--selected)";
+		document.getElementById("second").style.backgroundImage = "none";
+		document.getElementById("conjtab").style.backgroundImage = "none";
+		currentPhrase = 0;
+	} else if (tab=="second") {
+		html_maintable.style.display = "table";
+		html_contable.style.display = "none";
+		document.getElementById("first").style.backgroundImage = "none";
+		document.getElementById("second").style.backgroundImage = "var(--selected)";
+		document.getElementById("conjtab").style.backgroundImage = "none";
+		currentPhrase = 1;
+	} else if (tab=="conj") {
+		html_maintable.style.display = "none";
+		html_contable.style.display = "table";
+		document.getElementById("first").style.backgroundImage = "none";
+		document.getElementById("second").style.backgroundImage = "none";
+		document.getElementById("conjtab").style.backgroundImage = "var(--selected)";
+	}
+	//reset temps
+	$('input:radio[name=templates]').each(function () { 
+		if (currentPhrase == 1) {
+				if ($(this).prop('id') == selectedtemp2) {
+					$(this).prop('checked', true);
+				} else {
+					$(this).prop('checked', false);
+				}
+			} else {
+	       		if ($(this).prop('id') == selectedtemp) {
+					$(this).prop('checked', true);
+				} else {
+					$(this).prop('checked', false);
+				}
+	    	}
+		
+	});
+	//reset cats
+	$('input:radio[name=categories]').each(function () { 
+		if (currentPhrase == 1) {
+				if ($(this).prop('id') == selectedcat2) {
+					$(this).prop('checked', true);
+				} else {
+					$(this).prop('checked', false);
+				}
+			} else {
+	       		if ($(this).prop('id') == selectedcat) {
+					$(this).prop('checked', true);
+				} else {
+					$(this).prop('checked', false);
+				}
+	    	}
+		
+	});
+
+	if(data) {
+		fillobj();
+	}
+	updateselected();
+}
+
+function useTwo() {
+	var b = document.getElementById("usetwolabel")
+	updateselected();
+	if (usetwo) {
+		b.style.backgroundImage = "var(--selected)";
+		b.innerHTML = "Use one";
+		document.getElementById("second").disabled = false;
+		document.getElementById("second").style.color = "";
+		document.getElementById("conjtab").disabled = false;
+		document.getElementById("conjtab").style.color = "";
+	} else {
+		b.style.backgroundImage = "none";
+		b.innerHTML = "Use two";
+		document.getElementById("second").disabled = true;
+		document.getElementById("second").style.color = "gray";
+		document.getElementById("conjtab").disabled = true;
+		document.getElementById("conjtab").style.color = "gray";
+		if (currentPhrase!=0) {
+			changeTabs("first");
+		}
+	}
 }
 
 //Font: "Dark Souls Menu Font", SatoriLotus

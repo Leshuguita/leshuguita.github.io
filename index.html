@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
 	<meta content="Leshuguita" property="og:title">
 
 	<meta content="Hi! I'm Leshuguita, and here I put stuff that I put together. I think they are kinda cool and I hope you do too!" property="og:description">
+
+	<meta name="description" content="Hi! I'm Leshuguita, and here I put stuff that I put together. I think they are kinda cool and I hope you do too!">
 
 	<meta name="theme-color" content="#383838">
 
@@ -11,12 +13,16 @@
 
 	<title>Leshuguita</title>
 
-	<link rel="stylesheet" type="text/css" href="index/style.css">
+	<link rel="icon" 
+      type="image/webp" 
+      href="navbar/homeico.webp">
+
+	<link rel="stylesheet" type="text/css" href="index/style.css" media="all">
 	<link href="https://fonts.googleapis.com/css2?family=Mukta+Mahee&display=swap" rel="stylesheet">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174249054-1"></script>
-	<script>
+	<script async>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
@@ -26,17 +32,17 @@
 </head>
 <body onload="setbg()">
 	<canvas id="canvasbg" width=10 height=10></canvas>
-	<script src="index/index.js"></script>
+	<script async src="index/index.js"></script>
 
-	<iframe src="navbar/bar.html" height="16" width="100%" frameBorder="0" scrolling="no">
+	<iframe title="navbar" src="navbar/bar.html" height="16" width="100%" frameBorder="0" scrolling="no">
 	</iframe>
 	<div id="header">
 		<div id="social">
-			<a href="https://twitter.com/Leshuguita1" target="_blank">
-				<img src="index/TwitterLogo.png">
+			<a href="https://twitter.com/Leshuguita1" target="_blank" rel="noopener">
+				<img src="index/TwitterLogo.webp" alt="Twitter">
 			</a>
-			<a href="https://www.reddit.com/user/Leshuguita" target="_blank">
-				<img src="index/RedditLogo.png">
+			<a href="https://www.reddit.com/user/Leshuguita" target="_blank" rel="noopener">
+				<img src="index/RedditLogo.webp" alt="Reddit">
 			</a>
 		</div>
 		<p>Hi! I'm Leshuguita, and here I put stuff that I put together.<br>I think they are kinda cool and I hope you do too!</p>
@@ -44,7 +50,7 @@
 	<div id="content">
 		<div id="soapstone" class="item" onclick="window.location='orange%20soapstone/';">
 			<p class="title">Orange Guidance Soapstone</p>
-			<img src="orange%20soapstone/base.png">
+			<img src="orange%20soapstone/base.webp">
 			<p class="description"><i>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</i></p>
 			<p class="description">An image generator for Dark Souls-style messages that you can the post elsewhere. Currently only has options from the first Dark Souls, but I want to add more as I play the other games.</p>
 		</div>

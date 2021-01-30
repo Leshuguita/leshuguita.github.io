@@ -4,6 +4,194 @@
 		"selected_items":
 		[
 			[
+				"por",
+				"portraitsel"
+			],
+			[
+				"sty",
+				"stylesel"
+			],
+			[
+				"un",
+				"undefined\tvoid"
+			],
+			[
+				"set",
+				"setPortrait"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"loa",
+				"loadCookies"
+			],
+			[
+				"getC",
+				"getCookie"
+			],
+			[
+				"duc",
+				"document\tDocument"
+			],
+			[
+				"setS",
+				"setStyle"
+			],
+			[
+				"img",
+				"imgStyle"
+			],
+			[
+				"curren",
+				"currentPhrase"
+			],
+			[
+				"chan",
+				"changeTabs"
+			],
+			[
+				"backg",
+				"background-color\tproperty"
+			],
+			[
+				"use",
+				"usetwo"
+			],
+			[
+				"back",
+				"background-image\tproperty"
+			],
+			[
+				"sele",
+				"select"
+			],
+			[
+				"over",
+				"overflow-y\tproperty"
+			],
+			[
+				"no",
+				"noopener"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"align",
+				"align-items\tproperty"
+			],
+			[
+				"temp",
+				"templates"
+			],
+			[
+				"selec",
+				"selectedcat"
+			],
+			[
+				"fil",
+				"fillobj"
+			],
+			[
+				"paddi",
+				"padding-bottom\tproperty"
+			],
+			[
+				"paddin",
+				"padding-top\tproperty"
+			],
+			[
+				"html",
+				"html_conjunctions"
+			],
+			[
+				"upda",
+				"updateselected"
+			],
+			[
+				"can",
+				"canvas"
+			],
+			[
+				"blur",
+				"blurcan"
+			],
+			[
+				"blu",
+				"blurcan"
+			],
+			[
+				"canvas",
+				"canvassize"
+			],
+			[
+				"but",
+				"button\tTag"
+			],
+			[
+				"select",
+				"selectedcon"
+			],
+			[
+				"draw",
+				"drawtocanvas\t() => any"
+			],
+			[
+				"padd",
+				"padding-top\tproperty"
+			],
+			[
+				"Sor",
+				"Sorcery"
+			],
+			[
+				"Messa",
+				"Message"
+			],
+			[
+				"con",
+				"conjunctionsarr\tArray<empty>"
+			],
+			[
+				"table",
+				"table-cell\tdisplay"
+			],
+			[
+				"whi",
+				"white-space\tproperty"
+			],
+			[
+				"op",
+				"optionsInp"
+			],
+			[
+				"data",
+				"datalist\tTag"
+			],
+			[
+				"row",
+				"row-reverse\tflex-direction"
+			],
+			[
+				"flex",
+				"flex-direction\tproperty"
+			],
+			[
+				"flex-",
+				"flex-grow\tproperty"
+			],
+			[
+				"re",
+				"row-reverse\tflex-direction"
+			],
+			[
+				"const",
+				"const"
+			],
+			[
 				"all",
 				"allfonts"
 			],
@@ -44,10 +232,6 @@
 				"prefixCommands"
 			],
 			[
-				"set",
-				"setup"
-			],
-			[
 				"punch",
 				"punchlineEmotes"
 			],
@@ -56,16 +240,8 @@
 				"punchlineEmotes"
 			],
 			[
-				"canvas",
-				"canvaswidth"
-			],
-			[
 				"req",
 				"requestAnimationFrame"
-			],
-			[
-				"upda",
-				"updateRoles"
 			],
 			[
 				"reac",
@@ -192,10 +368,6 @@
 				"edgerad"
 			],
 			[
-				"align",
-				"alignrad"
-			],
-			[
 				"approa",
 				"approachb"
 			],
@@ -268,10 +440,6 @@
 				"geometricPrecision\ttext-rendering"
 			],
 			[
-				"op",
-				"optimizeLegibility\ttext-rendering"
-			],
-			[
 				"ren",
 				"text-rendering\tproperty"
 			],
@@ -282,10 +450,6 @@
 			[
 				"x",
 				"x-small\tfont-size"
-			],
-			[
-				"padd",
-				"padding-left\tproperty"
 			],
 			[
 				"font",
@@ -304,16 +468,8 @@
 				"align-self\tproperty"
 			],
 			[
-				"paddin",
-				"padding-left\tproperty"
-			],
-			[
 				"co",
 				"cover\tbackground-size"
-			],
-			[
-				"no",
-				"no-repeat\tbackground-repeat"
 			],
 			[
 				"backgroun",
@@ -348,10 +504,6 @@
 				"cropped"
 			],
 			[
-				"draw",
-				"drawImage"
-			],
-			[
 				"border",
 				"border-bottom\tproperty"
 			],
@@ -362,168 +514,62 @@
 			[
 				"bor",
 				"border-color"
-			],
-			[
-				"back",
-				"background-color\tproperty"
-			],
-			[
-				"inline",
-				"inline-block\tdisplay"
-			],
-			[
-				"ba",
-				"background-color\tproperty"
-			],
-			[
-				"tr",
-				"tr\tTag"
-			],
-			[
-				"padding",
-				"padding-top\tproperty"
-			],
-			[
-				"mar",
-				"margin-top"
-			],
-			[
-				"border-ima",
-				"border-image\tproperty"
-			],
-			[
-				"margin",
-				"margin-top\tproperty"
-			],
-			[
-				"backgr",
-				"background-size\tproperty"
-			],
-			[
-				"inli",
-				"inline-block\tdisplay"
-			],
-			[
-				"header",
-				"headerText"
-			],
-			[
-				"edge",
-				"edgectx"
-			],
-			[
-				"form",
-				"formheight\t() => any"
-			],
-			[
-				"blur",
-				"blurctx"
-			],
-			[
-				"tra",
-				"transparent"
-			],
-			[
-				"font-s",
-				"font-size\tproperty"
-			],
-			[
-				"bac",
-				"background-image\tproperty"
-			],
-			[
-				"text",
-				"text-align\tproperty"
-			],
-			[
-				"in",
-				"inline-table\tdisplay"
-			],
-			[
-				"readAs",
-				"readAsDataURL\t(blob: Blob) => void"
-			],
-			[
-				"FIl",
-				"FileReader\t[class: FileReader]"
-			],
-			[
-				"to",
-				"toDataURL"
-			],
-			[
-				"cop",
-				"copyImage"
-			],
-			[
-				"sele",
-				"selectedopt"
-			],
-			[
-				"selected",
-				"selectedtemp"
-			],
-			[
-				"selec",
-				"selectedcat"
-			],
-			[
-				"cate",
-				"categories"
-			],
-			[
-				"fillob",
-				"fillobj\t() => any"
-			],
-			[
-				"options",
-				"options_html"
-			],
-			[
-				"html",
-				"html_templates"
-			],
-			[
-				"objects",
-				"objects_html"
-			],
-			[
-				"categor",
-				"categories_html"
-			],
-			[
-				"template",
-				"template_html"
-			],
-			[
-				"tem",
-				"template_html\tstring"
-			],
-			[
-				"categ",
-				"categoriesarr"
-			],
-			[
-				"size",
-				"font-size\tproperty"
-			],
-			[
-				"Discor",
-				"Discord.MessageEmbed"
-			],
-			[
-				"comman",
-				"commandName"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "orange soapstone/ds1.css",
 			"settings":
 			{
-				"buffer_size": 2061,
+				"buffer_size": 4388,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "orange soapstone/ds3.css",
+			"settings":
+			{
+				"buffer_size": 4500,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "orange soapstone/soapstone.js",
+			"settings":
+			{
+				"buffer_size": 13625,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "orange soapstone/options.js",
+			"settings":
+			{
+				"buffer_size": 2268,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "orange soapstone/data.json",
+			"settings":
+			{
+				"buffer_size": 6830,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "orange soapstone/index.html",
+			"settings":
+			{
+				"buffer_size": 7224,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -598,8 +644,30 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone"
+	],
 	"file_history":
 	[
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/index.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/navbar/bar.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/404.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/soapstone.css",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/soapstone.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/style.css",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/navbar/bar.css",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/data.json",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/categories.json",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/templates.json",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/bgtest.html",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boids.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/delaunay.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/index.js",
+		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/digRain.js",
 		"/C/Users/ianar/Desktop/Discord Bot/bot.js",
 		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/ascii.js",
 		"/C/Users/ianar/Desktop/Discord Bot/JSON/nicks.json",
@@ -647,11 +715,7 @@
 		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/stare.js",
 		"/C/Users/ianar/Desktop/Discord Bot/commands/prefix/joke.js",
 		"/C/Users/ianar/Desktop/Discord Bot/commands/reactions/wynaut.js",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/bgtest.html",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/delaunay.js",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boids.js",
 		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boidWorker.js",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/digRain.js",
 		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boidsWorkersDraw.js",
 		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/boidsWorkers.js",
 		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/bg/GPUboids.js",
@@ -693,9 +757,6 @@
 		"/C/Users/ianar/Desktop/Discord Bot/commands/unfunny.js",
 		"/C/Users/ianar/Desktop/Discord Bot/index.js",
 		"/C/Users/ianar/Desktop/Discord Bot/JSON/jokes.json",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/style.css",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index.html",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/index/index.js",
 		"/C/Users/ianar/Desktop/Discord Bot/JSON/ferpy.beautified.json",
 		"/C/Users/ianar/Downloads/main.js",
 		"/C/Users/ianar/AppData/Roaming/.minecraft/config/dynamicswordskills.cfg",
@@ -717,21 +778,12 @@
 		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/multiplayer test/index.html",
 		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/multiplayer test/a.js",
 		"/C/Users/ianar/Desktop/Discord Bot/banned.json",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/soapstone.css",
-		"/C/Users/ianar/Documents/GitHub Website/leshuguita.github.io/orange soapstone/index.html",
 		"/C/Users/ianar/Desktop/Discord Bot/poems.json",
-		"/C/Users/ianar/Desktop/Discord Bot/status.json",
-		"/C/Users/ianar/Desktop/Discord Bot/confusables.json",
-		"/C/Users/ianar/Desktop/Discord Bot/confusables.txt",
-		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Mirror/Runtime/NetworkIdentity.cs",
-		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Scripts/PlayerMovement.cs",
-		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Scripts/MouseLook.cs",
-		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Mirror/Components/NetworkTransform.cs",
-		"/C/Users/ianar/Documents/Unity/Multiplayer/Assets/Scripts/PlayerLook.cs"
+		"/C/Users/ianar/Desktop/Discord Bot/status.json"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -747,6 +799,57 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"></",
+			"fillobj",
+			"png",
+			"drawtocanvas()",
+			"setFont()",
+			"drawtocanvas",
+			"update",
+			"tabs",
+			"scroll",
+			"updatecat()",
+			"currentPhrase",
+			"image",
+			"selectedcat2",
+			"conjunctab",
+			"currentPhrase",
+			"80",
+			"[",
+			"drawtocanvas()",
+			"lines",
+			"upda",
+			"drawtocan",
+			"selectedopt2",
+			"string",
+			"drawtocan",
+			"drawtocan();",
+			"noisectx",
+			"noisecan",
+			"drawtocan",
+			"drawimage",
+			"noiseData",
+			"noiseImage",
+			"draw",
+			"noiseImage",
+			"drawtoca",
+			"canvas",
+			"drawto",
+			"conjun",
+			"lines",
+			"scroll",
+			"monster",
+			"135",
+			"args",
+			"arguments",
+			"ImageData",
+			"message",
+			"Ash",
+			",",
+			"output",
+			"lines",
+			"canvas.width",
+			"resize",
 			"updateRoles()",
 			"disco",
 			"();\n",
@@ -823,9 +926,7 @@
 			"console.log",
 			"objects",
 			"claire",
-			"600",
-			"end.ogg",
-			";\n"
+			"600"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -833,6 +934,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			",\n",
+			",\\n",
+			",/n",
 			"null",
 			"variables.sendImageEmbed",
 			"sendImageEmbed",
@@ -863,24 +967,180 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "orange soapstone/ds1.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2061,
+						"buffer_size": 4388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2980,
+								2980
+							]
+						],
+						"settings":
+						{
+							"glslvalidator_configured": true,
+							"glslvalidator_enabled": 1,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2755.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "orange soapstone/ds3.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4500,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3002,
+								3002
+							]
+						],
+						"settings":
+						{
+							"glslvalidator_configured": true,
+							"glslvalidator_enabled": 1,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3038.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "orange soapstone/soapstone.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								795,
+								795
+							]
+						],
+						"settings":
+						{
+							"glslvalidator_configured": true,
+							"glslvalidator_enabled": 1,
+							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 38.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "orange soapstone/options.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								46
+							]
+						],
+						"settings":
+						{
+							"glslvalidator_configured": true,
+							"glslvalidator_enabled": 1,
+							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
+							"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "orange soapstone/data.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6830,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"glslvalidator_configured": true,
+							"glslvalidator_enabled": 1,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "orange soapstone/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7224,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1144,
+								1144
 							]
 						],
 						"settings":
@@ -888,13 +1148,14 @@
 							"glslvalidator_configured": true,
 							"glslvalidator_enabled": 1,
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -902,11 +1163,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 24.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 37.0
 	},
 	"layout":
 	{
@@ -951,7 +1212,7 @@
 	"project": "website.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":

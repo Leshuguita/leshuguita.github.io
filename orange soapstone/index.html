@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
 	<meta content="Orange Guidance Soapstone" property="og:title">
 
 	<meta content="In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another." property="og:description">
 
-	<meta content='https://leshuguita.github.io/orange%20soapstone/base.png' property='og:image'>
+	<meta name="description" content="In the Internet, the flow of time is distorted, and this tool allows Undead to assist (or deceive) one another.">
+
+	<meta content='https://leshuguita.github.io/orange%20soapstone/base.webp' property='og:image'>
 
 	<meta name="keywords" content="Dark Souls, message, generator"/>
 	
@@ -13,20 +15,22 @@
 
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-	<link rel="stylesheet" type="text/css" href="soapstone.css">
+	<link rel="stylesheet" type="text/css" href="ds1.css" id="ds1t">
+	<link rel="stylesheet" type="text/css" href="ds3.css" id="ds3t" disabled>
 
 	<link rel="icon" 
-      type="image/png" 
-      href="nobase.png">
+      type="image/webp" 
+      href="nobase.webp">
 
 	<title>Orange Guidance Soapstone</title>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-	<script src="FileSaver.js"></script>
-	<script src="perlin.js"></script>
+	<script async src="FileSaver.js"></script>
+	<script async src="perlin.js"></script>
 
 	<script async src="soapstone.js"></script>
+	<script async src="options.js"></script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174249054-1"></script>
@@ -39,8 +43,9 @@
 	</script>
 </head>
 <body onload = "generatestring();" onresize="formheight()">
-	<iframe src="../navbar/bar.html" height="16" width="100%" frameBorder="0" scrolling="no">
+	<iframe title="navbar" src="../navbar/bar.html" height="16" width="100%" frameBorder="0" scrolling="no">
 	</iframe>
+	
 	<div id="content">
 		<svg width="0" height="0">
 			<defs>
@@ -53,45 +58,130 @@
 		</svg>
 
 		<table id="Header">
-			<td id="headerImg" style="font-family: Message"><img src="base.png"></td>
+			<td id="headerImg" style="font-family: Message"><img src="base.webp"></td>
 			<td id="headerText">
 				<p>Messages transmit to other worlds, where they are rated.</p>
 				<p>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</p>
 			</td>
 		</table>
 
+		<div id="cols">
+			<div id="topRight">
+				<canvas id="output" width="600" onclick="copyImage()" height="300"></canvas>
 
-		<canvas id="output" width="600" onclick="copyImage()" height="300"></canvas>
+				<canvas id="cropped"  width="600" height="300" style="display: none"></canvas>
+				<canvas id="blurmask" width="600" height="300" style="display: none"></canvas>
+				<canvas id="noiselayer" width="600" height="300" style="display: none"></canvas>
 
-		<canvas id="cropped"  width="600" height="300" style="display: none"></canvas>
-		<canvas id="blurmask" width="600" height="300" style="display: none"></canvas>
-		<canvas id="noiselayer" width="600" height="300" style="display: none"></canvas>
+				<button id="savebutton" onclick="saveImage()">Download</button><br>
 
-		<button id="savebutton" onclick="saveImage()">Download</button><br>
+				<p class="gray">You can also click the image to copy it, but transparency may not be kept.</p>
+			</div>
 
-		<p id="gray">You can also click the image to copy it, but transparency may not be kept because of browser/OS limitations.</p>
+			<div id="leftCol">
+				<div id="tabs">
 
-		<table class="lines">
-			<td>
-				<form id="templates" name="templatesform">
-					<p>test</p>
-				</form>
-			</td>
-			<td>
-				<form id="categories" name="categoriesform">
+					<button id="first" class="tabButton" onclick="changeTabs('first')">First</button>
+					<button id="conjtab" class="tabButton" onclick="changeTabs('conj')">Conjunction</button>
+					<button id="second" class="tabButton" onclick="changeTabs('second')">Second</button>
 					
-				</form>
-			</td>
-			<td>
-				<form id="options" class="scroll" name="optionsform">
-					
-				</form>
-			</td>
-		</table>
-		<p id="gray">Made by Leshuguita, fonts by <a href="https://www.reddit.com/r/darksouls/comments/5ioguo/dark_souls_menu_font_dl/" target="_blank">Satorilotus (Menu font)</a> and <a href="https://www.dafont.com/es/ramadhan-karim.font" target="_blank">Mikrojihad Typography (Message font)</a>, <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js by Eligray</a> and <a href="https://github.com/josephg/noisejs" target="_blank">noise.js by josephg</a>.</p>
+					<form>
+						<input type="checkbox" id="usetwo" onchange="useTwo()" style="display:none;">
+						<label for="usetwo" id="usetwolabel" style="background-image: none;">Use two</label>
+					</form>
+				</div>
 
-		<p id="gray"><a href="https://forms.gle/MrTBPKnBNXETtB967" target="_blank">Found and issue or have an idea? Put it here!</a></p>
+				<table id="lines" class="table">
+					<td>
+						<form id="templates" name="templatesform" class="form">
+							<p>test</p>
+						</form>
+					</td>
+					<td>
+						<form id="categories" name="categoriesform" class="form">
+							
+						</form>
+					</td>
+					<td>
+						<form id="options" name="optionsform" class="form">
+							
+						</form>
+					</td>
+				</table>
+				<table id="conjt" class="table">
+					<td>
+						<form id="conjf" name="conjunctionsform">
+						</form>
+					</td>
+				</table>
+			</div>
 
+			<div id="bottomRight">
+				<p>Options:</p>
+
+				<!--
+				<p class="optionsText">Style:
+					<select class="optionsInp" id="style" onchange="setStyle(this.value); drawtocanvas();">
+						<option value="floor">Floor Sign</option>
+						<option value="menu">Menu Window</option>
+					</select>
+				</p>
+				-->
+
+				<p class="optionsText" id="fontp">Font:
+					<select class="optionsInp" id="font" onchange='setFont(this.value); drawtocanvas();'>
+						<option value="Message">Handwritten</option>
+						<option value="DSMenu">Serif</option>
+					</select>
+				</p>
+				<!--
+				<p class="optionsText suboption" id="portraitp">Portrait:
+					<select class="optionsInp" id="portrait" onchange='setPortrait(this.value); drawtocanvas();'>
+						<option value="oscar" class="ds1p">Oscar of Astora</option>
+						<option value="undead" class="ds1p">Undead Merchant</option>
+						<option value="solaire" class="ds1p">Solaire of Astora</option>
+						<option value="domhnall" class="ds1p">Domhnall of Zena</option>
+						<option value="darkmoon" class="ds1p">Darkmoon Knightness</option>
+						<option value="frampt" class="ds1p">Kingseeker Frampt</option>
+						
+						<option value="1" class="ds3p">Dragon</option>
+						<option value="2" class="ds3p">Firekeeper</option>
+						<option value="3" class="ds3p">Knight</option>
+						<option value="4" class="ds3p">Princess</option>
+						<option value="5" class="ds3p">Lord</option>
+						<option value="6" class="ds3p">The Great Bell</option>
+					</select>
+				</p>
+				-->
+
+				<p class="optionsText">Theme:
+					<select class="optionsInp" id="theme" onchange='setTheme(this.value)'>
+						<option value="ds1">Dark Souls 1</option>
+						<option value="ds3">Dark Souls 3</option>
+					</select>
+				</p>
+
+				<!--
+				<p class="optionsText">UI:
+					<select class="optionsInp" id="ui" onchange='setUI(this.value)'>
+						<option value="ds1">Table</option>
+						<option value="ds2">Dropdowns</option>
+					</select>
+				</p>
+				-->
+			</div>
+
+		</div>
+
+		<div id="footer">
+			<p class="gray">Made by Leshuguita, fonts by <a href="https://www.reddit.com/r/darksouls/comments/5ioguo/dark_souls_menu_font_dl/" target="_blank" rel="noopener">Satorilotus (Menu font)</a> and <a href="https://www.dafont.com/es/ramadhan-karim.font" target="_blank" rel="noopener">Mikrojihad Typography (Message font)</a>, <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js by Eligray</a> and <a href="https://github.com/josephg/noisejs" target="_blank" rel="noopener">noise.js by josephg</a>, Dark Souls 3 UI ripped by <a href="https://www.reddit.com/r/darksouls3/comments/4nkc4q/dark_souls_iii_assets/" target="_blank" rel="noopener">Apomelasma</a>.</p>
+
+			<p class="gray">Thanks to From Software for making this amazing series!</p>
+
+			<p class="gray"><a href="https://forms.gle/MrTBPKnBNXETtB967" target="_blank" rel="noopener">Found and issue or have an idea? Put it here!</a></p>
+		</div>
+		<!--https://drive.google.com/drive/u/0/folders/0BzoQ-O1SfXd4MUxUd1FGdnc3a1U DS3 UI
+			https://darksouls.fandom.com/wiki/Messages DS1 Message Icons-->
 	</div>
 </body>
 </html>
