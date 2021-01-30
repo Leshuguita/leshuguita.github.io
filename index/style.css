@@ -111,6 +111,10 @@ iframe	{
 	z-index:2;
 }
 
+a.notblue {
+	text-decoration: none;
+	color: inherit;
+}
 
 /*mobile*/
 
