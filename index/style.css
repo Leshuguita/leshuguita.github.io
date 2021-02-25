@@ -1,3 +1,9 @@
+@font-face{
+	font-family: Mukta Mahee;
+	font-display: swap;
+	src:url(https://fonts.gstatic.com/s/muktamahee/v7/XRXQ3IOIi0hcP8iVU67hA9vKUT8tDnti.woff2);
+}
+
 @font-face {
   font-family: DSMenu;
   font-display: swap;
@@ -5,9 +11,9 @@
 }
 
 @font-face{
-	font-family: Mukta Mahee;
-	font-display: swap;
-	src:url(https://fonts.gstatic.com/s/muktamahee/v7/XRXQ3IOIi0hcP8iVU67hA9vKUT8tDnti.woff2);
+	font-family: TIC80;
+	font-display:swap;
+	src: url(../index/04b03Regular.ttf);
 }
 
 html {
@@ -56,19 +62,24 @@ iframe{
 	vertical-align: middle;
 	width:25%;
 	min-width: 260px;
-	padding: 5px;
 	margin:5px;
 	display: inline-block;
 	transition: 0.2s transform;
 }
 
+.title{
+	font-size: 150%
+}
+
+.date {
+	font-size: 70%;
+	text-align: left;
+	opacity: 50%;
+}
+
 .item:hover {
 	cursor: pointer;
 	transform: scale(1.05);
-}
-
-.title {
-	font-size: 30px;
 }
 
 #social {
@@ -98,6 +109,23 @@ iframe{
 	border-image-source: url(../orange%20soapstone/bg/ds1/border.webp);
 	border-image-slice: 25 22 27 17 fill;
 	border-image-repeat: round;
+}
+
+#raycaster > img{
+	float:none;
+	image-rendering: pixelated;
+	border-color: #1a1c2c;
+	border-style: solid;
+}
+#raycaster {
+	font-family: TIC80;
+	font-size:20px;
+	letter-spacing: 1px;
+	text-rendering: auto;
+	background-color:#333c57;
+	padding: 15px;
+	border-style: solid;
+	border-color: #1a1c2c;
 }
 
 #canvasbg {

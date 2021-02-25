@@ -199,7 +199,7 @@ function draw() {
 	});
 
 	ctx.font = "bold 15px Verdana";
-	ctx.fillText("Boids", 10, canvas.height - 10);
+	ctx.fillText("Boids", 10, window.innerHeight - 10);
 
 }
 

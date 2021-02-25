@@ -153,7 +153,7 @@ function draw() {
 
 	ctx.textAlign = "left";
 	ctx.font = "bold 15px Verdana";
-	ctx.fillText("Digital Rain", 10, canvas.height - 10);
+	ctx.fillText("Digital Rain", 10, window.innerHeight - 10);
 
 }
 

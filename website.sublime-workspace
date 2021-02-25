@@ -523,7 +523,7 @@
 			"file": "orange soapstone/ds1.css",
 			"settings":
 			{
-				"buffer_size": 4388,
+				"buffer_size": 1431,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,7 +532,7 @@
 			"file": "orange soapstone/ds3.css",
 			"settings":
 			{
-				"buffer_size": 4500,
+				"buffer_size": 1419,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -541,7 +541,7 @@
 			"file": "orange soapstone/soapstone.js",
 			"settings":
 			{
-				"buffer_size": 13625,
+				"buffer_size": 13699,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +550,7 @@
 			"file": "orange soapstone/options.js",
 			"settings":
 			{
-				"buffer_size": 2268,
+				"buffer_size": 2298,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,7 +559,7 @@
 			"file": "orange soapstone/data.json",
 			"settings":
 			{
-				"buffer_size": 6830,
+				"buffer_size": 6815,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -568,7 +568,7 @@
 			"file": "orange soapstone/index.html",
 			"settings":
 			{
-				"buffer_size": 7224,
+				"buffer_size": 7465,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -976,15 +976,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4388,
+						"buffer_size": 1431,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2980,
-								2980
+								0,
+								0
 							]
 						],
 						"settings":
@@ -995,7 +995,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2755.0,
+						"translation.y": 1066.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1007,15 +1007,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4500,
+						"buffer_size": 1419,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3002,
-								3002
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1026,7 +1026,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3038.0,
+						"translation.y": 1111.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1038,15 +1038,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13625,
+						"buffer_size": 13699,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								795,
-								795
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1070,15 +1070,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2268,
+						"buffer_size": 2298,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15,
-								46
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1086,6 +1086,7 @@
 							"glslvalidator_configured": true,
 							"glslvalidator_enabled": 1,
 							"syntax": "Packages/Unity3D/UnityJavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
 							"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
@@ -1101,15 +1102,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6830,
+						"buffer_size": 6815,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1,
-								1
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1132,15 +1133,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7224,
+						"buffer_size": 7465,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1144,
-								1144
+								0,
+								0
 							]
 						],
 						"settings":
