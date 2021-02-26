@@ -27,6 +27,7 @@ html {
 
 body {
 	margin:0px;
+	margin-bottom: 20px;
 	display:grid;
 }
 

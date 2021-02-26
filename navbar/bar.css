@@ -13,6 +13,8 @@ body {
 	display:grid;
 	font-family: tic;
 	font-size: 12px;
+	padding-left: 10px;
+	padding-right:10px;
 	color:white;
 }
 
@@ -46,8 +48,5 @@ ul {
 
 li {
 	display:inline;
-}
-
-#first {
-	margin-left: 10px;
+	white-space: nowrap;
 }
