@@ -35,7 +35,7 @@
 	<canvas id="canvasbg" width=10 height=10></canvas>
 	<script async src="index/index.js"></script>
 
-	<iframe title="navbar" src="navbar/bar.html" height="16" width="100%" frameBorder="0" scrolling="no">
+	<iframe title="navbar" src="navbar/bar.html" height=6 width="100%" frameBorder="0" scrolling="no">
 	</iframe>
 
 	<div id="header">
@@ -49,27 +49,46 @@
 		</div>
 		<p>Hi! I'm Leshuguita, and here I put stuff that I put together.<br>I think they are kinda cool and I hope you do too!</p>
 	</div>
+	
+	<div id="filters">
+		<p>Filter:</p>
+		<div class="filterbutton active" onclick="filter(event, 'item')">All</div>
+		<span>|</span>
+		<div class="filterbutton" onclick="filter(event, 'web')">Web</div>
+		<span>|</span>
+		<div class="filterbutton" onclick="filter(event, 'game')">Games</div>
+		<span>|</span>
+		<div class="filterbutton" onclick="filter(event, 'other')">Other</div>
+	</div>
+
 	<main id="content">
-		<a href="/redirects/tic80raycast.html" class="notblue">
-			<div id="raycaster" class="item">
-				<p class="title">TIC-80 Raycaster Demo</p>
-				<img src="https://tic80.com/cart/43dd5957c12c69e290c9435f07d8d475/cover.gif" alt="Raycaster image" width="240" height="136">
-				<p class="description">A simple raycasting engine made by following 3Dsage's tutorial, and then adding a few more features myself.</p>
-				<p class="date">25-2-2020</p>
-			</div>
+		<a id="raycaster" class="item game notblue" href="/redirects/tic80raycast.html">
+			<p class="title">TIC-80 Raycaster Demo</p>
+			<img src="https://tic80.com/cart/43dd5957c12c69e290c9435f07d8d475/cover.gif" alt="Raycaster image" width="240" height="136">
+			<p class="description">A simple raycasting engine made by following 3Dsage's tutorial, and then adding a few more features myself.</p>
+			<p class="date">25-2-2021</p>
+		</a>
+		
+		<a id="soapstone" class="item web notblue" href="/orange%20soapstone/">
+			<p class="title">Orange Guidance Soapstone</p>
+			<img src="orange%20soapstone/base.webp" alt="Orange Soapstone image" width="102" height="120">
+			<p class="description"><i>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</i></p>
+			<p class="description">An image generator for Dark Souls-style messages that you can then post elsewhere.</p>
+			<p class="description">Now missing options only from Dark Souls 2</p>
+			<p class="date">8-8-2020</p>
 		</a>
 
-		<a href="/orange%20soapstone/" class="notblue">
-			<div id="soapstone" class="item">
-				<p class="title">Orange Guidance Soapstone</p>
-				<img src="orange%20soapstone/base.webp" alt="Orange Soapstone image" width="102" height="120">
-				<p class="description"><i>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</i></p>
-				<p class="description">An image generator for Dark Souls-style messages that you can then post elsewhere.
-				</p>
-				<p class="description">Now missing options only from Dark Souls 2</p>
-				<p class="date">8-8-2020</p>
-			</div>
+		<a id="dweller" class="item game notblue" href="/redirects/dwellerscolorfulpath.html">
+			<p class="title">Dweller's Colorful Path</p>
+			<img src="https://img.itch.zone/aW1nLzM5Njg2MjMucG5n/315x250%23c/SAb5wp.png" alt="Dweller's Coloful Path image" width="315" height="250">
+			<p class="description">A recreation of the start of Temmie Chang's Dweller's Empty Path, using her unused assets.</p>
+			<p class="date">31-7-2020</p>
 		</a>
 	</main>
 </body>
 </html>
+
+<!--
+	Pixellari font by  Zacchary Dempsey-Plante,
+	04b03 font by Yuji Oshimoto
+-->

@@ -53,6 +53,10 @@ var options_html = "";
 
 var images = ['anorLondo.webp', 'firelinkShrine.webp', 'lowerUndeadBurg.webp', 'praiseTheSun.webp', 'undeadBurg.webp', 'firelinkShrineDS3.webp','banner.webp','ariandel.webp','ariamis.webp'];
 
+canvas.addEventListener("animationend", e => {
+	canvas.classList.remove("copyanim");
+});
+
 $("html").css({'background-image': 'url(bg/places/' + images[Math.floor(Math.random() * images.length)] + ')'});
     
 getdata().catch(e => console.log(e)).then( (v) => {
@@ -350,6 +354,7 @@ function copyImage() {
 	croppedcan.toBlob(blob => {
 		navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
 	},"image/png");
+	canvas.classList.add("copyanim");
 }
 
 function saveImage() {
