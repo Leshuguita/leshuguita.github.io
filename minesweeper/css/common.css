@@ -1,0 +1,113 @@
+:root {
+	--text_scale: 1;
+}
+
+body, html {
+	margin:0px;
+	padding:0px;
+	height: 100%;
+	width: 100%;
+}
+
+iframe {
+    position: sticky;
+    display: block;
+    top: 0;
+    z-index: 2;
+}
+
+#config {
+	user-select: none;
+	display:flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	text-align: left;
+	padding: 2px;
+	padding-bottom: 0px;
+}
+
+#newGame {
+	display: inline-table;
+}
+
+
+#viewSettings {
+	display: inline-table;
+}
+
+select {
+	width: 7em;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.counter {
+	display:inline-table;
+}
+
+.number {
+	display:table-cell;
+}
+
+.collapse {
+	border-collapse: collapse;
+}
+
+#game {
+	display: inline-block;
+	user-select: none;
+	transform: scale(var(--tile_scale),var(--tile_scale));
+	transform-origin: top left;
+}
+
+#boardWrapper {
+	display: inline-block;
+}
+
+/*#board td {
+	max-width: calc(16px*var(--tile_scale));
+	min-width: calc(16px*var(--tile_scale));
+	width: calc(16px*var(--tile_scale));
+	max-height: calc(16px*var(--tile_scale));
+	min-height: calc(16px*var(--tile_scale));
+	height: calc(16px*var(--tile_scale));
+
+	padding: 0px;
+	user-select: none;
+
+	text-align: center;
+	overflow: hidden;
+}*/
+
+#board td {
+	max-width: 16px;
+	min-width: 16px;
+	width: 16px;
+	max-height: 16px;
+	min-height: 16px;
+	height: 16px;
+
+	padding: 0px;
+	user-select: none;
+
+	text-align: center;
+	overflow: hidden;
+}
+
+.iButton {
+	display:inline-block;
+	padding: 2px;
+	cursor: pointer;
+	outline: none;
+}
+
+.dropdown {
+	display: none;
+	position: fixed;
+	outline: none;
+	z-index: 1;
+}

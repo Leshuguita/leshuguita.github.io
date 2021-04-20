@@ -22,20 +22,19 @@ function filter(evt, thing) {
 	// Get all elements with class="item" and hide them. yeah a lot of invisibles but meh
 	items = document.getElementsByClassName("item");
 	for (i = 0; i < items.length; i++) {
-		items[i].className += " invisible";
+		items[i].classList.add("invisible");
 	}
 
 	// Get all elements with class="filterbutton" and remove the class "active"
 	buttons = document.getElementsByClassName("filterbutton");
 	for (i = 0; i < buttons.length; i++) {
-		buttons[i].className = buttons[i].className.replace(" active", "");
+		buttons[i].classList.remove("active");
 	}
 
 	// Show the selected items, and add an "active" class to the button in use
 	items = document.getElementsByClassName(thing);
 	for (i = 0; i < items.length; i++) {
-		items[i].className = items[i].className.replace(/ invisible/g, "");
+		items[i].classList.remove("invisible");
 	}
-	evt.currentTarget.className += " active";
-
+	evt.currentTarget.classList.add("active");
 }

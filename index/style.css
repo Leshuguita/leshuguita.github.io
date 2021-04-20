@@ -57,7 +57,7 @@ html {
 	background-color: #181818;
 	color: white;
 	font-family: Arial;
-	font-size: 22px;
+	font-size: 17px;
 	overflow: auto;
 	overflow-x: hidden;
 }
@@ -83,7 +83,7 @@ iframe{
 
 #header {
 	font-family: 'Mukta Mahee', sans-serif;
-	line-height: 20pt;
+	line-height: 15pt;
 	background-image: url(Top.webp);
 	background-position: center;
   	background-repeat: no-repeat;
@@ -198,11 +198,11 @@ iframe{
 }
 #raycaster {
 	font-family: TIC80;
-	font-size:20px;
+	font-size:16px;
 	letter-spacing: 1px;
 	text-rendering: auto;
 	background-color:#333c57;
-	padding: 15px;
+	padding: 6px;
 	border-style: solid;
 	border-color: #1a1c2c;
 }
@@ -214,16 +214,72 @@ iframe{
 	height: auto;
 	margin: auto;
 }
+
 #dweller {
 	font-family: Dweller;
-	font-size:20px;
+	font-size:16px;
 	letter-spacing: 1px;
 	text-rendering: auto;
 	background-color:#000000;
-	padding: 15px;
+	padding: 6px;
 	border-width: medium;
 	border-style: solid;
 	border-color: #ffffff;
+}
+
+#ms-border {
+	image-rendering: pixelated;
+	background: linear-gradient(
+		#0059e8 1px,
+		#0059e8 2px,
+		#2b90ff 3px,
+		#2b90ff 4px,
+		#016cfe 4px,
+		#0053e1 8px,
+		#0053e1 11px,
+		#0051e5 11px,
+		#0051e5 13px,
+		#0060f9 28px,	
+		#0046e0 28px,
+		#0143cf 30px
+		);
+	border-radius: 6px 6px 0px 0px;
+	padding: 0px 3px 3px 3px;
+}
+
+#ms-header {
+	display: inline-block;
+	width:100%;
+	height:20px;
+	text-align: left;
+	font-size:18px;
+	margin: 5px 0px;
+	text-shadow: 1px 1px 1px #0a1883;
+}
+
+#ms-header img {
+	display:inline;
+	float:none;
+	margin: 0px;
+}
+
+#ms-header p {
+	padding:-3pc;
+	display:inline;
+}
+
+#minesweeper {
+	color: black;
+	font-family: Tahoma;
+	font-size: 15px;
+	display:inline-block;
+	border: 3px solid transparent;
+	border-image: url(/minesweeper/css/95/border-inv.webp) 3 stretch;
+	background-color: #c0c0c0;
+}
+
+#minesweeper img {
+	margin:auto;
 }
 
 #canvasbg {

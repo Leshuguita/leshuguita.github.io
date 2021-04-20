@@ -8,14 +8,24 @@
 	<script async type="text/javascript" src="bar.js"></script>
 </head>
 <body onresize="resizeIFrame()">
-	<ul>
-		<li><a href="../" target="_parent"><img src="homeico.webp" height="10">Home</a></li>
-		<span>|</span>
-		<li><a href="../redirects/dwellerscolorfulpath.html" target="_parent"><img src="dwellerico.webp" height="10">Dweller's Colorful Path</a></li>
-		<span>|</span>
-		<li><a href="../orange%20soapstone/" target="_parent"><img src="soapico.webp"  height="10">Orange Soapstone</a></li>
-		<span>|</span>
-		<li><a href="../redirects/tic80rascast.html" target="_parent"><img src="raycast.webp"  height="10">TIC-80 Raycast</a></li>
-	</ul>
+	<div id="content" tabindex="-1">
+		<ul id="categories">
+			<li><a href="/" target="_parent"><img src="homeico.webp" height="10">Home</a></li>
+			<span>|</span>
+			<li onclick="filter(event, 'all')"><img src="allico.webp" height="10">All</li>
+			<span>|</span>
+			<li onclick="filter(event, 'game')"><img src="gamesico.webp" height="10">Games</li>
+			<span>|</span>
+			<li onclick="filter(event, 'web')"><img src="webico.webp" height="10">Web</li>
+			<!--<span>|</span>
+			<li onclick="filter(event, 'other')"><img src="otherico.webp" height="10">Other</li>-->
+		</ul>
+		<ul id="things" z-index="3" style="padding:0px;">
+			<li class="all game web invisible"><a href="/minesweeper/" target="_parent"><img src="minesweeperico.webp" height="10">Minesweeper</a></li>
+			<li class="all game invisible"><a href="/redirects/tic80rascast.html" target="_parent"><img src="raycast.webp" height="10">TIC-80 Raycast</a></li>
+			<li class="all web invisible"><a href="/orange%20soapstone/" target="_parent"><img src="soapico.webp" height="10">Orange Soapstone</a></li>
+			<li class="all game invisible"><a href="/redirects/dwellerscolorfulpath.html" target="_parent"><img src="dwellerico.webp" height="10">Dweller's Colorful Path</a></li>
+		</ul>
+	</div>
 </body>
 </html>

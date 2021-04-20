@@ -27,6 +27,13 @@ html {
 	background-attachment: fixed;
 }
 
+body {
+	margin:0px;
+	display:grid;
+	font-size: 23px;
+	color: white;
+}
+
 #content {
 	width:100%;
 	margin:auto;

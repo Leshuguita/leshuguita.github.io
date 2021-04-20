@@ -1,0 +1,268 @@
+:root {
+	--happy: url(/minesweeper/css/95/face/happy.webp);
+	--surprised: url(/minesweeper/css/95/face/surprised.webp);
+	--pressed: url(/minesweeper/css/95/face/pressed.webp);
+	--dead: url(/minesweeper/css/95/face/dead.webp);
+	--sunglasses: url(/minesweeper/css/95/face/sunglasses.webp);
+	--clicked: url(/minesweeper/css/95/tiles/empty.webp);
+	--button_color: #000080;
+}
+
+@font-face {
+  font-family: W95;
+  font-display: swap;
+  src: url(95/W95FA.otf);
+}
+
+html {
+	background-color:#c0c0c0;
+}
+
+#config {
+	background-color: #c0c0c0;
+	font-family: W95, MS Sans Serif, Arial;
+	font-size: calc(12.5px*var(--text_scale));
+}
+
+.iButton:hover {
+	background-color: var(--button_color);
+	color:#ffffff;
+}
+
+.iButton:focus {
+	background-color: var(--button_color);
+	color:#ffffff;
+}
+
+.dropdown {
+	background-color:#c0c0c0;
+	border: 1px solid transparent;
+	image-rendering: pixelated;
+	border-image: url(95/border-inv.webp) 1 stretch;
+	padding: 3px;
+	box-shadow: 1px 1px 0px black;
+}
+
+#viewSettings > table {
+	border-spacing: 0px;
+}
+
+input {
+	background-color: rgba(255, 255, 255, 0);
+	font-family: W95, MS Sans Serif, Arial;
+	font-size:calc(12.5px*var(--text_scale));
+	width: 4em;
+	border: 1px solid transparent;
+	image-rendering: pixelated;
+	border-image: url(common/border.webp) 1 stretch;
+	outline: none;
+}
+
+input:focus {
+	background-color:rgba(22, 96, 232, 0.2);
+	border: 1px solid #003973;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.bButton {
+	cursor: pointer;
+	outline: none;
+	padding: 1px;
+	padding-top: 0px;
+	border: 1px solid transparent;
+	image-rendering: pixelated;
+	border-image: url(95/border-inv.webp) 1 stretch;
+}
+
+.bButton:focus,.bButton:hover {
+	background-color:rgba(22, 96, 232, 0.2);
+}
+
+#customOK {
+	padding: 3px;
+	padding-right:5px;
+	text-align: center;
+	border: 1px solid transparent;
+	image-rendering: pixelated;
+	border-image: url(95/border-inv.webp) 1 stretch;
+}
+
+select {
+	background-color: rgba(255, 255, 255, 0);
+	font-family: W95, MS Sans Serif, Arial;
+	font-size:calc(12.5px*var(--text_scale));
+	max-width: 8em;
+	border: 1px solid transparent;
+	image-rendering: pixelated;
+	border-image: url(common/border.webp) 1 stretch;
+	outline: none;
+}
+
+select:focus {
+	background-color:rgba(22, 96, 232, 0.2);
+	border: 1px solid #003973;
+}
+
+option {
+	background-color: #c0c0c0;
+}
+
+#game {
+	padding: 6px;
+	border: 4px solid white;
+	image-rendering: pixelated;
+	border-image: url(95/border-inv.webp) 4 stretch;
+}
+
+#header {
+	image-rendering: pixelated;
+	border: 2px solid transparent;
+	padding: 4px;
+	margin-bottom: 6px;
+	border-image: url(common/border.webp) 2 stretch;
+}
+
+.counter {
+	border: 1px solid transparent;
+	border-image: url(common/border.webp) 1 stretch;
+}
+
+.counter > div {
+	background-size: cover;
+	width: 13px;
+	height: 23px;
+	display: table-cell;
+}
+
+#face {
+	background-size: cover;
+	background-image: var(--happy);
+	width: 24px;
+	height: 24px;
+	/*Accurate border, that doesnt cause the rest to move around*/
+	box-shadow:
+		1px 0px 0px black,
+		0px 1px 0px black,
+		1px 1px 0px black,
+
+		-1px 0px 0px #808080,
+		0px -1px 0px #808080,
+		1px -1px 0px #808080,
+		-1px 1px 0px #808080,
+		-1px -1px 0px #808080,
+
+		2px 0px 0px #808080,
+		0px 2px 0px #808080,
+		2px 2px 0px #808080;
+}
+
+#boardWrapper {
+	image-rendering: pixelated;
+	border: 3px solid transparent;
+	border-image: url(common/border.webp) 3 stretch;
+}
+
+#board td {
+	background-size: cover;
+}
+
+.hidden {
+	background-image: url(95/tiles/hidden.webp);
+	cursor: pointer;
+}
+
+.empty {
+	background-image: var(--clicked);
+}
+
+.flag {
+	background-image: url(95/tiles/flag.webp);
+	cursor: pointer;
+}
+
+.tile1 {
+	background-image: url(95/tiles/1.webp);
+}
+
+.tile2 {
+	background-image: url(95/tiles/2.webp);
+}
+
+.tile3 {
+	background-image: url(95/tiles/3.webp);
+}
+
+.tile4 {
+	background-image: url(95/tiles/4.webp);
+}
+
+.tile5 {
+	background-image: url(95/tiles/5.webp);
+}
+
+.tile6 {
+	background-image: url(95/tiles/6.webp);
+}
+
+.tile7 {
+	background-image: url(95/tiles/7.webp);
+}
+
+.tile8 {
+	background-image: url(95/tiles/8.webp);
+}
+
+.number0 {
+	background-image: url(common/numbers/0.webp);
+}
+
+.number1 {
+	background-image: url(common/numbers/1.webp);
+}
+
+.number2 {
+	background-image: url(common/numbers/2.webp);
+}
+
+.number3 {
+	background-image: url(common/numbers/3.webp);
+}
+
+.number4 {
+	background-image: url(common/numbers/4.webp);
+}
+
+.number5 {
+	background-image: url(common/numbers/5.webp);
+}
+
+.number6 {
+	background-image: url(common/numbers/6.webp);
+}
+
+.number7 {
+	background-image: url(common/numbers/7.webp);
+}
+
+.number8 {
+	background-image: url(common/numbers/8.webp);
+}
+
+.number9 {
+	background-image: url(common/numbers/9.webp);
+}
+
+.number- {
+	background-image: url(common/numbers/-.webp);
+}

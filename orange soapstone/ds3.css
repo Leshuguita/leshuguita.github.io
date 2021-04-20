@@ -2,13 +2,6 @@ html {
 	--selected: url(bg/ds3/selected.webp);
 }
 
-body {
-	margin:0px;
-	display:grid;
-	font-size: 23px;
-	color: white;
-}
-
 #content {
 	border-image-source:  url(bg/ds3/border.webp);
 	border-image-slice: 13 9 13 11 fill;

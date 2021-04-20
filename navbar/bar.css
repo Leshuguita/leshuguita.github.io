@@ -9,14 +9,19 @@ html {
 }
 
 body {
-	margin:2px;
-	display:grid;
+	margin:2px 0px 0px 0px;
+	display: inline-block;
 	font-family: tic;
 	font-size: 12px;
 	padding-left: 10px;
 	padding-right:10px;
 	color:white;
 	user-select: none;
+}
+
+#content {
+	display: inline-block;
+	outline: none;
 }
 
 span {
@@ -37,17 +42,42 @@ a {
 }
 
 a:hover {
-	color:gray;
-	
+	color: gray;
+}
+
+li:hover {
+	color: gray;
 }
 
 ul {
   list-style-type: none;
+  display: block;
+  width: fit-content; 
   margin: 0;
   padding: 0;
 }
 
 li {
-	display:inline;
 	white-space: nowrap;
+	display: block;
+	width:fit-content;
+}
+
+#categories > li {
+	cursor: pointer;
+	display: inline;
+}
+
+#things {
+	position: relative;
+	left:10px;
+	padding-top:4px;
+}
+
+#things > li {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.invisible {
+	display: none;
 }
