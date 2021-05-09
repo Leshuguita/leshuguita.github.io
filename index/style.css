@@ -192,6 +192,7 @@ iframe{
 #raycaster img{
 	float:none;
 	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 	border-color: #1a1c2c;
 	border-style: solid;
 	margin:auto;
@@ -210,6 +211,7 @@ iframe{
 #dweller img{
 	float:none;
 	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 	width: 90%;
 	height: auto;
 	margin: auto;
@@ -280,6 +282,7 @@ iframe{
 
 #minesweeper img {
 	margin:auto;
+	image-rendering: crisp-edges;
 }
 
 #canvasbg {

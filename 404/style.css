@@ -5,7 +5,8 @@
 
 html {
 	background-color: black;
-	text-align: center
+	text-align: center;
+	image-rendering: crisp-edges;
 }
 
 body {

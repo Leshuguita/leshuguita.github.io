@@ -16,6 +16,7 @@
 
 html {
 	background-color:#c0c0c0;
+	image-rendering: crisp-edges;
 }
 
 #config {
@@ -89,6 +90,18 @@ input[type=number] {
 	background-color:rgba(22, 96, 232, 0.2);
 }
 
+.bButton:active {
+	border: 1px solid transparent;
+	image-rendering: pixelated;
+	border-image: url(common/border.webp) 1 stretch;
+}
+
+.checked {
+	border: 1px solid transparent;
+	image-rendering: pixelated;
+	border-image: url(common/border.webp) 1 stretch;
+}
+
 #customOK {
 	padding: 3px;
 	padding-right:5px;
@@ -116,6 +129,10 @@ select:focus {
 
 option {
 	background-color: #c0c0c0;
+}
+
+#flagCircle {
+	background-color: #ff0000;
 }
 
 #game {
@@ -265,4 +282,53 @@ option {
 
 .number- {
 	background-image: url(common/numbers/-.webp);
+}
+
+::-webkit-scrollbar {
+	width: 16px;
+	height:16px;
+}
+
+::-webkit-scrollbar-button {
+	image-rendering: pixelated;
+	width: 16px;
+	height:16px;
+}
+
+::-webkit-scrollbar {
+	image-rendering: pixelated;
+	background-image: url(95/scrollbar/track.webp);
+	background-repeat: repeat;
+}
+
+::-webkit-scrollbar-button {
+	image-rendering: pixelated;
+}
+
+::-webkit-scrollbar-button:vertical:start {
+	background-image: url(95/scrollbar/buttonT.webp);
+}
+
+::-webkit-scrollbar-button:vertical:end {
+	background-image: url(95/scrollbar/buttonB.webp);
+}
+
+::-webkit-scrollbar-button:horizontal:start {
+	background-image: url(95/scrollbar/buttonL.webp);
+}
+
+::-webkit-scrollbar-button:horizontal:end {
+	background-image: url(95/scrollbar/buttonR.webp);
+}
+
+::-webkit-scrollbar-thumb {
+	image-rendering: pixelated;
+	border: 2px solid black;
+	border-image-slice: 2 fill; 
+	border-image-repeat: stretch;
+	border-image-source: url(95/scrollbar/barborder.webp);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: #bdbdbd;
 }

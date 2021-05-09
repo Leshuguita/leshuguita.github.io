@@ -2,8 +2,7 @@ var navbarIframe = window.frameElement;
 resizeIFrame();
 
 function resizeIFrame() {
-	navbarIframe.height = document.getElementById("content").scrollHeight+2;
-	console.log(navbarIframe.height)
+	navbarIframe.height = document.getElementById("content").scrollHeight+4;
 	navbarIframe.style.height = navbarIframe.height + "px";
 }
 

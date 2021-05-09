@@ -3,8 +3,8 @@ var htmlFace;
 
 var game = {
 	mineBoard:{},
-	height:8,
-	width:8,
+	height:9,
+	width:9,
 	mines:10,
 	flagCount:0,
 	minesLeft:1,
@@ -22,24 +22,30 @@ var pressedTiles = [];
 
 var tap = {timer,start:0,longLength:500};
 
+let fitScreenState = false;
+
 //-------
 // TO DO
 //-------
 
-//leaderboard??
-//add google Analytics
-//make cool themes
+//leaderboard
 
-//-------------------
+// ------------------
 // GAME LOGIC N STUFF
-//-------------------
+// ------------------
 
 //prepare game on load
 window.addEventListener("load", e => {
 	htmlBoard = document.getElementById("board");
 	htmlFace = document.getElementById("face");
 	htmlBoard.addEventListener("contextmenu", e=>{e.preventDefault()});
-	newGame(9,9,10);
+	loadCookies();
+	newGame(game.width,game.height,game.mines);
+});
+
+//resize
+document.addEventListener("resize", e => {
+	fitScreen(false);
 });
 
 //face clicks
@@ -110,6 +116,7 @@ function newGame(w,h,m) {
 	timerFunc();
 	minesFunc();
 	generateBoard(game.width,game.height,game.mines);
+	fitScreen(false);
 }
 
 function generateBoard(w,h,m) {
@@ -238,6 +245,15 @@ function longTap(e) {
 	var tile = e.target;
 	var x = parseInt(tile.id.split("-")[0],10);
 	var y = parseInt(tile.id.split("-")[1],10);
+
+	let s = document.getElementsByName("tileScale")[0]
+	let c = document.getElementById("flagCircle");
+	c.classList.remove("grow")
+	void c.offsetWidth
+	c.style.left = e.touches[0].pageX-24 + "px"
+	c.style.top = e.touches[0].pageY-24 + "px";
+
+	c.classList.add("grow")
 
 	flagTile(tile,x,y);
 }
@@ -438,7 +454,6 @@ function showCustom() {
 	dropdown.focus();
 	button.style.backgroundColor = "var(--button_color)";
 	button.style.color = "#ffffff";
-
 }
 
 function hideCustom() {
@@ -464,6 +479,7 @@ function customOK() {
 	}
 	maxBoardTime = form.elements.time.value*1000;
 	newGame(form.elements.width.value,form.elements.height.value,form.elements.mines.value)
+	saveCookies('game');
 }
 
 //changes board scale, limiting to 4x if manual
@@ -472,23 +488,37 @@ function setScale(s,limit) {
 	if (limit) {s.value=limited}
 	if (s.name=="textScale") {
 		document.documentElement.style.setProperty('--text_scale', s.value);
+		fitScreen(false);
 	} else {
 		document.getElementById("game").style.transform = `scale(${s.value},${s.value})`;
 	}
+	saveCookies('display');
 }
 
 //handles auto scaling
-function fit(wh) {
-	document.activeElement.blur()
-	var input = document.getElementsByName("tileScale")[0];
-	input.value = 1;
-	setScale(input, false);
-	var boardSize = document.getElementById("game")["offset"+wh];
-	var availSize = document.documentElement["client"+wh] - ((wh=="Height"? document.getElementById("config").offsetHeight : 0)+getScrollbarWidth());
-	var newScale = availSize/boardSize;
-	console.log(newScale);
-	input.value = newScale;
-	setScale(input, false);
+function fitScreen(toggle) {
+	let input = document.getElementsByName("tileScale")[0];
+	if (toggle) {
+		input.disabled = !input.disabled;
+		fitScreenState = !fitScreenState;
+		document.getElementById("fit").classList.toggle("checked");
+	}
+	if (fitScreenState) {
+		let game = document.getElementById("game");
+		input.value = 1;
+		setScale(input, false);
+		let boardWidth = game.offsetWidth;
+		let boardHeight = game.offsetHeight;
+		
+		let availWidth = document.documentElement.clientWidth - getScrollbarWidth();
+		let availHeight = document.documentElement.clientHeight - game.offsetTop;
+
+		let newScale = Math.min(availWidth/boardWidth , availHeight/boardHeight);
+
+		input.value = newScale;
+		setScale(input, false);
+		saveCookies('display');
+	}
 }
 
 function changeTheme(url) {
@@ -501,6 +531,8 @@ function changeTheme(url) {
 	document.getElementById("mines").href = m;
 	document.getElementById("icon").href = i;
 	document.getElementsByName("theme-color")[0].content = c;
+	setTimeout(()=>{fitScreen(false)},200);
+	saveCookies('theme');
 }
 
 function alignBoard() {
@@ -526,6 +558,7 @@ function alignBoard() {
 			g.style.transformOrigin = "top left";
 			break;
 	}
+	saveCookies('display');
 }
 
 //handle keyboard shortcuts
@@ -556,23 +589,11 @@ window.addEventListener("keyup", e => {
 			break;
 		case "m":
 			document.getElementsByName("themeSelect")[0].focus();
-			//No way to open in from js, click() does nothing
+			// No way to open it from js, click() does nothing
 			break;
-		case "w":
-			var button = document.getElementById("fWidth");
-			if (button == document.activeElement) {
-				button.click();
-			} else {
-				button.focus();
-			}
-			break;
-		case "h":
-			var button = document.getElementById("fHeight");
-			if (button == document.activeElement) {
-				button.click();
-			} else {
-				button.focus();
-			}
+		case "f":
+			var button = document.getElementById("fit");
+			button.click();
 			break;
 		case "a":
 			document.getElementById("align").click();
@@ -607,4 +628,66 @@ function getScrollbarWidth() {
   outer.parentNode.removeChild(outer);
 
   return scrollbarWidth;
+}
+
+function saveCookies(type) {
+	let d = new Date();
+	d.setTime(d.getTime() + (12*31*24*60*60*1000));
+	let expires = "expires="+ d.toUTCString();
+	document.cookie = `height=${game.height}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `width=${game.width}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `mines=${game.mines}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `tileScale=${fitScreenState?'fit':document.getElementsByName('tileScale')[0].value}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `textScale=${document.getElementsByName('textScale')[0].value}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `align=${document.getElementsByTagName("body")[0].style.textAlign}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `theme=${document.getElementsByName('themeSelect')[0].value}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `cwidth=${document.getElementsByName('width')[0].value}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `cheight=${document.getElementsByName('height')[0].value}; expires=${expires}; SameSite=Strict`;
+	document.cookie = `cmines=${document.getElementsByName('mines')[0].value}; expires=${expires}; SameSite=Strict`;
+
+
+
+}
+
+function loadCookies() {
+	let decodedCookie = decodeURIComponent(document.cookie).split('; ').map(a=>a.split('='));
+	decodedCookie.forEach(c=>{
+		switch (c[0]) {
+			case "cheight":
+			case "cmines":
+			case "cwidth":
+				document.getElementsByName(c[0].replace('c',''))[0].value = (c[1]||10)
+				break;
+			case "height":
+			case "mines":
+			case "width":
+				if (c[1]!='') {
+					game[c[0]]=parseInt(c[1]);
+				}
+				break;
+			case "align":
+				document.getElementsByTagName("body")[0].style.textAlign = c[1];
+				alignBoard();alignBoard();alignBoard(); // yeah this is easier than thinking
+				break;
+			case 'theme':
+				let t = document.getElementsByName('themeSelect')[0];
+				t.value = (c[1]=='')?"css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb":c[1];
+				changeTheme(t.value);
+				break;
+			case 'textScale':
+		 		let e =document.getElementsByName('textScale')[0];
+				e.value = c[1]||1;
+				setScale(e, true);
+				break;
+			case 'tileScale':
+				if (c[1]=='fit') {
+					fitScreen(true);
+				} else {
+					let e = document.getElementsByName('tileScale')[0];
+					e.value = c[1]||1;
+					setScale(e, true);
+				}
+				break;
+			}
+	});
 }

@@ -10,6 +10,7 @@
 
 html {
 	background-color:#c0c0c0;
+	image-rendering: crisp-edges;
 }
 
 #config {
@@ -78,6 +79,11 @@ input[type=number] {
 	border: 1px solid #003973;
 }
 
+.checked {
+	background-color:rgba(22, 96, 232, 0.1);
+	border: 1px solid #3069A3;
+}
+
 #customOK {
 	padding: 3px;
 	padding-right:5px;
@@ -101,6 +107,10 @@ select:focus {
 
 option {
 	background-color: #ffffff;
+}
+
+#flagCircle {
+	background-color: #ff0000;
 }
 
 #game {
@@ -245,4 +255,72 @@ option {
 
 .number- {
 	background-image: url(common/numbers/-.webp);
+}
+
+::-webkit-scrollbar {
+	width: 17px;
+	height:17px;
+}
+
+::-webkit-scrollbar-button {
+	image-rendering: pixelated;
+	width: 17px;
+	height:17px;
+}
+
+::-webkit-scrollbar:vertical {
+	image-rendering: pixelated;
+	background-image: url(xp/scrollbar/barV.webp);
+	background-repeat: repeat-y;
+}
+
+::-webkit-scrollbar:horizontal {
+	image-rendering: pixelated;
+	background-image: url(xp/scrollbar/barH.webp);
+	background-repeat: repeat-x;
+}
+
+::-webkit-scrollbar-button {
+	image-rendering: pixelated;
+}
+
+::-webkit-scrollbar-button:vertical:start {
+	background-image: url(xp/scrollbar/buttonT.webp);
+}
+
+::-webkit-scrollbar-button:vertical:end {
+	background-image: url(xp/scrollbar/buttonB.webp);
+}
+
+::-webkit-scrollbar-button:horizontal:start {
+	background-image: url(xp/scrollbar/buttonL.webp);
+}
+
+::-webkit-scrollbar-button:horizontal:end {
+	background-image: url(xp/scrollbar/buttonR.webp);
+}
+
+::-webkit-scrollbar-thumb {
+	image-rendering: pixelated;
+	border: 3px solid black;
+	border-image-slice: 3; 
+	border-image-repeat: stretch;
+	background-color: #b9caff;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size:contain;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	border-image-source: url(xp/scrollbar/handleV.webp);
+	background-image: url(xp/scrollbar/thingV.webp);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+	border-image-source: url(xp/scrollbar/handleH.webp);
+	background-image: url(xp/scrollbar/thingH.webp);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: #ece9d8;
 }

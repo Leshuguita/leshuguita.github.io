@@ -1,5 +1,6 @@
 :root {
 	--text_scale: 1;
+	--circle_tr: translate(0);
 }
 
 body, html {
@@ -82,6 +83,34 @@ select {
 	text-align: center;
 	overflow: hidden;
 }*/
+
+@keyframes grow {
+	0% {
+		transform: scale(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.3);
+		opacity: 0;
+	}
+}
+
+#flagCircle {
+	transform-origin: 24px 24px;
+	opacity: 0;
+	width: 48px;
+	height: 48px;
+	position: fixed;
+	border-radius: 24px;
+	/*left:-48px;*/
+	z-index: 10;
+	pointer-events:none;
+}
+.grow {
+	animation-name: grow;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-out;
+}
 
 #board td {
 	max-width: 16px;

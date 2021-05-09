@@ -4,16 +4,16 @@
 	<title>Minesweeper</title>
 
 	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<link rel="stylesheet" type="text/css" href="css/xp.css" id="theme">
-	<link rel="stylesheet" type="text/css" href="css/mines/xp.css" id="mines">
+	<link rel="stylesheet" type="text/css" onload="fitScreen(false)" id="theme">
+	<link rel="stylesheet" type="text/css" id="mines">
 
-	<link rel="icon" type="image/vnd.microsoft.icon" id="icon" href="css/xp/favicon.ico">
+	<link rel="icon" type="image/vnd.microsoft.icon" id="icon">
 
 	<meta content="Minesweeper" property="og:title">
 	<meta content="The classic Windows game, in your browser!" property="og:description">
 	<meta name="description" content="The classic Windows game, in your browser!">
 
-	<meta name="theme-color" content="#0155eb" />
+	<meta name="theme-color" />
 
 	<script async src="minesweeper.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -31,29 +31,29 @@
 	</script>
 </head>
 <body>
-	<iframe title="navbar" src="/navbar/bar.html" width="100%" height="14" frameBorder="0" scrolling="no">
+	<iframe title="navbar" src="/navbar/bar.html" width="100%" height="16" frameBorder="0" scrolling="no">
 	</iframe>
 	<div id="config">
 		<div id="newGame">
 			New game:<br>
-			<div tabindex="-1" class="iButton" onclick="newGame(9,9,10)" id="bButton"><u>B</u>eginner</div>
-			<div tabindex="-1" class="iButton" onclick="newGame(16,16,40)" id="iButton"><u>I</u>ntermediate</div>
-			<div tabindex="-1" class="iButton" onclick="newGame(30,16,100)" id="eButton"><u>E</u>xpert</div>
+			<div tabindex="-1" class="iButton" onclick="newGame(9,9,10);saveCookies();" id="bButton"><u>B</u>eginner</div>
+			<div tabindex="-1" class="iButton" onclick="newGame(16,16,40);saveCookies();" id="iButton"><u>I</u>ntermediate</div>
+			<div tabindex="-1" class="iButton" onclick="newGame(30,16,100);saveCookies();" id="eButton"><u>E</u>xpert</div>
 			<div tabindex="-1" class="iButton" id="customButton" onclick="showCustom()"><u>C</u>ustom...</div>
 			<div tabindex="-1" id="customDD" class="dropdown">
 				<form id="customF">
 					<table>
 						<tr>
 							<td><label for="width">Width:</label></td>
-							<td><input class="ddInput" type="number" name="width" value="9"></td>
+							<td><input oninput="saveCookies()"class="ddInput" type="number" name="width" value="9"></td>
 						</tr>
 						<tr>
 							<td><label for="height">Height:</label></td>
-							<td><input class="ddInput" type="number" name="height" value="9"></td>
+							<td><input oninput="saveCookies()" class="ddInput" type="number" name="height" value="9"></td>
 						</tr>
 						<tr>
 							<td><label for="mines">Mines:</label></td>
-							<td><input class="ddInput" type="number" name="mines" value="10"></td>
+							<td><input oninput="saveCookies()" class="ddInput" type="number" name="mines" value="10"></td>
 						</tr>
 						<tr>
 							<td><label for="time">Seconds to generate:</label></td>
@@ -68,27 +68,30 @@
 			<table>
 				<tr>
 					<td><div tabindex="-1" class="bButton" id="align" onclick="alignBoard()"><u>A</u>lign Center</div></td>
-					<td><div tabindex="-1" class="bButton" id="fWidth" onclick="fit('Width')">Fit <u>W</u>idth</div></td>
+					<!--<td><div tabindex="-1" class="bButton" id="fWidth" onclick="fit('Width')">Fit <u>W</u>idth</div></td>-->
 					<td><label for="tileScale">B<u>o</u>ard Scale:</label></td>
 					<td><label for="textScale"><u>T</u>ext Scale:</label></td>
 					<td><label for="themeSelect">The<u>m</u>e:</label></td>
 				</tr>
 				<tr>
-					<td></td>
-					<td><div tabindex="-1" class="bButton" id="fHeight" onclick="fit('Height')">Fit <u>H</u>eight</div></td>
+					<!--<td></td>
+					<td><div tabindex="-1" class="bButton" id="fHeight" onclick="fit('Height')">Fit <u>H</u>eight</div></td>-->
+					<td><div tabindex="-1" class="bButton" id="fit" onclick="fitScreen(true);document.activeElement.blur();"><u>F</u>it Screen</div></td>
 					<td><input tabindex="-1" type="number" name="tileScale" value="1" step="0.1" min="0.5" max="4" oninput="setScale(this,false)" onchange="setScale(this,true)" data-prop="--tile_scale"></td>
 					<td><input tabindex="-1" type="number" name="textScale" value="1" step="0.1" min="0.5" max="4" oninput="setScale(this,false)" onchange="setScale(this,true)" data-prop="--text_scale"></td>
-					<td><select tabindex="-1" name="themeSelect" onchange="changeTheme(this.value)">
+					<td><select tabindex="-1" name="themeSelect" onchange="changeTheme(this.value);">
 						<option value="css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb">XP</option>
 						<option value="css/xp-mono.css,css/mines/xp-mono.css,css/xp/favicon.ico,#0155eb">XP Mono</option>
 						<option value="css/95.css,css/mines/95.css,css/95/favicon.ico,#0000aa">95</option>
 						<option value="css/xp.css,css/mines/xpf.css,css/xp/flower.ico,#0155eb">XP - Flowers</option>
 						<option value="css/xp-mono.css,css/mines/xp-monof.css,css/xp/flower.ico,#0155eb">XP Mono - Flowers</option>
+						<option value="css/dark.css,css/mines/dark.css,css/xp/favicon.ico,#383838">Dark</option>
 					</select></td>
 				</tr>
 			</table>
 		</div>
 	</div>
+	<div id="flagCircle" z-index=4></div>
 
 	<div id="game">
 		<div id="header">
@@ -104,7 +107,6 @@
 				<div class="number0"></div>
 			</div>
 		</div>
-
 		<div id="boardWrapper">
 		<table class="collapse">
 			<tbody id="board">
@@ -112,6 +114,7 @@
 		</table>
 		</div>
 	</div>
-
+	<div id="leaderboard">
+	</div>
 </body>
 </html>
