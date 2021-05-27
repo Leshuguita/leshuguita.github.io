@@ -671,7 +671,7 @@ function loadCookies() {
 				break;
 			case 'theme':
 				let t = document.getElementsByName('themeSelect')[0];
-				t.value = (c[1]=='')?"css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb":c[1];
+				t.value = (c[1]=='')?'css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb':c[1];
 				changeTheme(t.value);
 				break;
 			case 'textScale':
