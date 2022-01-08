@@ -59,7 +59,7 @@ document.addEventListener("mousedown", e => {
 });
 
 document.addEventListener("mouseup", e => {
-	if (e.button!=0||game.state=="lost"||game.state=="won") {return;} 
+	if (e.button!=0||game.state=="lost"||game.state=="won") {return;}
 	htmlFace.style.backgroundImage = "var(--happy)";
 });
 
@@ -70,13 +70,13 @@ document.addEventListener("mouseout", e => {
 			htmlFace.style.backgroundImage = "var(--dead)";
 			break;
 		case "won":
-			htmlFace.style.backgroundImage = "var(--sunglasses)";		
+			htmlFace.style.backgroundImage = "var(--sunglasses)";
 			break;
 		default:
 			htmlFace.style.backgroundImage = "var(--happy)";
 			break
-	} 
-	
+	}
+
 });
 
 document.addEventListener("touchstart", e => {
@@ -90,7 +90,7 @@ document.addEventListener("touchstart", e => {
 });
 
 document.addEventListener("touchend", e => {
-	if (game.state=="lost"||game.state=="won") {return;} 
+	if (game.state=="lost"||game.state=="won") {return;}
 	htmlFace.style.backgroundImage = "var(--happy)";
 });
 
@@ -184,7 +184,7 @@ function makemine(x,y) {
 	if (game.mineBoard[x] == undefined) {
 		game.mineBoard[x] = {}
 	}
-	
+
 	game.mineBoard[x][y] = true;
 }
 
@@ -226,7 +226,7 @@ function removeListeners() {
 function startTap(e) {
 	e.preventDefault();
 	tap.start = Date.now();
-	tap.timer = setTimeout(()=>{longTap(e)}, tap.longLength); 
+	tap.timer = setTimeout(()=>{longTap(e)}, tap.longLength);
 }
 
 function endTap(e) {
@@ -276,7 +276,7 @@ function click(e) {
 	}
 
 	if (e.button==2) {
-		//if right click 
+		//if right click
 		flagTile(tile,x,y);
 	} else {
 		//if left click
@@ -350,7 +350,7 @@ function pressTile(tile,x,y,click,nReveal) {
 	if (tile.className!="hidden") {
 		return;
 	}
-	
+
 	if (game.mineBoard[x] && game.mineBoard[x][y]) {
 		//is mine, end game
 		if (click) {
@@ -447,7 +447,7 @@ document.getElementById("customDD").addEventListener("focusout", e => {
 function showCustom() {
 	var dropdown = document.getElementById("customDD");
 	var button = document.getElementById("customButton");
-	
+
 	dropdown.style.display = "block";
 	dropdown.style.top = button.getBoundingClientRect().top+button.height+"px";
 	dropdown.style.left = button.getBoundingClientRect().left+"px";
@@ -509,7 +509,7 @@ function fitScreen(toggle) {
 		setScale(input, false);
 		let boardWidth = game.offsetWidth;
 		let boardHeight = game.offsetHeight;
-		
+
 		let availWidth = document.documentElement.clientWidth - getScrollbarWidth();
 		let availHeight = document.documentElement.clientHeight - game.offsetTop;
 
@@ -550,7 +550,7 @@ function alignBoard() {
 		case "center":
 			a.textAlign = "right";
 			b.innerHTML = "<u>A</u>lign Left";
-			g.style.transformOrigin = "top right";			
+			g.style.transformOrigin = "top right";
 			break;
 		case "right":
 			a.textAlign = "left"
@@ -671,7 +671,7 @@ function loadCookies() {
 				break;
 			case 'theme':
 				let t = document.getElementsByName('themeSelect')[0];
-				t.value = (c[1]=='')?'css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb':c[1];
+				t.value = !c[1]?'css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb':c[1];
 				changeTheme(t.value);
 				break;
 			case 'textScale':
