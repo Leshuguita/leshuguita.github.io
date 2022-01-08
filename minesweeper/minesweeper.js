@@ -651,8 +651,10 @@ function saveCookies(type) {
 
 function loadCookies() {
 	let decodedCookie = decodeURIComponent(document.cookie).split('; ').map(a=>a.split('='));
-	decodedCookie.forEach(c=>{
-		switch (c[0]) {
+	const values = ["cheight","cmines","cwidth","height","mines","width","align",'theme','textScale','tileScale'];
+	values.forEach(v=>{
+		const c = decodedCookie.find(c => c[0] == v);
+		switch (v) {
 			case "cheight":
 			case "cmines":
 			case "cwidth":
