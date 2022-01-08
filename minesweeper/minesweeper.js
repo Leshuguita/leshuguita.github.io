@@ -651,6 +651,7 @@ function saveCookies(type) {
 
 function loadCookies() {
 	let decodedCookie = decodeURIComponent(document.cookie).split('; ').map(a=>a.split('='));
+
 	const values = ["cheight","cmines","cwidth","height","mines","width","align",'theme','textScale','tileScale'];
 	values.forEach(v=>{
 		const c = decodedCookie.find(c => c[0] == v);
@@ -658,36 +659,38 @@ function loadCookies() {
 			case "cheight":
 			case "cmines":
 			case "cwidth":
-				document.getElementsByName(c[0].replace('c',''))[0].value = (c[1]||10)
+				document.getElementsByName(v.replace('c',''))[0].value = c ? c[1] : 10
 				break;
 			case "height":
 			case "mines":
 			case "width":
-				if (c[1]!='') {
-					game[c[0]]=parseInt(c[1]);
+				if (c) {
+					game[v]=parseInt(c[1]);
 				}
 				break;
 			case "align":
-				document.getElementsByTagName("body")[0].style.textAlign = c[1];
-				alignBoard();alignBoard();alignBoard(); // yeah this is easier than thinking
+				if (c) {
+					document.getElementsByTagName("body")[0].style.textAlign = c[1];
+					alignBoard();alignBoard();alignBoard(); // yeah this is easier than thinking
+				}
 				break;
 			case 'theme':
 				let t = document.getElementsByName('themeSelect')[0];
-				t.value = !c[1]?'css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb':c[1];
+				t.value = c ? c[1] : 'css/xp.css,css/mines/xp.css,css/xp/favicon.ico,#0155eb';
 				console.log(t.value);
 				changeTheme(t.value);
 				break;
 			case 'textScale':
 		 		let e =document.getElementsByName('textScale')[0];
-				e.value = c[1]||1;
+				e.value = c ? c[1] : 1;
 				setScale(e, true);
 				break;
 			case 'tileScale':
-				if (c[1]=='fit') {
+				if (c && c[1]=='fit') {
 					fitScreen(true);
 				} else {
 					let e = document.getElementsByName('tileScale')[0];
-					e.value = c[1]||1;
+					e.value = c ? c[1] : 1;
 					setScale(e, true);
 				}
 				break;
