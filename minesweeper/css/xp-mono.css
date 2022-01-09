@@ -5,6 +5,13 @@
 	--dead: url(/minesweeper/css/xp-mono/face/dead.webp);
 	--sunglasses: url(/minesweeper/css/xp-mono/face/sunglasses.webp);
 	--clicked: url(/minesweeper/css/xp-mono/tiles/empty.webp);
+
+	--redHappy: url(/minesweeper/css/xp-mono/face/red/happy.webp);
+	--redSurprised: url(/minesweeper/css/xp-mono/face/red/surprised.webp);
+	--redPressed: url(/minesweeper/css/xp-mono/face/red/pressed.webp);
+	--redDead: url(/minesweeper/css/xp-mono/face/red/dead.webp);
+	--redSunglasses: url(/minesweeper/css/xp-mono/red/face/sunglasses.webp);
+	--redClicked: url(/minesweeper/css/xp-mono/red/tiles/empty.webp);
 	--button_color: #1660e8;
 }
 

@@ -24,8 +24,6 @@ var tap = {timer,start:0,longLength:500};
 
 let fitScreenState = false;
 
-let wrap = false;
-
 //-------
 // TO DO
 //-------
@@ -40,42 +38,53 @@ let wrap = false;
 window.addEventListener("load", e => {
 	htmlBoard = document.getElementById("board");
 	htmlFace = document.getElementById("face");
+	// face right clicking
+	htmlFace.addEventListener("contextmenu", e => {
+		e.preventDefault();
+		newGame(game.width,game.height,game.mines, true);
+	});
 	htmlBoard.addEventListener("contextmenu", e=>{e.preventDefault()});
 	loadCookies();
-	newGame(game.width,game.height,game.mines, wrap);
+	newGame(game.width,game.height,game.mines, false);
 });
 
 //resize
-document.addEventListener("resize", e => {
+window.addEventListener("resize", e => {
 	fitScreen(false);
 });
 
-//face clicks
+//face click graphic
 document.addEventListener("mousedown", e => {
-	if (e.target==htmlFace && e.button==0) {
-		htmlFace.style.backgroundImage = "var(--pressed)";
+	if (e.target==htmlFace) {
+		if (e.button==0) {
+			htmlFace.style.backgroundImage = `var(--pressed)`;
+		} else if (e.button == 2) {
+			htmlFace.style.backgroundImage = `var(--redPressed)`;
+		}
 	} else {
-		if (e.button!=0||game.state=="lost"||game.state=="won") {return;}
-		htmlFace.style.backgroundImage = "var(--surprised)";
+		if (game.state=="lost"||game.state=="won") {return;}
+		htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redS' : 's'}urprised)`;
 	}
 });
 
 document.addEventListener("mouseup", e => {
-	if (e.button!=0||game.state=="lost"||game.state=="won") {return;}
-	htmlFace.style.backgroundImage = "var(--happy)";
+	let condition = game.wraparound;
+	if (e.target == htmlFace) {
+		condition = e.button == 2;
+	} else if (game.state=="lost"||game.state=="won") {return;}
+	htmlFace.style.backgroundImage = `var(--${condition ? 'redH' : 'h'}appy)`;
 });
 
 document.addEventListener("mouseout", e => {
-	if (e.button!=0) {return;}
 	switch (game.state) {
 		case "lost":
-			htmlFace.style.backgroundImage = "var(--dead)";
+			htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redD' : 'd'}ead)`;
 			break;
 		case "won":
-			htmlFace.style.backgroundImage = "var(--sunglasses)";
+			htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redS' : 's'}unglasses)`;
 			break;
 		default:
-			htmlFace.style.backgroundImage = "var(--happy)";
+			htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redH' : 'h'}appy)`;
 			break
 	}
 
@@ -84,22 +93,24 @@ document.addEventListener("mouseout", e => {
 document.addEventListener("touchstart", e => {
 	//e.preventDefault(); //throws error??
 	if (e.target==htmlFace) {
-		htmlFace.style.backgroundImage = "var(--pressed)";
+		htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redP' : 'p'}ressed)`;
 	} else {
 		if (game.state=="lost"||game.state=="won") {return;}
-		htmlFace.style.backgroundImage = "var(--surprised)";
+		htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redS' : 's'}urprised)`;
 	}
 });
 
 document.addEventListener("touchend", e => {
-	if (game.state=="lost"||game.state=="won") {return;}
-	htmlFace.style.backgroundImage = "var(--happy)";
+	let condition = game.wraparound;
+	if (e.target == htmlFace) {
+		condition = e.button == 2;
+	} else if (game.state=="lost"||game.state=="won") {return;}
+	htmlFace.style.backgroundImage = `var(--${condition ? 'redH' : 'h'}appy)`;
 });
 
 //resets game
 function newGame(w, h, m, wrap) {
 	document.activeElement.blur();
-	htmlFace.style.backgroundImage = "var(--happy)";
 	if (m>w*h-1) {
 		console.error("Mines don't fit the board!")
 		return;
@@ -156,7 +167,7 @@ function generateBoard(w,h,m) {
 				i=h;
 				j=w;
 				alert("Board took too long to generate!");
-				newGame(30, 16, 100) //make a new board with expert size instead
+				newGame(30, 16, 100, false) //make a new board with expert size instead
 			}
 		}
 	}
@@ -175,7 +186,7 @@ function generateBoard(w,h,m) {
 
 function holdTile(e) {
 	if ((e.buttons&1==1) && e.target.className=="hidden") {
-		e.target.style.backgroundImage = "var(--clicked)";
+		e.target.style.backgroundImage = 'var(--clicked)';
 	}
 }
 
@@ -199,7 +210,7 @@ function startGame() {
 }
 
 function loseGame() {
-	htmlFace.style.backgroundImage = "var(--dead)";
+	htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redD' : 'd'}ead)`;
 	revealMines();
 	clearTimeout(timer.timer);
 	removeListeners();
@@ -207,7 +218,7 @@ function loseGame() {
 }
 
 function winGame() {
-	htmlFace.style.backgroundImage = "var(--sunglasses)";
+	htmlFace.style.backgroundImage = `var(--${game.wraparound ? 'redS' : 's'}unglasses)`;
 	revealBoard();
 	clearTimeout(timer.timer);
 	removeListeners();
@@ -347,6 +358,10 @@ function revealMines() {
 	}
 }
 
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
 function pressTile(tile,x,y,click,nReveal) {
 	var around = 0;
 	var aroundTiles = [];
@@ -371,11 +386,14 @@ function pressTile(tile,x,y,click,nReveal) {
 			var bx = x+i;
 			var by = y+j;
 			if (game.wraparound) {
-				bx = Math.abs(bx%game.width);
-				by = Math.abs(by%game.height);
-			}
-			if ((!game.wraparound && (bx<0 || bx>=game.width || by<0 || by>=game.height)) || (i==0 && j==0)) {
+				bx = mod(bx, game.width);
+				by = mod(by, game.height);
+			} else if (bx<0 || bx>=game.width || by<0 || by>=game.height) {
 				// skips invalid
+				continue;
+			}
+			if (i==0 && j==0) {
+				// skips self
 				continue;
 			}
 			//count mines around tile
