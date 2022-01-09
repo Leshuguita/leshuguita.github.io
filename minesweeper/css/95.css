@@ -17,6 +17,7 @@
 html {
 	background-color:#c0c0c0;
 	image-rendering: crisp-edges;
+	scrollbar-color: #BDBDBD #FFFFFF;
 }
 
 #config {
@@ -324,7 +325,7 @@ option {
 ::-webkit-scrollbar-thumb {
 	image-rendering: pixelated;
 	border: 2px solid black;
-	border-image-slice: 2 fill; 
+	border-image-slice: 2 fill;
 	border-image-repeat: stretch;
 	border-image-source: url(95/scrollbar/barborder.webp);
 }
