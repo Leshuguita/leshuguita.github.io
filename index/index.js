@@ -6,6 +6,10 @@ const bgscripts = ["boids.js","delaunay.js","digRain.js"];
 canvas.width = screen.width;
 canvas.height = screen.height;
 
+function gotoPage(path) {
+	window.location = path;
+}
+
 function setbg() {
 	var selected = bgscripts[Math.round(Math.random()*(bgscripts.length-1))];
 	var head = document.getElementsByTagName('head')[0];

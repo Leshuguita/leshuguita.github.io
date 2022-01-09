@@ -24,7 +24,7 @@
 
 @keyframes disappear{
 	0%{
-		transform: scale(1);	
+		transform: scale(1);
 	}
 	99%{
 		opacity:1;
@@ -41,7 +41,7 @@
 	0%{
 		transform: scale(0,1);
 		opacity: 0;
-		position: absolute;	
+		position: absolute;
 	}
 	1%{
 		opacity: 1;
@@ -49,7 +49,7 @@
 	}
 	100%{
 		transform: scale(1);
-		
+
 	}
 }
 
@@ -145,8 +145,7 @@ iframe{
 	animation-fill-mode: forwards;
 }
 
-.item:hover {
-	cursor: pointer;
+.item:hover, .item:focus {
 	transform: scale(1.05);
 }
 
@@ -208,6 +207,13 @@ iframe{
 	border-color: #1a1c2c;
 }
 
+#raycaster a {
+	color: #00c3ff
+}
+#raycaster a:visited {
+	color: #00ffb7
+}
+
 #dweller img{
 	float:none;
 	image-rendering: pixelated;
@@ -241,7 +247,7 @@ iframe{
 		#0053e1 11px,
 		#0051e5 11px,
 		#0051e5 13px,
-		#0060f9 28px,	
+		#0060f9 28px,
 		#0046e0 28px,
 		#0143cf 30px
 		);
