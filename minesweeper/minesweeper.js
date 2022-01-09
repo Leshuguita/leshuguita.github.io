@@ -18,11 +18,13 @@ var timer = {seconds:0,timer};
 
 var maxBoardTime = 10000;
 
-var pressedTiles = [];
+var pressedTiles = new Set();
 
 var tap = {timer,start:0,longLength:500};
 
 let fitScreenState = false;
+
+let wrap = false;
 
 //-------
 // TO DO
@@ -40,7 +42,7 @@ window.addEventListener("load", e => {
 	htmlFace = document.getElementById("face");
 	htmlBoard.addEventListener("contextmenu", e=>{e.preventDefault()});
 	loadCookies();
-	newGame(game.width,game.height,game.mines);
+	newGame(game.width,game.height,game.mines, wrap);
 });
 
 //resize
@@ -95,7 +97,7 @@ document.addEventListener("touchend", e => {
 });
 
 //resets game
-function newGame(w,h,m) {
+function newGame(w, h, m, wrap) {
 	document.activeElement.blur();
 	htmlFace.style.backgroundImage = "var(--happy)";
 	if (m>w*h-1) {
@@ -113,6 +115,7 @@ function newGame(w,h,m) {
 	game.mineBoard = {};
 	game.clicks = 0;
 	game.revealedTiles = 0;
+	game.wraparound = wrap;
 	timerFunc();
 	minesFunc();
 	generateBoard(game.width,game.height,game.mines);
@@ -282,7 +285,7 @@ function click(e) {
 		//if left click
 		if (tile.className=="hidden") {
 			game.clicks++;
-			pressedTiles.push({tile:tile,x:x,y:y,click:true,nReveal:true});
+			pressedTiles.add({tile:tile,x:x,y:y,click:true,nReveal:true});
 			pressTiles();
 		}
 	}
@@ -294,9 +297,10 @@ function click(e) {
 
 //loops over the "to press" array until empty
 function pressTiles() {
-	while (pressedTiles.length>0) {
-		pressTile(pressedTiles[0].tile,pressedTiles[0].x,pressedTiles[0].y,pressedTiles[0].click,pressedTiles[0].nReveal);
-		pressedTiles.shift();
+	while (pressedTiles.size>0) {
+		const curr = pressedTiles.values().next().value;
+		pressTile(curr.tile,curr.x,curr.y,curr.click,curr.nReveal);
+		pressedTiles.delete(curr);
 	}
 }
 
@@ -366,12 +370,20 @@ function pressTile(tile,x,y,click,nReveal) {
 		for (j=-1;j<=1;j++) {
 			var bx = x+i;
 			var by = y+j;
+			if (game.wraparound) {
+				bx = Math.abs(bx%game.width);
+				by = Math.abs(by%game.height);
+			}
+			if ((!game.wraparound && (bx<0 || bx>=game.width || by<0 || by>=game.height)) || (i==0 && j==0)) {
+				// skips invalid
+				continue;
+			}
 			//count mines around tile
 			if (game.mineBoard[bx] && game.mineBoard[bx][by]) {
 				around++
 			}
-			//check surrounding tiles, only if tile exists, is not self, and nReveal is true
-			if (!(i==0 && j==0) && bx>=0 && bx<game.width && by>=0 && by<game.height && nReveal) {
+			//check surrounding tiles if nReveal is true
+			if (nReveal) {
 				var newTile = document.getElementById(`${bx}-${by}`);
 				if (newTile.className=="hidden") {
 					aroundTiles.push({tile:newTile,x:bx,y:by,click:false,nReveal:true});
@@ -387,7 +399,10 @@ function pressTile(tile,x,y,click,nReveal) {
 	} else {
 		tile.className = "empty";
 		game.revealedTiles++;
-		pressedTiles = [...pressedTiles,...aroundTiles];
+		aroundTiles.forEach(t => {
+			pressedTiles.add(t);
+		});
+
 		return aroundTiles.length;
 	}
 }
