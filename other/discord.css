@@ -1,0 +1,27 @@
+.background-L8lGH6::before {
+    content: "SEELE";
+    color: red;
+    font-weight: bolder;
+    transform: scale(1.5,1);
+}
+
+.background-L8lGH6::after {
+    content: "SOUND \A ONLY";
+    color: red;
+    font-weight: bolder;
+    transform: scale(1.2,1);
+    white-space: pre-wrap;
+    text-align: center;
+}
+.background-L8lGH6 {
+    background-color: rgb(30,20,35) !important;
+}
+.tile-2WNXdk {
+    height: 250px;
+}
+
+.avatarWrapper-24Rbpj.wrapper-1VLyxH > svg.mask-1FEkla.svg-2azL_l {
+    filter: url(filters.css#edge) invert(1) url(filters.css#alpha) invert(1) brightness(0.7) sepia(1) hue-rotate(
+-45deg
+) saturate(20);
+}
