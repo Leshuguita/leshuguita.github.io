@@ -149,7 +149,7 @@ function draw() {
 		})
 	})
 
-	ctx.fillStyle = "#24273a";
+	ctx.fillStyle = "#363a4f";
 
 	ctx.textAlign = "left";
 	ctx.font = "bold 15px Verdana";

@@ -124,7 +124,7 @@ function draw() {
 	ctx.fillStyle = "#181926";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 
-	ctx.strokeStyle = "#24273a";
+	ctx.strokeStyle = "#363a4f";
 
 	//i am drawing a lot of edges more than once, could be better
 	triangles.forEach((triangle)=>{
@@ -149,7 +149,7 @@ function draw() {
 		ctx.fill();
 	});
 
-	ctx.fillStyle = "#24273a";
+	ctx.fillStyle = "#363a4f";
 
 	points.forEach((p)=>{
 		ctx.beginPath();
@@ -158,7 +158,7 @@ function draw() {
 		ctx.fill();
 	});
 
-	ctx.fillStyle = "#24273a";
+	ctx.fillStyle = "#363a4f";
 	ctx.font = "bold 15px Verdana";
 	ctx.fillText("Delanuay", 10, window.innerHeight - 10);
 }

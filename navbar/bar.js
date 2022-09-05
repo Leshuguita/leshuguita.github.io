@@ -19,7 +19,7 @@ document.getElementById("content").addEventListener("focusout", e =>{
 function filter(e, thing) {
 	var things = document.getElementById("things");
 	var items = things.children;
-	
+
 	removeUnder();
 
 	if (thing=="none") {
@@ -29,7 +29,7 @@ function filter(e, thing) {
 	}
 
 	if (e) {
-		e.currentTarget.style.borderBottom= "3px solid white";
+		e.currentTarget.style.borderBottom= "3px solid #cad3f5";
 	}
 
 	for (i = 0; i < items.length; i++) {

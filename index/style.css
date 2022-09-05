@@ -48,15 +48,16 @@
 }
 
 html {
-	background-color: #181926;
 	color: #cad3f5;
 	font-family: Arial;
 	font-size: 17px;
 	overflow: auto;
 	overflow-x: hidden;
+	scrollbar-color: #494d64 #24273a;
 }
 
 body {
+	background-color: #181926;
 	margin:0px;
 	margin-bottom: 20px;
 	display:grid;
@@ -79,8 +80,10 @@ iframe{
 	font-family: 'Helvetica';
 	line-height: 15pt;
 	background-color: #24273a;
-	padding: 10px 0px 40px 0px;
-	margin-bottom:-17px;
+	border-bottom: 1px solid #363a4f;
+	border-top: 1px solid #363a4f;
+	padding: 10px 0px 10px 0px;
+	margin-bottom: 5px;
 	text-align: center;
 }
 
@@ -120,8 +123,9 @@ iframe{
 	min-width: 260px;
 	margin: 5px;
 	display:inline-block;
-	transition: transform 0.2s;
+	transition: transform 0.1s;
 }
+/*
 
 .item:not(.invisible) {
 	animation-name: appear;
@@ -134,6 +138,10 @@ iframe{
 	animation-duration:0.15s;
 	animation-timing-function: linear;
 	animation-fill-mode: forwards;
+}
+*/
+.item.invisible {
+	display: none;
 }
 
 .item:hover, .item:focus {
@@ -177,6 +185,7 @@ iframe{
 	border-image-source: url(../orange%20soapstone/bg/ds1/border.webp);
 	border-image-slice: 25 22 27 17 fill;
 	border-image-repeat: round;
+	background-color: #131313;
 }
 
 #raycaster img{
@@ -196,6 +205,7 @@ iframe{
 	padding: 6px;
 	border-style: solid;
 	border-color: #1a1c2c;
+	color: #f4f4f4;
 }
 
 #raycaster a {

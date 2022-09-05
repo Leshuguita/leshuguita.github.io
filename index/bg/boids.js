@@ -185,7 +185,7 @@ function draw() {
 	ctx.fillStyle = "#181926";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 
-	ctx.fillStyle = "#1e2030";
+	ctx.fillStyle = "#363a4f";
 
 	boids.forEach((boid, id) => {
 		//Triangle

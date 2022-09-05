@@ -5,7 +5,7 @@
 }
 
 html {
-	background-color: #383838;
+	background-color: #24273a;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
 	font-size: 12px;
 	padding-left: 10px;
 	padding-right:10px;
-	color:white;
+	color:#cad3f5;
 	user-select: none;
 }
 
@@ -36,23 +36,23 @@ img {
 }
 
 a {
-	color:white;
+	color:#cad3f5;
 	text-decoration: none;
 	text-rendering: geometricPrecision;
 }
 
 a:hover {
-	color: gray;
+	color: #939ab7;
 }
 
 li:hover {
-	color: gray;
+	color: #939ab7;
 }
 
 ul {
   list-style-type: none;
   display: block;
-  width: fit-content; 
+  width: fit-content;
   margin: 0;
   padding: 0;
 }
