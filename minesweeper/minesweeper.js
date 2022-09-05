@@ -677,9 +677,6 @@ function saveCookies(type) {
 	document.cookie = `cwidth=${document.getElementsByName('width')[0].value}; expires=${expires}; SameSite=Strict`;
 	document.cookie = `cheight=${document.getElementsByName('height')[0].value}; expires=${expires}; SameSite=Strict`;
 	document.cookie = `cmines=${document.getElementsByName('mines')[0].value}; expires=${expires}; SameSite=Strict`;
-
-
-
 }
 
 function loadCookies() {
