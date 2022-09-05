@@ -101,7 +101,7 @@ function mainloop(now) {
  	if (!hidden) {
 		window.requestAnimationFrame(mainloop);
 	}
-	
+
 }
 
 function update(delta) {
@@ -121,12 +121,12 @@ function update(delta) {
 }
 
 function draw() {
-	ctx.fillStyle = "#181818";
+	ctx.fillStyle = "#181926";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
 
-	ctx.strokeStyle = "#383838";
+	ctx.strokeStyle = "#24273a";
 
-	//i am drawing a lot of edges more than once. i dont really care, works fine as is.
+	//i am drawing a lot of edges more than once, could be better
 	triangles.forEach((triangle)=>{
 		var iter = triangle.values();
 		var s1 = iter.next().value;
@@ -140,14 +140,17 @@ function draw() {
 		ctx.closePath();
 		ctx.stroke();
 
-		var height = Math.min(Math.max((s1.y+s2.y+s3.y)/3,0),canvas.height-39); //for some reasn if i dont take 39 from the min, white triangles appear at the bottom
-		var color = Math.round(56 - (height/canvas.height)*32);
-		ctx.fillStyle = "#" + color.toString(16) + color.toString(16) + color.toString(16);
+		var height = Math.min(Math.max((s1.y+s2.y+s3.y)/3,0),canvas.height-39); //for some reason if i dont take 39 from the min, white triangles appear at the bottom
+		var heightNormalized = height/canvas.height;
+		var red = 24 + Math.floor(12*heightNormalized)
+		var green = 25 + Math.floor(14*heightNormalized)
+		var blue = 38 + Math.floor(20*heightNormalized)
+		ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
 		ctx.fill();
 	});
 
-	ctx.fillStyle = "#484848";
-	
+	ctx.fillStyle = "#24273a";
+
 	points.forEach((p)=>{
 		ctx.beginPath();
 		ctx.arc(p.x, p.y, 2, 0, 2 * Math.PI);
@@ -155,7 +158,7 @@ function draw() {
 		ctx.fill();
 	});
 
-	ctx.fillStyle = "#383838";
+	ctx.fillStyle = "#24273a";
 	ctx.font = "bold 15px Verdana";
 	ctx.fillText("Delanuay", 10, window.innerHeight - 10);
 }

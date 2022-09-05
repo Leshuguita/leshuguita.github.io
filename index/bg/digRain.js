@@ -106,7 +106,7 @@ function update(delta) {
 		row.forEach((ch,y)=>{
 			var drop = drops[x];
 			if (y*cellheight<=drop.y) {
-					
+
 				if (y*cellheight>=drop.y-cellheight) {
 					ch.state = 3
 				} else if (y*cellheight>=drop.y-3*(drop.length*cellheight)/4) {
@@ -125,31 +125,31 @@ function update(delta) {
 }
 
 function draw() {
-	
-	ctx.fillStyle = "#181818";
+
+	ctx.fillStyle = "#181926";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	
-	
+
+
 	ctx.textAlign = "center";
 	ctx.font = "bold 25px Lucida Console";
 	columns.forEach((row,x)=>{
 		row.forEach((ch,y)=>{
 
 			if (ch.state == 3) {
-				ctx.fillStyle = "#585858";
+				ctx.fillStyle = "#363a4f";
 			} else if (ch.state == 2) {
-				ctx.fillStyle = "#383838";
+				ctx.fillStyle = "#24273a";
 			} else if (ch.state == 1) {
-				ctx.fillStyle = "#282828";
+				ctx.fillStyle = "#1e2030";
 			} else {
-				ctx.fillStyle = "#181818";
+				ctx.fillStyle = "#181926";
 			}
 
 			ctx.fillText(String.fromCharCode(ch.character),x*cellwidth+cellwidth/2,y*cellheight);
 		})
 	})
-	
-	ctx.fillStyle = "#383838";
+
+	ctx.fillStyle = "#24273a";
 
 	ctx.textAlign = "left";
 	ctx.font = "bold 15px Verdana";

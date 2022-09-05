@@ -72,7 +72,7 @@ function mainloop(now) {
  	draw();
 
  	lastdelta=delta;
- 	
+
  	if (!hidden) {
 		window.requestAnimationFrame(mainloop);
 	}
@@ -94,13 +94,13 @@ function update(delta) {
 				if (c < boid.dir+a || c > boid.dir-a) {
 					var d=distsq(boid.x,boid.y,b.x,b.y);
 					if (d<avoidrad*avoidrad) {
-						avoidb.push(b);	
+						avoidb.push(b);
 					}
 					if (d<approachrad*approachrad) {
-						approachb.push(b);	
+						approachb.push(b);
 					}
 					if (d<alignrad*alignrad) {
-						alignb.push(b);	
+						alignb.push(b);
 					}
 				}
 			}
@@ -181,11 +181,11 @@ function fatan2(y,x) {
 }
 
 function draw() {
-	
-	ctx.fillStyle = "#181818";
+
+	ctx.fillStyle = "#181926";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	
-	ctx.fillStyle = "#383838";
+
+	ctx.fillStyle = "#1e2030";
 
 	boids.forEach((boid, id) => {
 		//Triangle
