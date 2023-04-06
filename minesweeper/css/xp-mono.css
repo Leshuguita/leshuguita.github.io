@@ -23,7 +23,7 @@ html {
 
 #config {
 	background-color: #ebe9d8;
-	font-family: Tahoma;
+	font-family: Tahoma, sans-serif;
 	font-size: calc(8pt*var(--text_scale));
 }
 
@@ -50,7 +50,7 @@ html {
 
 input {
 	background-color: rgba(255, 255, 255, 0);
-	font-family: Tahoma;
+	font-family: Tahoma, sans-serif;
 	font-size:calc(8pt*var(--text_scale));
 	width:4em;
 	border: 1px solid rgba(0, 0, 0, 0.3);
@@ -101,7 +101,7 @@ input[type=number] {
 
 select {
 	background-color: rgba(255, 255, 255, 0);
-	font-family: Tahoma;
+	font-family: Tahoma, sans-serif;
 	font-size:calc(8pt*var(--text_scale));
 	max-width: 8em;
 	border: 1px solid rgba(0, 0, 0, 0.3);
