@@ -131,7 +131,7 @@ function draw() {
 
 
 	ctx.textAlign = "center";
-	ctx.font = "bold 25px Lucida Console";
+	ctx.font = "bold 25px Monospace";
 	columns.forEach((row,x)=>{
 		row.forEach((ch,y)=>{
 
@@ -152,7 +152,7 @@ function draw() {
 	ctx.fillStyle = "#363a4f";
 
 	ctx.textAlign = "left";
-	ctx.font = "bold 15px Verdana";
+	ctx.font = "bold 15px Sans-Serif";
 	ctx.fillText("Digital Rain", 10, window.innerHeight - 10);
 
 }
