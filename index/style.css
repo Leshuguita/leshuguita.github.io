@@ -2,6 +2,7 @@
   font-family: DSMenu;
   font-display: swap;
   src: url(../orange%20soapstone/font.ttf);
+  unicode-range: U+00-7F;
 }
 
 @font-face{
@@ -49,7 +50,7 @@
 
 html {
 	color: #cad3f5;
-	font-family: Arial;
+	font-family: "M Plus 1", Helvetica, serif;
 	font-size: 17px;
 	overflow: auto;
 	overflow-x: hidden;
@@ -77,7 +78,6 @@ iframe{
 }
 
 #header {
-	font-family: 'Helvetica';
 	line-height: 15pt;
 	background-color: #24273a;
 	border-bottom: 1px solid #363a4f;
@@ -88,7 +88,6 @@ iframe{
 }
 
 #filters {
-	font-family: 'Helvetica';
 	user-select: none;
 	font-size: 18px;
 }
@@ -174,7 +173,7 @@ iframe{
 }
 
 #soapstone {
-	font-family: DSMenu;
+	font-family: DSMenu, Serif;
 	text-rendering: geometricPrecision;
 	border-top: 25px solid;
 	border-right: 22px solid;
@@ -197,7 +196,7 @@ iframe{
 	margin:auto;
 }
 #raycaster {
-	font-family: TIC80;
+	font-family: TIC80, monospace;
 	font-size:16px;
 	letter-spacing: 1px;
 	text-rendering: auto;
@@ -225,7 +224,7 @@ iframe{
 }
 
 #dweller {
-	font-family: Dweller;
+	font-family: Dweller, monospace;
 	font-size:16px;
 	letter-spacing: 1px;
 	text-rendering: auto;
@@ -279,7 +278,7 @@ iframe{
 
 #minesweeper {
 	color: black;
-	font-family: Tahoma;
+	font-family: Tahoma, sans-serif;
 	font-size: 15px;
 	display:inline-block;
 	border: 3px solid transparent;

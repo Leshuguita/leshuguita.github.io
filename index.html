@@ -47,54 +47,70 @@
 				<img src="index/RedditLogo.webp" alt="Reddit icon" width="25" height="25">
 			</a>
 		</div>
-		<p>Hi! I'm Leshuguita, and here I put stuff that I put together.<br>I think they are kinda cool and I hope you do too!</p>
+		<p class="lang_en">Hi! I'm Leshuguita, and here I put stuff that I put together.<br>I think they are kinda cool and I hope you do too!</p>
+		<p class="lang_es">Hola! Soy Leshuguita, y aqui pongo algunas cosas que he hecho.<br>Encuentro que igual tienen son entretenidas. Ojala les encuentres la gracia también!</p>
 	</div>
 
 	<div id="filters">
-		<p>Filter:</p>
-		<div class="filterbutton active" onclick="filter(event, 'item')">All</div>
+		<p class="lang_en">Filter:</p>
+		<p class="lang_es">Filtrar:</p>
+		<div class="filterbutton active lang_en" onclick="filter(event, 'item')">All</div>
+		<div class="filterbutton active lang_es" onclick="filter(event, 'item')">Todo</div>
 		<span>|</span>
 		<div class="filterbutton" onclick="filter(event, 'web')">Web</div>
 		<span>|</span>
-		<div class="filterbutton" onclick="filter(event, 'game')">Games</div>
+		<div class="filterbutton lang_en" onclick="filter(event, 'game')">Games</div>
+		<div class="filterbutton lang_es" onclick="filter(event, 'game')">Juegos</div>
 		<span>|</span>
-		<div class="filterbutton" onclick="filter(event, 'other')">Other</div>
+		<div class="filterbutton lang_en" onclick="filter(event, 'other')">Other</div>
+		<div class="filterbutton lang_es" onclick="filter(event, 'other')">Otros</div>
 	</div>
 
 	<main id="content">
 		<div id="ms-border" class="item game web" onclick="gotoPage('/minesweeper')" tabindex="0">
 			<div id="ms-header">
 				<img src="/minesweeper/css/xp/favicon.ico" style="position: relative;left: 5px;top: 2px;" width="16" height="16" alt="minesweeper icon">
-				<p> Minesweeper </p>
+				<p class="lang_en"> Minesweeper </p>
+				<p class="lang_es"> Buscaminas </p>
 				<img src="/index/minesweeper/buttons.webp" style="float:right;" width="67" height="21" alt="windows buttons">
 			</div>
 			<div id="minesweeper">
 				<img src="/index/minesweeper/img.webp" alt="Minesweeper image" width="170" height="213">
-				<p class="description">The classic game, playable in your browser, even with just a touch screen. There's a few themes to choose from, too!</p>
+				<p class="description lang_en">The classic game, playable in your browser, even with just a touch screen. There's a few themes to choose from, too!</p>
+				<p class="description lang_es">El típico Buscaminas, jugable en tu navegador, también con pantalla touch. Hasta puedes elegir temas!</p>
 				<p class="date">10-4-2021</p>
 			</div>
 		</div>
 
 		<div id="raycaster" class="item game" onclick="gotoPage('/redirects/tic80raycast.html')" tabindex="0">
-			<p class="title">TIC-80 Raycaster Demo</p>
+			<p class="title lang_en">TIC-80 Raycaster Demo</p>
+			<p class="title lang_es">Demo de Raycaster en TIC-80</p>
 			<img src="https://tic80.com/cart/43dd5957c12c69e290c9435f07d8d475/cover.gif" alt="Raycaster image" width="240" height="136">
-			<p class="description">A simple raycasting engine made by following <a href="https://www.youtube.com/watch?v=gYRrGTC7GtA">3Dsage's tutorial</a>, and then adding a few more features myself.</p>
+			<p class="description lang_en">A simple raycasting engine made by following <a href="https://www.youtube.com/watch?v=gYRrGTC7GtA">3Dsage's tutorial</a>, and then adding a few more features myself.</p>
+			<p class="description lang_es">Un raycaster simple hecho según <a href="https://www.youtube.com/watch?v=gYRrGTC7GtA">el tutorial de 3Dsage</a>, con un par de cosas extra mías.</p>
 			<p class="date">25-2-2021</p>
 		</div>
 
 		<div id="soapstone" class="item web notblue" onclick="gotoPage('/orange%20soapstone')" tabindex="0">
-			<p class="title">Orange Guidance Soapstone</p>
+			<p class="title lang_en">Orange Guidance Soapstone</p>
+			<p class="title lang_es">Saponita Naranja</p>
 			<img src="orange%20soapstone/base.webp" alt="Orange Soapstone image" width="102" height="120">
-			<p class="description"><i>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</i></p>
-			<p class="description">An image generator for Dark Souls-style messages that you can then post elsewhere.</p>
-			<p class="description">Now missing options only from Dark Souls 2</p>
+			<p class="description lang_en"><i>In the Internet, the flow of time is distorted, and messages allow Undead to assist (or deceive) one another.</i></p>
+			<p class="description lang_en">An image generator for Dark Souls-style messages that you can then post elsewhere.</p>
+			<p class="description lang_en">Only missing options from Dark Souls 2</p>
+
+			<p class="description lang_es"><i>En Internet, el flujo del tiempo está distorsionado, y éstos mensajes permiten a los No Muertos ayudarse (o engañarse) entre si.</i></p>
+			<p class="description lang_es">Un generador de imágenes de mensajes como los de de Dark Souls, para copiar y pegar algún otro lado.</p>
+			<p class="description lang_es">Sólo faltan opciones de Dark Souls 2</p>
+
 			<p class="date">8-8-2020</p>
 		</div>
 
 		<div id="dweller" class="item game notblue" onclick="gotoPage('/redirects/dwellerscolorfulpath.html')" tabindex="0">
 			<p class="title">Dweller's Colorful Path</p>
 			<img src="https://img.itch.zone/aW1nLzM5Njg2MjMucG5n/315x250%23c/SAb5wp.png" alt="Dweller's Coloful Path image" width="315" height="250">
-			<p class="description">A recreation of the start of Temmie Chang's Dweller's Empty Path, using her unused assets.</p>
+			<p class="description lang_en">A recreation of the start of Temmie Chang's <a href="https://tuyoki.itch.io/dwellers-empty-path">Dweller's Empty Path</a>, using her unused assets.</p>
+			<p class="description lang_es">Una recreación de <a href="https://tuyoki.itch.io/dwellers-empty-path">Dweller's Empty Path</a>, un juego por Temmie Chang, usando los recursos que ella no usó, distribuidos junto al juego original.</p>
 			<p class="date">31-7-2020</p>
 		</div>
 	</main>

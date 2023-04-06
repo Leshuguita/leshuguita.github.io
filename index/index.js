@@ -42,3 +42,21 @@ function filter(evt, thing) {
 	}
 	evt.currentTarget.classList.add("active");
 }
+
+function set_lang() {
+	var lang = navigator.language || navigator.userLanguage;
+	let es = document.getElementsByClassName("lang_es");
+	for (let i=0; i<es.length; i++) {
+		if (!lang.includes("es-")) {
+			es[i].style.display = "none";
+		}
+	};
+	let en = document.getElementsByClassName("lang_en");
+	for (let i=0; i<en.length; i++) {
+		if (lang.includes("es-")) {
+			en[i].style.display = "none";	
+		}
+	};
+}
+
+set_lang();
