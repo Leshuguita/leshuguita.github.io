@@ -152,7 +152,7 @@ function draw() {
 	ctx.fillStyle = "#363a4f";
 
 	ctx.textAlign = "left";
-	ctx.font = "bold 15px Sans-Serif";
+	ctx.font = "bold 15px sans-serif";
 	ctx.fillText("Digital Rain", 10, window.innerHeight - 10);
 
 }

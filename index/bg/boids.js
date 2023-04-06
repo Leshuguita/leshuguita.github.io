@@ -198,7 +198,7 @@ function draw() {
 		ctx.fill();
 	});
 
-	ctx.font = "bold 15px Sans-Serif";
+	ctx.font = "bold 15px sans-serif";
 	ctx.fillText("Boids", 10, window.innerHeight - 10);
 
 }

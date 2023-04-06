@@ -159,7 +159,7 @@ function draw() {
 	});
 
 	ctx.fillStyle = "#363a4f";
-	ctx.font = "bold 15px Sans-Serif";
+	ctx.font = "bold 15px sans-serif";
 	ctx.fillText("Delanuay", 10, window.innerHeight - 10);
 }
 
