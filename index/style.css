@@ -122,30 +122,18 @@ iframe{
 	min-width: 260px;
 	margin: 5px;
 	display:inline-block;
-	transition: transform 0.1s;
+	transition: top 0.1s;
 	color: white;
-}
-/*
-
-.item:not(.invisible) {
-	animation-name: appear;
-	animation-duration:0.15s;
-	animation-timing-function: linear;
+	position: relative;
+	top: 0em;
 }
 
-.item.invisible {
-	animation-name: disappear;
-	animation-duration:0.15s;
-	animation-timing-function: linear;
-	animation-fill-mode: forwards;
-}
-*/
 .item.invisible {
 	display: none;
 }
 
 .item:hover, .item:focus {
-	transform: scale(1.05);
+	top: -0.3em;
 }
 
 .title{
@@ -169,7 +157,7 @@ iframe{
 	height:25px;
 }
 #social img:hover{
-	filter:brightness(130%);
+	filter: brightness(0.8);
 }
 
 #soapstone {
