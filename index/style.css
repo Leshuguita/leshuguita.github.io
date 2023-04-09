@@ -287,6 +287,16 @@ iframe{
 
 #raytracer img{
 	float:none;
+	width: 90%;
+	height: auto;
+}
+
+#raytracer a {
+	color: #8aadf4;
+}
+
+#raytracer a:visited {
+	color: #c6a0f6;
 }
 
 #canvasbg {
