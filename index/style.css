@@ -206,9 +206,6 @@ iframe{
 	float:none;
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
-	width: 90%;
-	height: auto;
-	margin: auto;
 }
 
 #dweller {
@@ -277,6 +274,19 @@ iframe{
 #minesweeper img {
 	margin:auto;
 	image-rendering: crisp-edges;
+}
+
+#raytracer {
+	font-size: 14px;
+	background-color:#363a4f;
+	padding: 6px;
+	border-width: medium;
+	border-style: solid;
+	border-color: #cad3f5;
+}
+
+#raytracer img{
+	float:none;
 }
 
 #canvasbg {
