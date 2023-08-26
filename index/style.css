@@ -1,7 +1,7 @@
 @font-face {
   font-family: DSMenu;
   font-display: swap;
-  src: url(../orange%20soapstone/font.ttf);
+  src: url(../orange%20soapstone/Matisse_Pro.otf);
   unicode-range: U+00-7F;
 }
 
@@ -131,6 +131,8 @@ iframe{
 
 #soapstone {
 	font-family: DSMenu, Serif;
+	font-size: 15px;
+	line-height:22px;
 	text-rendering: geometricPrecision;
 	border-top: 25px solid;
 	border-right: 22px solid;
@@ -142,6 +144,9 @@ iframe{
 	border-image-source: url(../orange%20soapstone/bg/ds1/border.webp);
 	border-image-slice: 25 22 27 17 fill;
 	border-image-repeat: round;
+}
+#soapstone .title {
+	margin-bottom: 20px;
 }
 
 #raycaster img{
@@ -251,7 +256,8 @@ iframe{
 	padding: 6px;
 	border-width: 2px;
 	border-style: solid;
-	border-color: #cad3f5;
+	border-color: #494d64;
+	border-radius: 5px;
 }
 
 #raytracer img{
