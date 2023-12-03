@@ -29,7 +29,6 @@ html {
 body {
 	background-color: #181926;
 	margin:0px;
-	margin-bottom: 20px;
 	display:grid;
 	height: 100%;
 }
@@ -60,7 +59,7 @@ footer {
 	background-color: #24273a;
 	border-top: 1px solid #363a4f;
 	display: flex;
-	margin-top: 5px;
+	margin-top: 20px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	bottom: 0;
