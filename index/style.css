@@ -31,6 +31,7 @@ body {
 	margin:0px;
 	margin-bottom: 20px;
 	display:grid;
+	height: 100%;
 }
 
 img {
@@ -50,10 +51,22 @@ iframe{
 	line-height: 15pt;
 	background-color: #24273a;
 	border-bottom: 1px solid #363a4f;
-	border-top: 1px solid #363a4f;
 	padding: 10px 0px 10px 0px;
 	margin-bottom: 5px;
 	text-align: center;
+}
+
+footer {
+	background-color: #24273a;
+	border-top: 1px solid #363a4f;
+	display: flex;
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	bottom: 0;
+	position: relative;
+	flex-direcion: column;
+	justify-content: center;
 }
 
 #filters {
