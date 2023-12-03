@@ -2,6 +2,7 @@ var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
 
 const bgscripts = ["boids.js","delaunay.js","digRain.js"];
+const bgnames = ["Boids", "Delanuay", "Digital Rain"];
 
 canvas.width = screen.width;
 canvas.height = screen.height;
@@ -11,13 +12,15 @@ function gotoPage(path) {
 }
 
 function setbg() {
-	var selected = bgscripts[Math.round(Math.random()*(bgscripts.length-1))];
+	var selected_id = Math.round(Math.random()*(bgscripts.length-1))
+	var selected = bgscripts[selected_id];
 	var head = document.getElementsByTagName('head')[0];
 	var script = document.createElement('script');
 	script.async = true;
 	script.type = 'text/javascript';
 	script.src = 'index/bg/' + selected;
 	head.appendChild(script);
+	document.getElementById('bg_name').innerHTML = bgnames[selected_id];
 }
 
 function filter(evt, thing) {

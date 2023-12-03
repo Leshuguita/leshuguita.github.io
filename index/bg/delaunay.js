@@ -1,6 +1,4 @@
 //17-9-2020
-document.getElementById("bg_name").innnerHtml = "Delanuay"
-
 var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
 

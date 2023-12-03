@@ -1,6 +1,4 @@
 //fecha aqui
-document.getElementById("bg_name").innnerHtml = "Digital Rain"
-
 var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
 
