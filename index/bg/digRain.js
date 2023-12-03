@@ -1,4 +1,6 @@
 //fecha aqui
+document.getElementById("bg_name").innnerHtml = "Digital Rain"
+
 var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
 
@@ -148,13 +150,6 @@ function draw() {
 			ctx.fillText(String.fromCharCode(ch.character),x*cellwidth+cellwidth/2,y*cellheight);
 		})
 	})
-
-	ctx.fillStyle = "#363a4f";
-
-	ctx.textAlign = "left";
-	ctx.font = "bold 15px sans-serif";
-	ctx.fillText("Digital Rain", 10, window.innerHeight - 10);
-
 }
 
 function addDrop(index) {

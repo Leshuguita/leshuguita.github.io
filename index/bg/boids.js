@@ -1,4 +1,6 @@
 //9-9-2020
+document.getElementById("bg_name").innnerHtml = "Boids"
+
 const pi = Math.PI;
 var canvas = document.getElementById("canvasbg");
 var ctx = canvas.getContext("2d");
@@ -197,10 +199,6 @@ function draw() {
 		ctx.closePath();
 		ctx.fill();
 	});
-
-	ctx.font = "bold 15px sans-serif";
-	ctx.fillText("Boids", 10, window.innerHeight - 10);
-
 }
 
 function topi(r) {

@@ -59,13 +59,20 @@ footer {
 	background-color: #24273a;
 	border-top: 1px solid #363a4f;
 	display: flex;
-	margin-top: 20px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	bottom: 0;
 	position: relative;
 	flex-direcion: column;
 	justify-content: center;
+}
+#bg_name {
+	position: sticky;
+	height: 20px;
+	padding: 3px;
+	padding-bottom: 10px;
+	color: #363a4f;
+	bottom: 0;
 }
 
 #filters {
