@@ -73,6 +73,7 @@ footer {
 	padding-bottom: 10px;
 	color: #363a4f;
 	bottom: 0;
+	user-select: none;
 }
 
 #filters {
