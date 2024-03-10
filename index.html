@@ -26,6 +26,9 @@
 
 	<div id="header">
 		<div id="social">
+			<a href="https://codeberg.org/Leshuguita" target="_blank" rel="noopener">
+				<img class="codebergIcon" src="index/codeberg.svg" alt="Codeberg icon" width="25" height="25">
+			</a>
 			<a href="https://github.com/Leshuguita" target="_blank" rel="noopener">
 				<img class="githubIcon" src="index/github.svg" alt="GitHub icon" width="25" height="25">
 			</a>
@@ -53,27 +56,39 @@
 	</div>
 
 	<main id="content">
-		<div id="raytracer" class="item other" onclick="gotoPage('https://github.com/Leshuguita/raytracing')" onkeydown="if (event.key == 'Enter') gotoPage('https://github.com/Leshuguita/raytracing')" tabindex="0">
+		<div id="fresh_player" class="item other" onclick="gotoPage('https://codeberg.org/Leshuguita/fresh')" onkeydown="if (event.key == 'Enter') gotoPage('https://codeberg.org/Leshuguita/fresh')" tabindex="0">
+			<div class="title_container">
+				<img class="note_icon" src="./index/music-note.svg">
+				<p class="title lang_en">Terminal Music Player</p>
+				<p class="title lang_es">Reproductor de Música</p>
+			</div>
+			<img src="./index/fresh.webp" alt="Music Player Screenshot" width="380" height="213">
+			<p class="description lang_en">A very simple music player that works in the terminal, with no internal library, relying only on the audio files themselves.</p>
+			<p class="description lang_es">Un reproductor de musica muy simple, para la terminal. No mantiene una libreria propia, si no que saca la info. de los archivos de audio.</p>
+			<p class="date">06-03-2024</p>
+		</div>
+
+		<div id="raytracer" class="item other basicCard" onclick="gotoPage('https://github.com/Leshuguita/raytracing')" onkeydown="if (event.key == 'Enter') gotoPage('https://github.com/Leshuguita/raytracing')" tabindex="0">
 			<p class="title lang_en">Ray Tracing in One Weekend</p>
 			<p class="title lang_es">Ray Tracing en un fin de semana</p>
-			<img src="/index/raytraced.webp" alt="Raytraced image" width="380" height="213">
+			<img src="./index/raytraced.webp" alt="Raytraced image" width="380" height="213">
 			<p class="description lang_en">A ray tracer written in rust, following the <a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">Ray Tracing in One Weekend</a> book.</p>
 			<p class="description lang_es">Un ray tracer escrito en rust, siguiendo el libro <a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">Ray Tracing in One Weekend</a>.</p>
-			<p class="date">09-4-2023</p>
+			<p class="date">09-04-2023</p>
 		</div>
 
 		<div id="ms-border" class="item game web" onclick="gotoPage('/minesweeper')" tabindex="0">
 			<div id="ms-header">
-				<img src="/minesweeper/css/xp/favicon.ico" style="position: relative;left: 5px;top: 2px;" width="16" height="16" alt="minesweeper icon">
+				<img src="./minesweeper/css/xp/favicon.ico" style="position: relative;left: 5px;top: 2px;" width="16" height="16" alt="minesweeper icon">
 				<p class="lang_en"> Minesweeper </p>
 				<p class="lang_es"> Buscaminas </p>
-				<img src="/index/minesweeper/buttons.webp" style="float:right;" width="67" height="21" alt="windows buttons">
+				<img src="./index/minesweeper/buttons.webp" style="float:right;" width="67" height="21" alt="windows buttons">
 			</div>
 			<div id="minesweeper">
-				<img src="/index/minesweeper/img.webp" alt="Minesweeper image" width="170" height="213">
+				<img src="./index/minesweeper/img.webp" alt="Minesweeper image" width="170" height="213">
 				<p class="description lang_en">The classic game, playable in your browser, even with just a touch screen. There's a few themes to choose from, too!</p>
 				<p class="description lang_es">El típico Buscaminas, jugable en tu navegador, también con pantalla touch. Hasta puedes elegir temas!</p>
-				<p class="date">10-4-2021</p>
+				<p class="date">10-04-2021</p>
 			</div>
 		</div>
 
@@ -83,7 +98,7 @@
 			<img src="https://tic80.com/cart/43dd5957c12c69e290c9435f07d8d475/cover.gif" alt="Raycaster image" width="240" height="136">
 			<p class="description lang_en">A simple raycasting engine made by following <a href="https://www.youtube.com/watch?v=gYRrGTC7GtA">3Dsage's tutorial</a>, and then adding a few more features myself.</p>
 			<p class="description lang_es">Un raycaster simple hecho según <a href="https://www.youtube.com/watch?v=gYRrGTC7GtA">el tutorial de 3Dsage</a>, con un par de cosas extra mías.</p>
-			<p class="date">25-2-2021</p>
+			<p class="date">25-02-2021</p>
 		</div>
 
 		<div id="soapstone" class="item web" onclick="gotoPage('/orange%20soapstone')" onkeydown="if (event.key == 'Enter') gotoPage('/orange%20soapstone')" tabindex="0">
@@ -98,7 +113,7 @@
 			<p class="description lang_es">Un generador de imágenes de mensajes como los de de Dark Souls, para copiar y pegar algún otro lado.</p>
 			<p class="description lang_es">Solo faltan opciones de Dark Souls 2</p>
 
-			<p class="date">8-8-2020</p>
+			<p class="date">08-08-2020</p>
 		</div>
 
 		<div id="dweller" class="item game" onclick="gotoPage('https://leshuguita.itch.io/dcp')" onkeydown="if (event.key == 'Enter') gotoPage('https://leshuguita.itch.io/dcp')" tabindex="0">
@@ -107,7 +122,7 @@
 			<p class="description lang_en">A recreation of the start of Temmie Chang's <a href="https://tuyoki.itch.io/dwellers-empty-path">Dweller's Empty Path</a>, using her unused assets.
 			</p>
 			<p class="description lang_es">Una recreación del inicio de <a href="https://tuyoki.itch.io/dwellers-empty-path">Dweller's Empty Path</a>, un juego por Temmie Chang, usando los recursos que ella no usó.</p>
-			<p class="date">31-7-2020</p>
+			<p class="date">31-07-2020</p>
 		</div>
 	</main>
 	<div id="bg_name"></div>

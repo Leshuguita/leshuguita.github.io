@@ -34,6 +34,10 @@ body {
 	min-height: 100vh;
 }
 
+*:focus {
+	outline: solid 2px #91d7e3;
+}
+
 img {
 	float: left;
 	margin: 2px;
@@ -48,12 +52,15 @@ iframe {
 }
 
 #header {
-	line-height: 15pt;
 	background-color: #24273a;
 	border-bottom: 1px solid #363a4f;
 	padding: 10px 0px 10px 0px;
 	margin-bottom: 5px;
 	text-align: center;
+}
+
+#header p {
+	margin: 0;
 }
 
 footer {
@@ -140,8 +147,8 @@ footer {
 
 #social {
 	position: absolute;
-	top: 20px;
-	right: 5px;
+	top: 10px;
+	right: 10px;
 	display: block;
 }
 
@@ -151,6 +158,11 @@ footer {
 }
 
 #social img:hover {
+	filter: brightness(0.8);
+}
+
+#social a:focus img {
+	outline: solid 2px #91d7e3;
 	filter: brightness(0.8);
 }
 
@@ -208,6 +220,8 @@ footer {
 	float: none;
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
+	width: 90%;
+	max-width: 315px;
 }
 
 #dweller {
@@ -276,7 +290,7 @@ footer {
 	image-rendering: crisp-edges;
 }
 
-#raytracer {
+.basicCard {
 	font-size: 14px;
 	background-color: #363a4f;
 	padding: 6px;
@@ -286,17 +300,74 @@ footer {
 	border-radius: 5px;
 }
 
-#raytracer img {
+.basicCard img {
 	float: none;
 	width: 90%;
 	height: auto;
 }
 
-#raytracer a {
+.basicCard a {
 	color: #8aadf4;
 }
 
-#raytracer a:visited {
+.basicCard a:visited {
+	color: #c6a0f6;
+}
+
+#fresh_player {
+	font-family: monospace;
+	font-size: 14px;
+	background-color: #363a4f;
+	padding: 19px;
+	box-shadow:
+		inset 0 0 0 5px #363a4f,
+		inset 0 0 0 7px #eed49f,
+		inset 0 0 0 9px #363a4f,
+		inset 0 0 0 11px #eed49f;
+
+}
+
+#fresh_player .note_icon {
+	width: 1em;
+	padding-right: 0.5em;
+	display: inline;
+}
+
+#fresh_player .title_container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	white-space: nowrap;
+	max-width: 88%;
+	overflow: hidden;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	background-color: #363a4f;
+	position: absolute;
+	top: 0px;
+	left: 13px;
+}
+
+#fresh_player p.title {
+	margin: 0px;
+	color: #eed49f;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 14px;
+}
+
+#fresh_player img {
+	float: none;
+	width: 90%;
+	height: auto;
+}
+
+#fresh_player a {
+	color: #8aadf4;
+}
+
+#fresh_player a:visited {
 	color: #c6a0f6;
 }
 
@@ -322,8 +393,11 @@ a.notblue {
 	#social {
 		position: relative;
 		top: 0;
-		right: 0;
+		right: 10px;
 		float: right;
-		display: inline;
+		display: block;
+		min-width: max-content;
+		margin-left: 100%;
+		margin-bottom: 5px;
 	}
 }
