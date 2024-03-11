@@ -222,6 +222,7 @@ footer {
 	image-rendering: crisp-edges;
 	width: 90%;
 	max-width: 315px;
+	height: auto;
 }
 
 #dweller {
