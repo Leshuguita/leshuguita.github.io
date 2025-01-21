@@ -1,5 +1,5 @@
 ---
-title: Lista de Publicaciones
+title: Publicaciones al Blog
 sort_by: date
 template: blog.html
 page_template: blog_page.html
