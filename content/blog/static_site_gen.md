@@ -3,8 +3,6 @@ title: Escribiendo un Generador de Sitios Estáticos
 date: 2025-1-21
 ---
 
-
-{{ icons(c=config, i='note') }}
 Primero que nada, ¿Por qué?<br>
 Matemática.<br>
 Porque quiero matemática.

@@ -1,5 +1,5 @@
 +++
-title = "{{ icons(c=config, i='note') }} Terminal Music Player"
+title = "{{ icon(i='note') }} Terminal Music Player"
 date = 2024-03-06
 [extra]
 tags = ["Rust"]

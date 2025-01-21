@@ -5,6 +5,11 @@
 
 .icons {
     font-family: Icons;
-    font-size: 1.3em;
     user-select: none;
+}
+
+.icons_big {
+    font-family: Icons;
+    user-select: none;
+    font-size: 1.3em;
 }
