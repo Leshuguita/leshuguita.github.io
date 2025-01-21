@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+Blog
+{% endblock title %}
+
+{% block content %}
+
+<h1 class="title">
+    {{ section.title }}
+</h1>
+
+<div class="blog_entries">
+    {% for page in section.pages %}
+    <div class="blog_entry"><a href="{{ page.permalink | safe }}">
+            <h2>{{ page.title | safe }}</h2>
+        </a>
+        <span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
+        {% if page.description %}
+        {# if there's a description, show that #}
+
+        <p>{{ page.description | safe }}</p>
+        {% elif page.summary %}
+        {# if there's no description, bun an explicit summary show that #}
+
+        <p>{{ page.summary | safe }}</p>
+        {% else %}
+        {# shows the first paragraph as a preview #}
+        {% set s = page.content | split(pat="</p>") %}
+        {% set o = s[0] ~ "</p>" %}
+        {{ o | safe }}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

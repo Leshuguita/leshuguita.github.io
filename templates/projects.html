@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ trans(key="projects", lang=lang) }}
+{% endblock title %}
+
+{% block content %}
+<h1 class="title">
+    {{ trans(key="projects", lang=lang) }}
+</h1>
+
+
+{% set tags = [] %}
+<div class="projects">
+    {% for project in section.pages %}
+    {% set_global tags = tags | concat(with=project.extra.tags) %}
+    <div class="project {{ project.extra.css_class }} {{ project.extra.tags | join(sep=' ')}}">
+        {% if project.extra.img %}
+        <img src="{{ project.extra.img}}" />
+        {% endif %}
+        <div class="p_info">
+            <a href="{{ project.extra.link }}">
+                <h2 class="p_title">{{ project.title | markdown(inline=true) | safe }}</h2>
+            </a>
+            {{ project.content | safe }}
+            <span class="p_date">{{ project.date | date(format=trans(key="date_format", lang=lang)) }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{# Add all existing tags to a set, for use in js #}
+<script>
+    let tags = new Set(["{{ tags | join(sep = '", "') | safe}}"]);
+</script>
+{% endblock content %}

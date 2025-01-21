@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='{{ lang }}'>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <a href='{{ get_url(path="", lang=lang) }}'>{{trans(key="index", lang=lang)}}</a>
+            <a href='{{ get_url(path="projects", lang=lang) }}'>{{trans(key="projects", lang=lang)}}</a>
+            <a href='{{ get_url(path="blog", lang=lang) }}'>{{trans(key="blog", lang=lang)}}</a>
+        </div>
+        <div class="right">
+            <!-- language switching -->
+            {% for l,v in config.languages %}
+            {% set t_url = current_path | regex_replace(pattern=`^/?(` ~ lang ~ `/)?`, rep="") %}
+            <a href='{{ get_url(path=t_url, lang=l) }}'>{{ l }}</a>
+            {% endfor %}
+        </div>
+    </nav>
+    <content>
+        {% block content %}{% endblock %}
+    </content>
+</body>
+
+</html>
