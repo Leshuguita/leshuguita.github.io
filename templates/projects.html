@@ -5,7 +5,9 @@
 {% endblock title %}
 
 {% block head %}
-<link rel="stylesheet" href="/icon_font.css">
+<link rel="stylesheet" href="/css/projects.css">
+<link rel="stylesheet" href="/css/tic80_font.css">
+<link rel="stylesheet" href="/css/dweller_font.css">
 {% endblock head %}
 
 {% block content %}
@@ -20,7 +22,7 @@
     {% set_global tags = tags | concat(with=project.extra.tags) %}
     <div class="project {{ project.extra.css_class }} {{ project.extra.tags | join(sep=' ')}}">
         {% if project.extra.img %}
-        <img src="{{ project.extra.img}}" />
+        <img src="{{ project.extra.img }}" />
         {% endif %}
         <div class="p_info">
             <a href="{{ project.extra.link }}">

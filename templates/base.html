@@ -1,20 +1,31 @@
 {% import "macros.html" as macros %}
 
+
+{% macro tab(path, key) %}
+{% set u = get_url(path=path, lang=lang) ~ "/" %}
+<a href='{{ get_url(path=path, lang=lang) }}' {% if current_url==u %} class="current" {% endif %}>
+    {{trans(key=key, lang=lang)}}
+</a>
+{% endmacro tab %}
+
 <!DOCTYPE html>
 <html lang='{{ lang }}'>
 
 <head>
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/icon_font.css">
     {% block head %}{% endblock %}
 </head>
 
 <body>
     <nav>
         <div class="left">
-            <a href='{{ get_url(path="", lang=lang) }}'>{{trans(key="index", lang=lang)}}</a>
-            <a href='{{ get_url(path="projects", lang=lang) }}'>{{trans(key="projects", lang=lang)}}</a>
-            <a href='{{ get_url(path="blog", lang=lang) }}'>{{trans(key="blog", lang=lang)}}</a>
+            <span class="cat">{{ macros::icon(i="cat") }}</span>
+            {{ self::tab(path="", key="index") }}
+            {{ self::tab(path="projects", key="projects") }}
+            {{ self::tab(path="blog", key="blog") }}
         </div>
         <div class="right">
             <!-- language switching -->

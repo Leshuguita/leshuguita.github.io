@@ -5,7 +5,7 @@ date = 2023-04-09
 tags = ["Rust"]
 css_class = "raytracing"
 link = "https://github.com/Leshuguita/raytracing"
-img = "/raytraced.webp"
+img = "/img/raytraced.webp"
 +++
 
 Un _ray tracer_ escrito en Rust, siguiendo el libro ["Ray Tracing in One Weekend"](https://raytracing.github.io/books/RayTracingInOneWeekend.html).

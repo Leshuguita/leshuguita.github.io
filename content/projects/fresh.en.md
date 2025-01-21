@@ -5,7 +5,7 @@ date = 2024-03-06
 tags = ["Rust"]
 css_class = "fresh"
 link = "https://codeberg.org/Leshuguita/fresh"
-img = "/fresh.webp"
+img = "/img/fresh.webp"
 +++
 
 A very simple music player that works in the terminal, with no internal library. Instead, it gets all the data from the audio files themselves, every time.
