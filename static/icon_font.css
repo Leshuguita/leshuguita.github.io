@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Icons";
+    src: url("/SymbolsNerdFontMono-Regular.ttf");
+}
+
+.icons {
+    font-family: Icons;
+    font-size: 1.3em;
+    user-select: none;
+}

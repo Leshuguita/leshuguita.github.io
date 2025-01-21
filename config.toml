@@ -41,5 +41,8 @@ contact ="Contact"
 
 
 
-[extra]
-# Put all your custom variables here
+[extra.icons]
+github = "\U000f02a4"
+codeberg = "\uf330"
+mail = "\uf0e0"
+note = "\U000f0387"

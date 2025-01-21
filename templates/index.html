@@ -4,6 +4,10 @@
 {{ trans(key="index_title", lang=lang) }}
 {% endblock title %}
 
+{% block head %}
+<link rel="stylesheet" href="icon_font.css">
+{% endblock head %}
+
 {% block content %}
 <h1 class="title">
     {{ trans(key="index_title", lang=lang) }}
@@ -14,9 +18,18 @@
     {{ trans(key="contact", lang=lang) }}
 </h2>
 <ul>
-    <li><a href="https://github.com/leshuguita">https://github.com/leshuguita</a></li>
-    <li><a href="https://codeberg.org/leshuguita">https://codeberg.org/leshuguita</a></li>
-    <li><a href="mailto:leshuguita.saiyan@gmail.com">leshuguita.saiyan@gmail.com</a></li>
+    <li>
+        <span class="icons">{{ config.extra.icons.github }}</span>
+        <a href="https://github.com/leshuguita">https://github.com/leshuguita</a>
+    </li>
+    <li>
+        <span class="icons">{{ config.extra.icons.codeberg }}</span>
+        <a href="https://codeberg.org/leshuguita">https://codeberg.org/leshuguita</a>
+    </li>
+    <li>
+        <span class="icons">{{ config.extra.icons.mail }}</span>
+        <a href="mailto:leshuguita.saiyan@gmail.com">leshuguita.saiyan@gmail.com</a>
+    </li>
 </ul>
 
 {% endblock content %}

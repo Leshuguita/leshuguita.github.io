@@ -13,7 +13,7 @@ Blog
 <div class="blog_entries">
     {% for page in section.pages %}
     <div class="blog_entry"><a href="{{ page.permalink | safe }}">
-            <h2>{{ page.title | safe }}</h2>
+            <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
         </a>
         <span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
         {% if page.description %}
