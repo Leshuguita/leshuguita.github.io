@@ -57,7 +57,7 @@
 }
 
 .project.raytracing {
-    border: solid 3px var(--text);
+    border: solid 3px var(--subtext);
     border-radius: 10px;
     padding: 0.5em;
     gap: 0.8em;
@@ -123,5 +123,20 @@
         text-decoration: wavy;
         text-decoration-line: line-through;
         text-decoration-thickness: 1px;
+    }
+}
+
+
+// Responsive stuff
+@media screen and (max-width: 1250px) {
+    main {
+        width: auto;
+        padding: 0 2em;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .project {
+        flex-direction: column;
     }
 }

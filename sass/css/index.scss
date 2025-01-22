@@ -1,4 +1,61 @@
+main {
+    display: flex;
+    align-items: start;
+    gap: 2em;
+}
+
+.info {
+    flex-grow: 1;
+}
+
+.toy {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    margin-top: 2em;
+
+    canvas {
+        border: solid 2px var(--navbar);
+        border-radius: 6pt 6pt 0 0;
+    }
+
+    span {
+        width: 100%;
+        text-align: right;
+        background-color: var(--navbar);
+        color: var(--subtext);
+        box-sizing: border-box;
+        padding: 3pt 0.5em;
+        border-radius: 0 0 6pt 6pt;
+    }
+}
+
 .links {
     list-style-type: none;
     padding-left: 1em;
+    width: min-content;
+
+    li {
+        display: inline-block;
+        min-width: max-content;
+    }
+}
+
+
+// Responsive stuff
+@media screen and (max-width: 1550px) {
+    main {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    main {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .toy {
+        margin-top: 0;
+    }
 }

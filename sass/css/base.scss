@@ -51,7 +51,7 @@ nav {
             box-sizing: border-box;
             border-top: solid 3px var(--navbar);
             border-bottom: solid 3px var(--navbar);
-            border-radius: 10px;
+            border-radius: 6pt;
         }
 
         a.current.inexact:hover {
@@ -106,8 +106,6 @@ a:hover {
     text-decoration-style: wavy;
     text-decoration-thickness: 1px;
 }
-
-
 
 // chrome only (will change whenever others support position-anchor!)
 @supports (position-anchor: --text) {

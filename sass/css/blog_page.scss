@@ -52,3 +52,12 @@ footer {
     justify-content: space-evenly;
     gap: 2em;
 }
+
+// Responsive stuff
+@media screen and (max-width: 1250px) {
+    main {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 2em;
+    }
+}
