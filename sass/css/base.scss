@@ -1,11 +1,9 @@
-@use 'colors_light' as *;
-
 body {
     font-family: "Linux libertine", serif;
     font-size: 17pt;
     margin: 0;
-    color: $text;
-    background-color: $base;
+    color: var(--text);
+    background-color: var(--base);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -17,16 +15,16 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $navbar;
+    background-color: var(--navbar);
     position: sticky;
     top: 0;
 
     .cat {
         aspect-ratio: 1;
         display: flex;
-        align-items: baseline;
+        align-items: center;
         justify-content: center;
-        translate: 0 2pt;
+        translate: 0 -3pt;
     }
 
     .left {
@@ -39,25 +37,45 @@ nav {
             display: flex;
             align-items: center;
             font-weight: bold;
-            color: $text;
+            color: var(--text);
             text-decoration: none;
             user-select: none;
         }
 
         a.current {
-            background-color: $base;
+            background-color: var(--base);
         }
 
         a:hover {
-            background-color: $nav_hover;
+            background-color: var(--nav_hover);
             text-decoration: underline;
             text-decoration-style: wavy;
+            text-decoration-thickness: 1px;
         }
     }
 
     .right {
+        height: 100%;
         display: flex;
         padding-right: 20px;
+        align-items: center;
+        gap: 5px;
+
+        #switch_theme {
+            font-size: 16pt;
+            height: 80%;
+            border-radius: 10px;
+            aspect-ratio: 1;
+            padding: 0;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: "Icons";
+        }
+
+        #switch_theme:hover {
+            background-color: var(--nav_hover);
+        }
     }
 }
 
@@ -66,12 +84,23 @@ content {
 }
 
 a {
-    color: $links;
+    color: var(--links);
     text-decoration: none;
-    text-decoration-style: wavy;
 }
 
 a:hover {
     text-decoration: underline;
     text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+}
+
+
+
+// chrome only (will change whenever others support position-anchor!)
+@supports (position-anchor: --text) {
+
+    // the cat appears a bit more up????
+    nav .cat {
+        translate: 0;
+    }
 }

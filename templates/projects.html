@@ -22,7 +22,9 @@
     {% set_global tags = tags | concat(with=project.extra.tags) %}
     <div class="project {{ project.extra.css_class }} {{ project.extra.tags | join(sep=' ')}}">
         {% if project.extra.img %}
-        <img src="{{ project.extra.img }}" />
+        {% set meta = get_image_metadata(path=project.extra.img, allow_missing=true) %}
+        <img src="{{ project.extra.img }}" {% if meta %}width="{{ meta.width }}" height="{{ meta.height }}" {% endif
+            %} />
         {% endif %}
         <div class="p_info">
             <a href="{{ project.extra.link }}">
@@ -34,8 +36,14 @@
     </div>
     {% endfor %}
 </div>
+<div class="end">
+    <span class="end_lines">&#8195;&#8195;&#8195;&#8195;&#8195;</span>
+    <pre class="end_cat">ᓚ₍ ^. .^₎</pre>
+    <span class="end_lines">&#8195;&#8195;&#8195;&#8195;&#8195;</span>
 
-{# Add all existing tags to a set, for use in js #}
+</div>
+
+{# Add all existing tags to a set, for use in js later #}
 <script>
     let tags = new Set(["{{ tags | join(sep = '", "') | safe}}"]);
 </script>

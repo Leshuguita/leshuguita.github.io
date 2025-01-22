@@ -1,0 +1,37 @@
+@mixin dark_colors {
+    --text: #cad3f5;
+    --links: #8aadf4;
+
+    --base: #24273a;
+    --navbar: #1e2030;
+    --nav_hover: #363a4f;
+}
+
+@mixin light_colors {
+    --text: #181926;
+    --links: #1e66f5;
+
+    --base: #eff1f5;
+    --navbar: #ccd0da;
+    --nav_hover: #e6e9ef;
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        @include dark_colors;
+    }
+}
+
+@media(prefers-color-scheme: light) {
+    :root {
+        @include light_colors;
+    }
+}
+
+:root.dark {
+    @include dark_colors;
+}
+
+:root.light {
+    @include light_colors;
+}

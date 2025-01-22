@@ -14,6 +14,7 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/colors.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/icon_font.css">
     {% block head %}{% endblock %}
@@ -28,7 +29,9 @@
             {{ self::tab(path="blog", key="blog") }}
         </div>
         <div class="right">
-            <!-- language switching -->
+            {# theme switching #}
+            <button id="switch_theme" onclick="toggle_colors()">...</button>
+            {# language switching #}
             {% for l,v in config.languages %}
             {% set t_url = current_path | regex_replace(pattern=`^/?(` ~ lang ~ `/)?`, rep="") %}
             <a href='{{ get_url(path=t_url, lang=l) }}'>{{ l }}</a>
@@ -38,6 +41,65 @@
     <content>
         {% block content %}{% endblock %}
     </content>
+    <script>
+        let button = document.getElementById("switch_theme");
+
+        // Set either light colors, or dark colors, depending on bool
+        function set_colors(dark) {
+            if (dark) {
+                document.documentElement.classList.remove("light");
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+                document.documentElement.classList.add("light");
+            }
+            update_button(dark);
+            save(dark);
+        }
+
+        function is_currently_dark() {
+            if (document.documentElement.classList.contains("light")) {
+                return false;
+            } else if (document.documentElement.classList.contains("dark")) {
+                return true;
+            } else {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        function update_button(dark) {
+            if (dark) {
+                button.innerHTML = "{{ config.extra.icons.sun }}";
+            } else {
+                button.innerHTML = "{{ config.extra.icons.moon }}";
+            }
+        }
+
+        function save(dark) {
+            let theme = "light";
+            if (dark) { theme = "dark"; }
+            document.defaultView.sessionStorage.setItem("theme", theme)
+        }
+
+        function read() {
+            let t = document.defaultView.sessionStorage.getItem("theme");
+            if (t) {
+                return t == "dark";
+            }
+            return null;
+        }
+
+        function toggle_colors() {
+            set_colors(!is_currently_dark());
+        }
+
+
+        set_colors(read() != null ? read() : is_currently_dark())
+    </script>
 </body>
 
 </html>
