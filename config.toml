@@ -34,7 +34,7 @@ to_top = "Volver arriba"
 [languages.en.translations]
 date_format = "%-d %B %Y"
 index = "Home"
-projects = "Proyects"
+projects = "Projects"
 blog = "Blog"
 page_name = "My page"
 
