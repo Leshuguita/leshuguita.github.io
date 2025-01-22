@@ -1,5 +1,6 @@
 @mixin dark_colors {
     --text: #cad3f5;
+    --subtext: #a5adcb;
     --links: #8aadf4;
 
     --base: #24273a;
@@ -9,6 +10,7 @@
 
 @mixin light_colors {
     --text: #181926;
+    --subtext: #5c5f77;
     --links: #1e66f5;
 
     --base: #eff1f5;

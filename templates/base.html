@@ -1,12 +1,20 @@
 {% import "macros.html" as macros %}
 
-
 {% macro tab(path, key) %}
 {% set u = get_url(path=path, lang=lang) ~ "/" %}
-<a href='{{ get_url(path=path, lang=lang) }}' {% if current_url==u %} class="current" {% endif %}>
+{% set is_current = current_url==u %}
+{# blog subpages also count for blog #}
+{% set starts_with = current_url is starting_with(u) %}
+{% set is_blog = key == "blog" %}
+<a href='{{ get_url(path=path, lang=lang) }}' {% if is_current or (is_blog and starts_with) %}
+    class="current {% if not is_current %}inexact{% endif%}" {% endif %}>
     {{trans(key=key, lang=lang)}}
 </a>
 {% endmacro tab %}
+
+{% block macros %}
+
+{% endblock %}
 
 <!DOCTYPE html>
 <html lang='{{ lang }}'>
@@ -38,9 +46,9 @@
             {% endfor %}
         </div>
     </nav>
-    <content>
+    <main>
         {% block content %}{% endblock %}
-    </content>
+    </main>
     <script>
         let button = document.getElementById("switch_theme");
 

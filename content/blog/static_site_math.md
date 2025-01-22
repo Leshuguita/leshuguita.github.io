@@ -25,3 +25,11 @@ pub fn a(x: u64) -> u64 {
 ```
 
 Lo ideal sería usar typst como fuente del contenido de las páginas de blog, que me gusta su sintaxis y puede hacer de tood lo que quiero, pero pasarlo a HTML no es tan fácil. Lo más razonable pareciera ser usar pandoc, aunque lo ideal sería que se termine de incorporar la salida en HTML al compilador de typst.
+
+# Que pasa si le pongo mas headers
+
+Porque se dibujan con `<h_:n>`, asumo
+
+---
+
+y divisiones de esas raras.

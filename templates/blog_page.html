@@ -4,13 +4,25 @@
 {{ page.title }}
 {% endblock title %}
 
+{% block head %}
+<link rel="stylesheet" href="/css/blog_page.css">
+{% endblock head %}
+
 {% block content %}
 <span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
-        < Blog</a></span>
+        {{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
 <h1 class="title">
     {{ page.title | markdown(inline=true) | safe }}
 </h1>
 <span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
+<hr class="start_rule">
 {{ page.content | safe }}
+<hr class="end_rule">
+<footer class="footer">
+    <span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
+            {{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
+    <span class="to_top"><a href="#"> {{ macros::smallicon(i="top") }} {{ trans(key="to_top", lang=lang)
+            }}</a></span>
+</footer>
 
 {% endblock content %}

@@ -18,6 +18,7 @@ nav {
     background-color: var(--navbar);
     position: sticky;
     top: 0;
+    z-index: 2;
 
     .cat {
         aspect-ratio: 1;
@@ -44,6 +45,18 @@ nav {
 
         a.current {
             background-color: var(--base);
+        }
+
+        a.current.inexact {
+            box-sizing: border-box;
+            border-top: solid 3px var(--navbar);
+            border-bottom: solid 3px var(--navbar);
+            border-radius: 10px;
+        }
+
+        a.current.inexact:hover {
+            border: none;
+            border-radius: 0;
         }
 
         a:hover {
@@ -79,7 +92,7 @@ nav {
     }
 }
 
-content {
+main {
     width: 60%;
 }
 

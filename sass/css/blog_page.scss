@@ -1,0 +1,54 @@
+main {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+h1.title {
+    margin: 0;
+}
+
+.date {
+    color: var(--subtext);
+}
+
+p {
+    margin: 1em;
+    text-indent: 1em;
+}
+
+hr {
+    border: none;
+    border-top: solid 1px;
+    margin: 0.5em 1em;
+    color: var(--subtext);
+}
+
+hr.start_rule,
+hr.end_rule {
+    line-height: 1px;
+    height: 2px;
+    overflow: visible;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+hr.end_rule {
+    scale: -1 1;
+}
+
+hr.start_rule:after,
+hr.end_rule:after {
+    content: "ᓚᘏᗢ";
+    background-color: var(--base);
+    display: inline;
+    padding: 0 0.5em;
+}
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2em;
+}
