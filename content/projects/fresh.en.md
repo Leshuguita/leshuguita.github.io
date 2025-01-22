@@ -9,3 +9,5 @@ img = "/img/fresh.webp"
 +++
 
 A very simple music player that works in the terminal, with no internal library. Instead, it gets all the data from the audio files themselves, every time.
+
+Also can shows lyrics, if the file has them.

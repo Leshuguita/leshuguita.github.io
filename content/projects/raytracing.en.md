@@ -9,3 +9,5 @@ img = "/img/raytraced.webp"
 +++
 
 A ray tracer written in Rust, following the ["Ray Tracing in One Weekend"](https://raytracing.github.io/books/RayTracingInOneWeekend.html) book.
+
+It calculates multiple rays in parallel, and supports focal distance an apperture. It also has matte, reflective and transparent spheres. Only spheres, though.

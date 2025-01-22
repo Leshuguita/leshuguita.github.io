@@ -9,3 +9,5 @@ img = "https://img.itch.zone/aW1nLzM5Njg2MjMucG5n/315x250%23c/SAb5wp.png"
 +++
 
 Una recreación del inicio de [Dweller's Empty Path](https://tuyoki.itch.io/dwellers-empty-path), un juego por Temmie Chang, usando los recursos sin usar que vienen con el juego.
+
+Está hecho en Godot, y tiene solo las primeras áreas del original.
