@@ -13,3 +13,12 @@
     user-select: none;
     font-size: 1.3em;
 }
+
+
+.icons_small {
+    font-family: Icons;
+    user-select: none;
+    font-size: 0.65em;
+    display: inline-block;
+    translate: 0 -2pt;
+}
