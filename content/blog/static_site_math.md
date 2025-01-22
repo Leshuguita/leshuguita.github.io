@@ -1,5 +1,5 @@
 ---
-title: Escribiendo un Generador de Sitios Estáticos
+title: Matemática y Sitios Estáticos
 date: 2025-1-21
 ---
 

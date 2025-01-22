@@ -23,7 +23,7 @@ Blog
         {% elif page.summary %}
         {# if there's no description, bun an explicit summary show that #}
 
-        <p>{{ page.summary | safe }}</p>
+        {{ page.summary | safe }}
         {% else %}
         {# shows the first paragraph as a preview #}
         {% set s = page.content | split(pat="</p>") %}

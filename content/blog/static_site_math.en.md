@@ -1,5 +1,5 @@
 ---
-title: Writing a Static Site Generator
+title: Math and Static Sites
 date: 2025-1-21
 ---
 
