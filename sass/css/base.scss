@@ -49,13 +49,14 @@ nav {
 
         a.current.inexact {
             box-sizing: border-box;
-            border-top: solid 3px var(--navbar);
-            border-bottom: solid 3px var(--navbar);
+            margin: 3px 0;
+            height: calc(100% - 6px);
             border-radius: 6pt;
         }
 
         a.current.inexact:hover {
-            border: none;
+            margin: 0;
+            height: 100%;
             border-radius: 0;
         }
 
@@ -72,12 +73,11 @@ nav {
         display: flex;
         padding-right: 10px;
         align-items: center;
-        gap: 5px;
 
         #switch_theme,
         a.switch_lang {
             font-size: 16pt;
-            height: 80%;
+            height: calc(100% - 6px);
             border-radius: 10px;
             aspect-ratio: 1;
             padding: 0;
