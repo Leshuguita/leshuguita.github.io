@@ -31,7 +31,8 @@ contact = "Contacto"
 
 to_top = "Volver arriba"
 
-boids = "Boids"
+tooltip_dark = "Cambiar a Modo Oscuro"
+tooltip_light = "Cambiar a Modo Claro"
 
 [languages.en.translations]
 date_format = "%-d %B %Y"
@@ -46,7 +47,8 @@ contact ="Contact"
 
 to_top = "Back to top"
 
-boids = "Boids"
+tooltip_dark = "Change to Dark Mode"
+tooltip_light = "Change to Light Mode"
 
 [extra.icons]
 github = "\U000f02a4"
@@ -58,3 +60,12 @@ sun = "\uf522"
 moon = "\uf4ee"
 back = "\U000F17B3"
 top = "\U000f0795"
+
+[extra.lang_icons]
+es = "🇪🇸"
+en = "🇬🇧"
+
+[extra.lang_tooltips]
+es = "Cambiar a Español"
+en = "Change to English"
+

@@ -1,5 +1,5 @@
 body {
-    font-family: "Linux libertine", serif;
+    font-family: "Linux Libertine O", "Linux libertine", "Garamond", serif;
     font-size: 17pt;
     margin: 0;
     color: var(--text);
@@ -70,11 +70,12 @@ nav {
     .right {
         height: 100%;
         display: flex;
-        padding-right: 20px;
+        padding-right: 10px;
         align-items: center;
         gap: 5px;
 
-        #switch_theme {
+        #switch_theme,
+        a.switch_lang {
             font-size: 16pt;
             height: 80%;
             border-radius: 10px;
@@ -86,9 +87,18 @@ nav {
             font-family: "Icons";
         }
 
-        #switch_theme:hover {
+        a.switch_lang {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: default;
+        }
+
+        #switch_theme:hover,
+        a.switch_lang:hover {
             background-color: var(--nav_hover);
         }
+
     }
 }
 

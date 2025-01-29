@@ -35,23 +35,24 @@
 </div>
 <div id="toy_container" class="toy">
     <canvas id="toy_canvas" width="500" height="375"></canvas>
-    <span id="canvas_caption">...</span>
+    <div class="toy_caption"><span id="canvas_text">...</span><span id="canvas_caption">...</span></div>
 </div>
 
 <script type="module" src="/toys.js"></script>
 <script type="module">
-    import init, { init_random_toy, update_toy, toy_id, toy_mouse_move } from '/toys.js';
+    import init, { init_random_toy, update_toy, toy_name, toy_url, toy_mouse_move, toy_text } from '/toys.js';
 
-    let ids_map = {
-        "boids": "{{ trans(key = 'boids', lang = lang) }}",
-    };
     let caption = document.getElementById("canvas_caption");
+    let text = document.getElementById("canvas_text");
 
     let last = null
     function update(t) {
         let ta = t / 1000.0
         update_toy("toy_canvas", ta - last);
         last = ta
+
+        text.innerHTML = toy_text("{{ lang }}");
+
         requestAnimationFrame(update);
     }
 
@@ -64,7 +65,23 @@
 
         init_random_toy("toy_canvas");
 
-        caption.innerHTML = ids_map[toy_id()];
+        let name = toy_name("{{ lang }}");
+        console.log(name);
+        let url = toy_url("{{ lang }}");
+
+        if (url != "") {
+            let n = document.createElement("a");
+            n.id = caption.id;
+            n.href = url;
+            n.innerHTML = name;
+            n.target = "_blank";
+            caption.replaceWith(n);
+        } else {
+            caption.innerHTML = name;
+
+        }
+
+
 
         requestAnimationFrame(update);
     }

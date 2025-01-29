@@ -19,7 +19,9 @@ main {
         border-radius: 6pt 6pt 0 0;
     }
 
-    span {
+    .toy_caption {
+        display: flex;
+        justify-content: space-between;
         width: 100%;
         text-align: right;
         background-color: var(--navbar);
@@ -27,6 +29,11 @@ main {
         box-sizing: border-box;
         padding: 3pt 0.5em;
         border-radius: 0 0 6pt 6pt;
+
+        a {
+            color: var(--subtext);
+            cursor: help;
+        }
     }
 }
 

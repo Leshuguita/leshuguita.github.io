@@ -1,5 +1,4 @@
 use std::{
-    char::MAX,
     f32::consts::PI,
     sync::{Arc, Mutex},
 };
@@ -121,11 +120,9 @@ impl Boid {
         self.vel += self.accel;
 
         if self.vel.length_squared() > Self::MAX_SPEED_SQ {
-            log("too fast");
             self.vel = self.vel.normalize_or_zero() * Self::MAX_SPEED;
         }
         if self.vel.length_squared() < Self::MIN_SPEED_SQ {
-            log("too slow");
             self.vel = self
                 .vel
                 .normalize_or(Vec2::from_angle(fastrand::f32() * 2.0 * PI))
@@ -214,8 +211,19 @@ impl Boids {
     }
 }
 impl Toy for Boids {
-    fn id(&self) -> &str {
-        "boids"
+    fn name(&self, _lang: &str) -> &str {
+        "Boids"
+    }
+    fn url(&self, lang: &str) -> &str {
+        match lang {
+            "es" => {
+                "https://es.wikipedia.org/wiki/Comportamiento_de_enjambre#Modelos_matem%C3%A1ticos"
+            }
+            _ => "https://en.wikipedia.org/wiki/Boids",
+        }
+    }
+    fn text(&self, _lang: &str) -> String {
+        String::new()
     }
     fn update(&mut self, ctx: &CanvasRenderingContext2d, delta: f32) {
         for boid in &self.boids {

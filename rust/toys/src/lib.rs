@@ -1,4 +1,5 @@
 mod boids;
+mod life;
 mod toy;
 mod utils;
 
@@ -23,12 +24,19 @@ pub fn init_random_toy(canvas_id: &str) {
     #[cfg(feature = "console_error_panic_hook")]
     console_error_panic_hook::set_once();
 
+    log("Initializing random toy");
+
     fastrand::seed(web_time::UNIX_EPOCH.elapsed().unwrap().as_secs());
 
     let canvas = canvas(canvas_id);
 
+    let random_init = Toys::random();
+    let toy = random_init(&canvas);
+
+    log(&format!("Toy chosen: {}", toy.name("en")));
+
     let mut t = TOY.lock().unwrap();
-    *t = Some(Toys::random(&canvas));
+    *t = Some(toy);
 }
 
 #[wasm_bindgen]
@@ -44,8 +52,18 @@ pub fn update_toy(canvas_id: &str, delta: f32) {
 }
 
 #[wasm_bindgen]
-pub fn toy_id() -> String {
-    TOY.lock().unwrap().as_ref().unwrap().id().to_string()
+pub fn toy_name(lang: &str) -> String {
+    TOY.lock().unwrap().as_ref().unwrap().name(lang).to_string()
+}
+
+#[wasm_bindgen]
+pub fn toy_url(lang: &str) -> String {
+    TOY.lock().unwrap().as_ref().unwrap().url(lang).to_string()
+}
+
+#[wasm_bindgen]
+pub fn toy_text(lang: &str) -> String {
+    TOY.lock().unwrap().as_ref().unwrap().text(lang)
 }
 
 #[wasm_bindgen]

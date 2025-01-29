@@ -42,7 +42,8 @@
             {# language switching #}
             {% for l,v in config.languages %}
             {% set t_url = current_path | regex_replace(pattern=`^/?(` ~ lang ~ `/)?`, rep="") %}
-            <a href='{{ get_url(path=t_url, lang=l) }}'>{{ l }}</a>
+            <a class="switch_lang" href='{{ get_url(path=t_url, lang=l) }}'
+                title='{{ config.extra.lang_tooltips[l] }}'>{{ config.extra.lang_icons[l] }}</a>
             {% endfor %}
         </div>
     </nav>
@@ -82,8 +83,10 @@
         function update_button(dark) {
             if (dark) {
                 button.innerHTML = "{{ config.extra.icons.sun }}";
+                button.title = "{{ trans(key='tooltip_light', lang=lang) }}";
             } else {
                 button.innerHTML = "{{ config.extra.icons.moon }}";
+                button.title = "{{ trans(key='tooltip_dark', lang=lang) }}";
             }
         }
 
