@@ -35,11 +35,53 @@
 </div>
 <div id="toy_container" class="toy">
     <canvas id="toy_canvas" width="500" height="375"></canvas>
-    <span id="canvas_caption>">Título del Juguete</span>
+    <span id="canvas_caption">...</span>
 </div>
 
-<script>
-    let toy = document.getElementById("toy_canvas");
+<script type="module" src="/toys.js"></script>
+<script type="module">
+    import init, { init_random_toy, update_toy, toy_id, toy_mouse_move } from '/toys.js';
+
+    let ids_map = {
+        "boids": "{{ trans(key = 'boids', lang = lang) }}",
+    };
+    let caption = document.getElementById("canvas_caption");
+
+    let last = null
+    function update(t) {
+        let ta = t / 1000.0
+        update_toy("toy_canvas", ta - last);
+        last = ta
+        requestAnimationFrame(update);
+    }
+
+    let did_init = false
+
+    async function run() {
+        await init();
+
+        did_init = true;
+
+        init_random_toy("toy_canvas");
+
+        caption.innerHTML = ids_map[toy_id()];
+
+        requestAnimationFrame(update);
+    }
+
+    let canvas = document.getElementById("toy_canvas");
+    document.addEventListener("mousemove", (evt) => {
+        // assumes canvas is untransformed!
+        if (did_init) {
+            let rect = canvas.getBoundingClientRect();
+            let x = evt.clientX - rect.left;
+            let y = evt.clientY - rect.top;
+            toy_mouse_move(x, y);
+        }
+    });
+
+    run();
+
 </script>
 
 {% endblock content %}
