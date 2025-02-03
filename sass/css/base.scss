@@ -32,7 +32,7 @@ nav {
         display: flex;
         height: 100%;
 
-        a {
+        .tab {
             height: 100%;
             padding: 0 0.5em;
             display: flex;
@@ -43,24 +43,24 @@ nav {
             user-select: none;
         }
 
-        a.current {
+        .tab.current {
             background-color: var(--base);
         }
 
-        a.current.inexact {
+        .tab.current.inexact {
             box-sizing: border-box;
             margin: 3px 0;
             height: calc(100% - 6px);
             border-radius: 6pt;
         }
 
-        a.current.inexact:hover {
+        a.tab.current.inexact:hover {
             margin: 0;
             height: 100%;
             border-radius: 0;
         }
 
-        a:hover {
+        a.tab:hover {
             background-color: var(--nav_hover);
             text-decoration: underline;
             text-decoration-style: wavy;

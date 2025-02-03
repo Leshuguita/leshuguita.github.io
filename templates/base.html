@@ -6,10 +6,16 @@
 {# blog subpages also count for blog #}
 {% set starts_with = current_url is starting_with(u) %}
 {% set is_blog = key == "blog" %}
-<a href='{{ get_url(path=path, lang=lang) }}' {% if is_current or (is_blog and starts_with) %}
-    class="current {% if not is_current %}inexact{% endif%}" {% endif %}>
+
+{% if is_current %}
+<span class="tab current">
+    {{trans(key=key, lang=lang)}}
+</span>
+{% else %}
+<a href='{{ get_url(path=path, lang=lang) }}' class="tab {% if is_blog and starts_with %}current inexact{% endif %}">
     {{trans(key=key, lang=lang)}}
 </a>
+{% endif %}
 {% endmacro tab %}
 
 {% block macros %}

@@ -1,18 +1,25 @@
-use std::{iter::FromIterator, mem::swap};
+use std::{collections::HashSet, iter::FromIterator, mem::swap};
 
 use glam::Vec2;
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 
-use crate::{log, toy::Toy, utils::get_css};
+use crate::{
+    log,
+    toy::Toy,
+    utils::{get_css, MouseButton},
+};
 
 pub struct Life {
-    // not efficient, ok for now
+    // Vec<Vec<>> is probably not efficient, ok for now
     new_cells: Vec<Vec<bool>>,
     cells: Vec<Vec<bool>>,
+    // queued_toggles
+    queued: HashSet<(usize, usize)>,
     width: usize,
     height: usize,
     last_update: f32,
     iter: usize,
+    mouse_pos: Option<Vec2>,
 }
 impl Life {
     const SCALE: f32 = 4.0;
@@ -34,17 +41,18 @@ impl Life {
         Self {
             new_cells: cells.clone(),
             cells,
+            queued: HashSet::new(),
             width,
             height,
             last_update: 0.0,
             iter: 0,
+            mouse_pos: None,
         }
     }
 
     fn get_cell(&self, pos: (usize, usize)) -> bool {
         self.cells[pos.0][pos.1]
     }
-
     fn set_cell(&mut self, pos: (usize, usize), alive: bool) {
         self.new_cells[pos.0][pos.1] = alive;
     }
@@ -66,7 +74,13 @@ impl Life {
         }
         count
     }
-
+    fn toggle_queued(&mut self) {
+        for pos in self.queued.drain() {
+            if pos.0 < self.width && pos.1 < self.height {
+                self.cells[pos.0][pos.1] = !self.cells[pos.0][pos.1];
+            }
+        }
+    }
     fn update_cell(&mut self, pos: (usize, usize)) {
         let neighbors = self.get_neighbor_count(pos);
         let alive = self.get_cell(pos);
@@ -142,6 +156,7 @@ impl Toy for Life {
 
         if self.last_update >= 1.0 / Self::UPDATES_PER_SECOND {
             // update all cells
+            self.toggle_queued();
             for (x, y) in self.get_cells() {
                 self.update_cell((x, y));
             }
@@ -155,5 +170,47 @@ impl Toy for Life {
         self.draw(ctx);
         self.last_update += delta;
     }
-    fn on_mouse_move(&mut self, _new_pos: Vec2) {}
+    fn on_mouse_move(&mut self, new_pos: Vec2, pressed: HashSet<MouseButton>) {
+        if let Some(mouse_pos) = self.mouse_pos {
+            if !pressed.is_empty() {
+                let scaled = mouse_pos / Self::SCALE;
+                let scaled_new = mouse_pos / Self::SCALE;
+
+                let points = int_line_between(scaled, scaled_new);
+                self.queued.extend(points);
+            }
+        }
+        self.mouse_pos = Some(new_pos);
+    }
+    fn on_mouse_click(&mut self, pos: Vec2, _button: MouseButton) {
+        let clicked_cell = (pos / Self::SCALE).floor();
+        self.queued
+            .insert((clicked_cell.x as usize, clicked_cell.y as usize));
+    }
+}
+
+fn int_line_between(from: Vec2, to: Vec2) -> HashSet<(usize, usize)> {
+    let diff: Vec2 = to - from;
+    let i_from = from.floor();
+    let i_to = to.floor();
+
+    let mut out = HashSet::new();
+
+    if diff.x == 0.0 {
+        let slope = diff.x / diff.y;
+
+        for y in (i_from.y as usize)..=(i_to.y as usize) {
+            let x = i_from.x as usize + (slope * y as f32).floor() as usize;
+            out.insert((x, y));
+        }
+    } else {
+        let slope = diff.y / diff.x;
+
+        for x in (i_from.x.floor() as usize)..=(i_to.x.floor() as usize) {
+            let y = i_from.y as usize + (slope * x as f32).floor() as usize;
+            out.insert((x, y));
+        }
+    }
+
+    out
 }

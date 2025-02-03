@@ -1,4 +1,6 @@
-use crate::{boids::Boids, life::Life};
+use std::collections::HashSet;
+
+use crate::{boids::Boids, life::Life, utils::MouseButton};
 use glam::Vec2;
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 
@@ -42,10 +44,17 @@ impl Toy for Toys {
         }
     }
 
-    fn on_mouse_move(&mut self, new_pos: Vec2) {
+    fn on_mouse_move(&mut self, new_pos: Vec2, pressed: HashSet<MouseButton>) {
         match self {
-            Self::Boids(b) => b.on_mouse_move(new_pos),
-            Self::Life(l) => l.on_mouse_move(new_pos),
+            Self::Boids(b) => b.on_mouse_move(new_pos, pressed),
+            Self::Life(l) => l.on_mouse_move(new_pos, pressed),
+        }
+    }
+
+    fn on_mouse_click(&mut self, pos: Vec2, button: MouseButton) {
+        match self {
+            Self::Boids(b) => b.on_mouse_click(pos, button),
+            Self::Life(l) => l.on_mouse_click(pos, button),
         }
     }
 }
@@ -63,5 +72,7 @@ pub trait Toy {
     fn update(&mut self, ctx: &CanvasRenderingContext2d, delta: f32);
     /// What to do if the mouse moves
     /// each toy is responsible of keeping track of the mouse position if needed
-    fn on_mouse_move(&mut self, new_pos: Vec2);
+    fn on_mouse_move(&mut self, new_pos: Vec2, pressed: HashSet<MouseButton>);
+    /// What to do if the mouse is clicked
+    fn on_mouse_click(&mut self, pos: Vec2, button: MouseButton);
 }

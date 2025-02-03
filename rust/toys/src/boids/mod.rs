@@ -1,9 +1,14 @@
 use std::{
+    collections::HashSet,
     f32::consts::PI,
     sync::{Arc, Mutex},
 };
 
-use crate::{log, toy::Toy, utils::get_css};
+use crate::{
+    log,
+    toy::Toy,
+    utils::{get_css, MouseButton},
+};
 use glam::Vec2;
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 
@@ -239,7 +244,7 @@ impl Toy for Boids {
             boid.lock().unwrap().draw(ctx);
         }
     }
-    fn on_mouse_move(&mut self, new_pos: Vec2) {
+    fn on_mouse_move(&mut self, new_pos: Vec2, _pressed: HashSet<MouseButton>) {
         if new_pos.x < 0.0
             || new_pos.x > self.canvas_size.x
             || new_pos.y < 0.0
@@ -250,4 +255,5 @@ impl Toy for Boids {
             self.mouse_pos = Some(new_pos);
         }
     }
+    fn on_mouse_click(&mut self, _pos: Vec2, _button: MouseButton) {}
 }

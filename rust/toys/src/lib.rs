@@ -7,6 +7,7 @@ use std::sync::Mutex;
 
 use glam::Vec2;
 use toy::{Toy, Toys};
+use utils::MouseButton;
 use wasm_bindgen::prelude::*;
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 
@@ -68,12 +69,23 @@ pub fn toy_text(lang: &str) -> String {
 
 #[wasm_bindgen]
 /// tell the toy that the mouse moved, with its new position relative to the canvas
-pub fn toy_mouse_move(new_x: f32, new_y: f32) {
+pub fn toy_mouse_move(new_x: f32, new_y: f32, pressed: u8) {
     TOY.lock()
         .unwrap()
         .as_mut()
         .unwrap()
-        .on_mouse_move(Vec2::new(new_x, new_y));
+        .on_mouse_move(Vec2::new(new_x, new_y), MouseButton::from_buttons(pressed));
+}
+
+#[wasm_bindgen]
+/// tell the toy that a click happened with its new position relative to the canvas and the button
+/// 0: left, 1: middle, 2: right
+pub fn toy_mouse_click(x: f32, y: f32, button: u8) {
+    TOY.lock()
+        .unwrap()
+        .as_mut()
+        .unwrap()
+        .on_mouse_click(Vec2::new(x, y), MouseButton::from(button));
 }
 
 fn ctx(canvas: &HtmlCanvasElement) -> CanvasRenderingContext2d {

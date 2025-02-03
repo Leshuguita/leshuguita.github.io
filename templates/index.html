@@ -40,7 +40,7 @@
 
 <script type="module" src="/toys.js"></script>
 <script type="module">
-    import init, { init_random_toy, update_toy, toy_name, toy_url, toy_mouse_move, toy_text } from '/toys.js';
+    import init, { init_random_toy, update_toy, toy_name, toy_url, toy_mouse_move, toy_mouse_click, toy_text } from '/toys.js';
 
     let caption = document.getElementById("canvas_caption");
     let text = document.getElementById("canvas_text");
@@ -80,20 +80,20 @@
             caption.innerHTML = name;
 
         }
-
-
-
         requestAnimationFrame(update);
     }
 
     let canvas = document.getElementById("toy_canvas");
+    canvas.addEventListener("click", (evt) => {
+        toy_mouse_click(evt.offsetX, evt.offsetY, evt.button);
+    });
     document.addEventListener("mousemove", (evt) => {
         // assumes canvas is untransformed!
         if (did_init) {
             let rect = canvas.getBoundingClientRect();
             let x = evt.clientX - rect.left;
             let y = evt.clientY - rect.top;
-            toy_mouse_move(x, y);
+            toy_mouse_move(x, y, evt.buttons);
         }
     });
 
