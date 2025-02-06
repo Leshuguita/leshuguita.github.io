@@ -7,7 +7,9 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+feed_filenames = ["atom.xml", "rss.xml"]
 default_language = "es"
+author = "Leshu"
 
 [markdown]
 # Whether to do syntax highlighting
@@ -30,6 +32,8 @@ about_me = "Algo sobre mi, nose"
 contact = "Contacto"
 
 to_top = "Volver arriba"
+atom_feed = "Feed de Atom"
+rss_feed = "Feed de RSS"
 
 tooltip_dark = "Cambiar a Modo Oscuro"
 tooltip_light = "Cambiar a Modo Claro"
@@ -51,6 +55,8 @@ about_me = "dunno nose"
 contact ="Contact"
 
 to_top = "Back to top"
+atom_feed = "Atom feed"
+rss_feed = "RSS feed"
 
 tooltip_dark = "Change to Dark Mode"
 tooltip_light = "Change to Light Mode"
@@ -70,6 +76,8 @@ sun = "\uf522"
 moon = "\uf4ee"
 back = "\U000F17B3"
 top = "\U000f0795"
+atom = "\ue764"
+rss = "\uf09e"
 
 [extra.lang_icons]
 es = "🇪🇸"

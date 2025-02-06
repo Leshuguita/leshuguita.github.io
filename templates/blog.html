@@ -6,13 +6,27 @@ Blog
 
 {% block head %}
 <link rel="stylesheet" href="/css/blog.css">
+<link rel="alternate" type="application/atom+xml" title="Atom"
+    href="{{ get_url(path=current_path ~ 'atom.xml', trailing_slash=false) }}">
+<link rel="alternate" type="application/rss+xml" title="RSS"
+    href="{{ get_url(path=current_path ~ 'rss.xml', trailing_slash=false) }}">
 {% endblock head %}
 
 {% block content %}
 
-<h1 class="title">
-    {{ section.title }}
-</h1>
+<header>
+    <h1 class="title">
+        {{ section.title }}
+    </h1>
+    <div class="feeds">
+        <a id="atom_link" title="{{ trans(key='atom_feed', lang=lang) }}"
+            href="{{ get_url(path=current_path ~ 'atom.xml', trailing_slash=false) }}"> Atom {{
+            macros::smallicon(i="atom") }}</a>
+        <a id="rss_link" title="{{ trans(key='rss_feed', lang=lang) }}"
+            href="{{ get_url(path=current_path ~ 'rss.xml', trailing_slash=false) }}">RSS {{
+            macros::smallicon(i="rss") }}</a>
+    </div>
+</header>
 
 <div class="blog_entries">
     {% for page in section.pages %}

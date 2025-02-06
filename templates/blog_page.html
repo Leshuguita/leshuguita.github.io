@@ -6,7 +6,15 @@
 
 {% block head %}
 <link rel="stylesheet" href="/css/blog_page.css">
+<meta name="author" content="
+	{% if page.authors %}
+		{{ page.authors | join(sep=', ') }}
+	{% else %}
+		{{ config.author }}
+	{% endif %}
+">
 {% if page.extra.math %}
+
 {# katex stylesheet #}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
 	integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
@@ -34,14 +42,18 @@
 {% endblock head %}
 
 {% block content %}
-<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
-		{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
-<h1 class="title">
-	{{ page.title | markdown(inline=true) | safe }}
-</h1>
-<span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
+<header>
+	<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
+			{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
+	<h1 class="title">
+		{{ page.title | markdown(inline=true) | safe }}
+	</h1>
+	<span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
+</header>
 <hr class="start_rule">
-{{ page.content | safe }}
+<article>
+	{{ page.content | safe }}
+</article>
 <hr class="end_rule">
 <footer class="footer">
 	<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
