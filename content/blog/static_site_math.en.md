@@ -1,7 +1,9 @@
----
-title: Math and Static Sites
-date: 2025-1-21
----
++++
+title = "Math and Static Sites"
+date = 2025-01-21
+[extra]
+math = true
++++
 
 First off... why?<br>
 Math.<br>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ trans(key="title_404", lang=lang) }}
+{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" href="/css/404.css">
+{% endblock head %}
+
+{% block content %}
+<h2 id="title">
+    {{ trans(key="title_404", lang=lang) }}
+</h2>
+<div id="text">
+    {{ trans(key="body_404", lang=lang) }}
+</div>
+<a id="back_link">{{ macros::smallicon(i="back") }} <span id="back">{{ trans(key="back_404", lang=lang) }}</span></a>
+{# since 404 page uses the default lang only, translate it client-side #}
+<script>
+    document.getElementById("back_link").href = document.referrer;
+    if (current_lang) {
+        document.title = trans("title_404");
+        document.getElementById("title").textContent = trans("title_404");
+
+        document.getElementById("back").textContent = trans("back_404");
+    }
+    let text = document.getElementById("text")
+    if (langless_path(current_path()).startsWith("/blog")) {
+        if (current_lang) {
+            text.textContent = trans("blog_404");
+        } else {
+            text.textContent = "{{ trans(key = 'blog_404', lang = lang) }}";
+        }
+    } else if (current_lang) {
+        text.textContent = trans("body_404");
+    }
+</script>
+{% endblock content %}

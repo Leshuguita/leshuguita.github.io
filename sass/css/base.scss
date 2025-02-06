@@ -41,6 +41,7 @@ nav {
             color: var(--text);
             text-decoration: none;
             user-select: none;
+            white-space: nowrap;
         }
 
         .tab.current {

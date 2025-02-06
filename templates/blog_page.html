@@ -6,23 +6,48 @@
 
 {% block head %}
 <link rel="stylesheet" href="/css/blog_page.css">
+{% if page.extra.math %}
+{# katex stylesheet #}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+	integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+{# katex js #}
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+	integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh"
+	crossorigin="anonymous"></script>
+{# katex auto-render #}
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+	integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+	crossorigin="anonymous"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		renderMathInElement(document.body, {
+			delimiters: [
+				{ left: '$$', right: '$$', display: true },
+				{ left: '$', right: '$', display: false }
+			],
+			throwOnError: false
+		});
+	});
+</script>
+{% endif %}
 {% endblock head %}
 
 {% block content %}
 <span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
-        {{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
+		{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
 <h1 class="title">
-    {{ page.title | markdown(inline=true) | safe }}
+	{{ page.title | markdown(inline=true) | safe }}
 </h1>
 <span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
 <hr class="start_rule">
 {{ page.content | safe }}
 <hr class="end_rule">
 <footer class="footer">
-    <span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
-            {{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
-    <span class="to_top"><a href="#"> {{ macros::smallicon(i="top") }} {{ trans(key="to_top", lang=lang)
-            }}</a></span>
+	<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
+			{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
+	<span class="to_top"><a href="#"> {{ macros::smallicon(i="top") }} {{ trans(key="to_top", lang=lang)
+			}}</a></span>
 </footer>
 
 {% endblock content %}

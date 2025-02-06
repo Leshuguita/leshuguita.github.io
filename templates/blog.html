@@ -16,7 +16,7 @@ Blog
 
 <div class="blog_entries">
     {% for page in section.pages %}
-    <div class="blog_entry"><a href="{{ page.permalink | safe }}">
+    <article class="blog_entry"><a href="{{ page.permalink | safe }}">
             <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
         </a>
         <span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
@@ -34,7 +34,7 @@ Blog
         {% set o = s[0] ~ "</p>" %}
         {{ o | safe }}
         {% endif %}
-    </div>
+    </article>
     {% endfor %}
 </div>
 

@@ -1,7 +1,9 @@
----
-title: Matemática y Sitios Estáticos
-date: 2025-1-21
----
++++
+title = "Matemática y Sitios Estáticos"
+date = 2025-01-21
+[extra]
+math = true
++++
 
 Primero que nada, ¿Por qué?<br>
 Matemática.<br>
@@ -10,7 +12,9 @@ Porque quiero matemática.
 
 En este momento, estoy usando Zola, que si bien es muy bonito, no soporta renderizar ecuaciones al generar el sitio a partir de markdown:
 
-$\frac{a}{b} = c$
+$$
+\frac{a}{b} = c
+$$
 
 Podría usar MathJax o KaTeX para dibujarlas en el navegador, pero no me hace mucho sentido, si igual estoy generando todo el resto del sitio antes.
 

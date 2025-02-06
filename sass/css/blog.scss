@@ -1,3 +1,9 @@
+.blog_entries {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}
+
 .blog_entry {
     border-left: solid 3px var(--subtext);
     padding-left: 1em;

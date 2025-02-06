@@ -1,11 +1,14 @@
 {% import "macros.html" as macros %}
 
 {% macro tab(path, key) %}
+
+{% if current_url %}
 {% set u = get_url(path=path, lang=lang) ~ "/" %}
 {% set is_current = current_url==u %}
 {# blog subpages also count for blog #}
 {% set starts_with = current_url is starting_with(u) %}
 {% set is_blog = key == "blog" %}
+
 
 {% if is_current %}
 <span class="tab current">
@@ -13,6 +16,13 @@
 </span>
 {% else %}
 <a href='{{ get_url(path=path, lang=lang) }}' class="tab {% if is_blog and starts_with %}current inexact{% endif %}">
+    {{trans(key=key, lang=lang)}}
+</a>
+{% endif %}
+
+{% else %}
+
+<a href='{{ get_url(path=path, lang=lang) }}' t_key="{{key}}" class="tab">
     {{trans(key=key, lang=lang)}}
 </a>
 {% endif %}
@@ -32,6 +42,48 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/icon_font.css">
     {% block head %}{% endblock %}
+    {% if not current_path %}
+    {# client-side translation stuff #}
+    <script>
+        // the string avoids vscode auto format
+        // should really just configure vscode properly instead
+        let translations = JSON.parse(`{
+     
+            {% for l, stuff in config.languages %}
+            "{{l}}": {{ stuff.translations | json_encode() | safe }}
+            {% if not loop.last %},{% endif %}
+            {% endfor %}
+        }`);
+
+        let current_lang = lang();
+        function lang() {
+            let c = current_path().split("/")[1]
+            if (c in translations) {
+                return c;
+            } else {
+                return "";
+            }
+        }
+        function lang_path(l, path) {
+            let p = langless_path(path)
+            console.log(p)
+            if (l && l != "es") {
+                return `/${l}${p}`
+            } else {
+                return `${p}`;
+            }
+        }
+        function langless_path(path) {
+            return path.replace(new RegExp(`^\/${current_lang}\/`), "/")
+        }
+        function current_path() {
+            return window.location.pathname
+        }
+        function trans(key) {
+            return translations[current_lang][key]
+        }
+    </script>
+    {% endif %}
 </head>
 
 <body>
@@ -47,10 +99,22 @@
             <button id="switch_theme" onclick="toggle_colors()">...</button>
             {# language switching #}
             {% for l,v in config.languages %}
+            {% if current_path %}
+
             {% set t_url = current_path | regex_replace(pattern=`^/?(` ~ lang ~ `/)?`, rep="") %}
             <a class="switch_lang" href='{{ get_url(path=t_url, lang=l) }}'
                 title='{{ config.extra.lang_tooltips[l] }}'>{{ config.extra.lang_icons[l] }}</a>
+
+            {% else %}
+
+            <a class="switch_lang" lang="{{ l }}" title='{{ config.extra.lang_tooltips[l] }}'>{{
+                config.extra.lang_icons[l]
+                }}</a>
+
+            {% endif %}
             {% endfor %}
+
+
         </div>
     </nav>
     <main>
@@ -89,11 +153,21 @@
         function update_button(dark) {
             if (dark) {
                 button.innerHTML = "{{ config.extra.icons.sun }}";
+                {% if current_path %}
                 button.title = "{{ trans(key='tooltip_light', lang=lang) }}";
+                {% endif %}
             } else {
                 button.innerHTML = "{{ config.extra.icons.moon }}";
+                {% if current_path %}
                 button.title = "{{ trans(key='tooltip_dark', lang=lang) }}";
+                {% endif %}
             }
+            {% if not current_path %}
+            if (typeof set_theme_button_tooltip != "undefined") {
+                set_theme_button_tooltip()
+            }
+            {% endif %}
+
         }
 
         function save(dark) {
@@ -117,6 +191,56 @@
 
         set_colors(read() != null ? read() : is_currently_dark())
     </script>
+    {% if not current_path %}
+    {# if there's no current path, translations must be done client-side #}
+    <script>
+        let flags = {{ config.extra.lang_icons | json_encode() | safe }};
+        let tips = {{ config.extra.lang_tooltips | json_encode() | safe }};
+        function set_lang_href(element, l) {
+            console.log(element)
+            console.log(lang_path(l, current_path()))
+            element.href = lang_path(l, current_path())
+            element.innerHTML = flags[l]
+            element.title = tips[l]
+        }
+        // switch lang buttons
+        let langs = document.getElementsByClassName("switch_lang")
+        console.log(langs)
+        for (let i = 0; i < langs.length; i++) {
+            let elem = langs.item(i);
+            let lang = Object.keys(translations)[i]
+            if (lang == current_lang) {
+                set_lang_href(elem, "es");
+            } else {
+                set_lang_href(elem, lang);
+            }
+        }
+        // switch tab names and paths
+
+        if (current_lang) {
+            let tabs = document.getElementsByClassName("tab");
+            for (let i = 0; i < tabs.length; i++) {
+                let elem = tabs.item(i);
+                elem.textContent = trans(elem.getAttribute("t_key"))
+                let u = new URL(elem.href)
+                elem.href = lang_path(current_lang, u.pathname)
+            }
+        }
+        // switch theme button
+        function set_theme_button_tooltip() {
+            if (current_lang) {
+                let switch_theme = document.getElementById("switch_theme");
+                if (is_currently_dark()) {
+                    switch_theme.title = trans("tooltip_light");
+                } else {
+                    switch_theme.title = trans("tooltip_dark");
+                }
+            }
+        }
+        set_theme_button_tooltip()
+
+    </script>
+    {% endif %}
 </body>
 
 </html>

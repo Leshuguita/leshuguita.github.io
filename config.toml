@@ -34,6 +34,11 @@ to_top = "Volver arriba"
 tooltip_dark = "Cambiar a Modo Oscuro"
 tooltip_light = "Cambiar a Modo Claro"
 
+title_404 = "Página no existe"
+body_404 = "La página pedida no existe."
+blog_404 = "La entrada de blog pedida no existe, o no tiene versión en español."
+back_404 = "Volver a la página anterior"
+
 [languages.en.translations]
 date_format = "%-d %B %Y"
 index = "Home"
@@ -49,6 +54,11 @@ to_top = "Back to top"
 
 tooltip_dark = "Change to Dark Mode"
 tooltip_light = "Change to Light Mode"
+
+title_404 = "Page not found"
+body_404 = "The requested page does not exist."
+blog_404 = "The requested blog entry doesn't exist, or doesn't have a version in english."
+back_404 = "Back to previous page"
 
 [extra.icons]
 github = "\U000f02a4"
@@ -67,5 +77,5 @@ en = "🇬🇧"
 
 [extra.lang_tooltips]
 es = "Cambiar a Español"
-en = "Change to English"
+en = "Switch to English"
 
