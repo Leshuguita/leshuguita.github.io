@@ -1,6 +1,7 @@
 +++
 title = "Matemática y Sitios Estáticos"
 date = 2025-01-21
+draft = true
 [extra]
 math = true
 +++
