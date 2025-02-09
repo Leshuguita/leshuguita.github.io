@@ -10,11 +10,24 @@
 
 {% block content %}
 <div class="info">
+    <section>
     <h1 class="title">
         {{ trans(key="index_title", lang=lang) }}
     </h1>
     {{ trans(key="about_me", lang=lang) }}
-
+    </section>
+    <section>
+    <h2 class="links_title">
+        {{ trans(key="links", lang=lang) }}
+    </h2>
+    <ul class="links">
+        <li>
+            {{ macros::bigicon(i="git") }}
+            <a href="https://github.com/leshuguita/leshuguita.github.io">{{ trans(key="website_repo", lang=lang) }}</a>
+        </li>
+    </ul>
+    </section>
+    <section>
     <h2 class="contact">
         {{ trans(key="contact", lang=lang) }}
     </h2>
@@ -32,6 +45,7 @@
             <a href="mailto:leshuguita.saiyan@gmail.com">leshuguita.saiyan@gmail.com</a>
         </li>
     </ul>
+    </section>
 </div>
 <aside id="toy_container" class="toy">
     <canvas id="toy_canvas" width="500" height="375"></canvas>

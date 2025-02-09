@@ -30,7 +30,9 @@ Blog
 
 <div class="blog_entries">
     {% for page in section.pages %}
-    <article class="blog_entry"><a href="{{ page.permalink | safe }}">
+    <article class="blog_entry">
+        <div class="blog_data">
+        <a href="{{ page.permalink | safe }}">
             <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
         </a>
         <span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
@@ -47,6 +49,12 @@ Blog
         {% set s = page.content | split(pat="</p>") %}
         {% set o = s[0] ~ "</p>" %}
         {{ o | safe }}
+        {% endif %}
+        </div>
+        {% if page.extra.cover_img %}
+        <div class="img_column">
+            <img src="{{ page.extra.cover_img }}"/>
+        </div>
         {% endif %}
     </article>
     {% endfor %}

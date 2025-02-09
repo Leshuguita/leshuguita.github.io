@@ -173,11 +173,11 @@
         function save(dark) {
             let theme = "light";
             if (dark) { theme = "dark"; }
-            document.defaultView.sessionStorage.setItem("theme", theme)
+            document.defaultView.localStorage.setItem("theme", theme)
         }
 
         function read() {
-            let t = document.defaultView.sessionStorage.getItem("theme");
+            let t = document.defaultView.localStorage.getItem("theme");
             if (t) {
                 return t == "dark";
             }

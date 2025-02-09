@@ -29,7 +29,9 @@ page_name = "Mi pagina"
 
 index_title = "Sobre Mi"
 about_me = "Algo sobre mi, nose"
+links ="Enlaces"
 contact = "Contacto"
+website_repo = "Repositorio de este sitio"
 
 to_top = "Volver arriba"
 atom_feed = "Feed de Atom"
@@ -52,7 +54,9 @@ page_name = "My page"
 
 index_title = "About Me"
 about_me = "dunno nose"
+links ="Links"
 contact ="Contact"
+website_repo = "Repoistory for this website"
 
 to_top = "Back to top"
 atom_feed = "Atom feed"
@@ -67,6 +71,7 @@ blog_404 = "The requested blog entry doesn't exist, or doesn't have a version in
 back_404 = "Back to previous page"
 
 [extra.icons]
+git = "\ue702"
 github = "\U000f02a4"
 codeberg = "\uf330"
 mail = "\uf0e0"
