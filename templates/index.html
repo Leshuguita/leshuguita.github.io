@@ -14,7 +14,7 @@
     <h1 class="title">
         {{ trans(key="index_title", lang=lang) }}
     </h1>
-    {{ trans(key="about_me", lang=lang) }}
+    {{ trans(key="about_me", lang=lang) | safe }}
     </section>
     <section>
     <h2 class="links_title">
@@ -47,9 +47,14 @@
     </ul>
     </section>
 </div>
-<aside id="toy_container" class="toy">
-    <canvas id="toy_canvas" width="500" height="375"></canvas>
-    <div class="toy_caption"><span id="canvas_text">...</span><span id="canvas_caption">...</span></div>
+<aside>
+    <div id="toy_container" class="toy">
+        <canvas id="toy_canvas" width="500" height="375"></canvas>
+        <div class="toy_caption"><span id="canvas_text">...</span><span id="canvas_caption">...</span></div>
+    </div>
+    <div class="counter">
+        <img src="https://count.ayaya.beauty/@kirby765?theme=green&padding=3" title="{{ trans(key='visits', lang=lang) }}"/>
+    </div>
 </aside>
 
 <script type="module" src="/toys.js"></script>
