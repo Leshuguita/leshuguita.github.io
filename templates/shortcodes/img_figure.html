@@ -1,6 +1,6 @@
 <figure>
-<img src="{{ url }}"/>
-<figcaption>
-{{ body }}
-</figcaption>
+    <img src="{{ url }}" />
+    <figcaption>
+        {{ body | markdown | safe }}
+    </figcaption>
 </figure>
