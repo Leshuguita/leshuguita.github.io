@@ -12,13 +12,12 @@ default_language = "es"
 author = "Leshu"
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+# give css classes to highlighted code
 highlight_code = true
-highlight_theme = "gruvbox-dark"
-# Whether smart punctuation is enabled (changing quotes, dashes, dots in their typographic form)
-# For example, `...` into `…`, `"quote"` into `“curly”` etc
+highlight_theme = "css"
+# `...` into `…`, `"quote"` into `“curly”` etc
 smart_punctuation = true
+render_emoji = true
 
 [translations]
 date_format = "%d-%m-%Y"

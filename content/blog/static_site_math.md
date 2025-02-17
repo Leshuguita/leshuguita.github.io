@@ -23,7 +23,7 @@ Tambien hay otras cositas que me gustaría tener, que tienen que ver mas bien co
 - en ecuaciones, imágenes y quizas en bloques de código
 - Que los colores del código dependan de css, en vez de venir en la página al generarla
 
-```rust
+```rust,linenos,linenostart=9
 pub fn a(x: u64) -> u64 {
     x * 3
 }
