@@ -11,40 +11,41 @@
 {% block content %}
 <div class="info">
     <section>
-    <h1 class="title">
-        {{ trans(key="index_title", lang=lang) }}
-    </h1>
-    {{ trans(key="about_me", lang=lang) | safe }}
+        <h1 class="title">
+            {{ trans(key="index_title", lang=lang) }}
+        </h1>
+        {{ trans(key="about_me", lang=lang) | safe }}
     </section>
     <section>
-    <h2 class="links_title">
-        {{ trans(key="links", lang=lang) }}
-    </h2>
-    <ul class="links">
-        <li>
-            {{ macros::bigicon(i="git") }}
-            <a href="https://github.com/leshuguita/leshuguita.github.io">{{ trans(key="website_repo", lang=lang) }}</a>
-        </li>
-    </ul>
+        <h2 class="links_title">
+            {{ trans(key="links", lang=lang) }}
+        </h2>
+        <ul class="links">
+            <li>
+                {{ macros::bigicon(i="git") }}
+                <a href="https://github.com/leshuguita/leshuguita.github.io">{{ trans(key="website_repo", lang=lang)
+                    }}</a>
+            </li>
+        </ul>
     </section>
     <section>
-    <h2 class="contact">
-        {{ trans(key="contact", lang=lang) }}
-    </h2>
-    <ul class="links">
-        <li>
-            {{ macros::bigicon(i="github") }}
-            <a href="https://github.com/leshuguita">https://github.com/leshuguita</a>
-        </li>
-        <li>
-            {{ macros::bigicon(i="codeberg") }}
-            <a href="https://codeberg.org/leshuguita">https://codeberg.org/leshuguita</a>
-        </li>
-        <li>
-            {{ macros::bigicon(i="mail") }}
-            <a href="mailto:leshuguita.saiyan@gmail.com">leshuguita.saiyan@gmail.com</a>
-        </li>
-    </ul>
+        <h2 class="contact">
+            {{ trans(key="contact", lang=lang) }}
+        </h2>
+        <ul class="links">
+            <li>
+                {{ macros::bigicon(i="github") }}
+                <a href="https://github.com/leshuguita">https://github.com/leshuguita</a>
+            </li>
+            <li>
+                {{ macros::bigicon(i="codeberg") }}
+                <a href="https://codeberg.org/leshuguita">https://codeberg.org/leshuguita</a>
+            </li>
+            <li>
+                {{ macros::bigicon(i="mail") }}
+                <a href="mailto:leshuguita.saiyan@gmail.com">leshuguita.saiyan@gmail.com</a>
+            </li>
+        </ul>
     </section>
 </div>
 <aside>
@@ -53,7 +54,8 @@
         <div class="toy_caption"><span id="canvas_text">...</span><span id="canvas_caption">...</span></div>
     </div>
     <div class="counter">
-        <img src="https://count.ayaya.beauty/@kirby765?theme=green&padding=3" title="{{ trans(key='visits', lang=lang) }}"/>
+        <img src="https://count.ayaya.beauty/@kirby765?theme=green&padding=3"
+            title="{{ trans(key='visits', lang=lang) }}" />
     </div>
 </aside>
 
@@ -85,7 +87,6 @@
         init_random_toy("toy_canvas");
 
         let name = toy_name("{{ lang }}");
-        console.log(name);
         let url = toy_url("{{ lang }}");
 
         if (url != "") {

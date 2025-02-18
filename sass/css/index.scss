@@ -54,6 +54,7 @@ aside {
     border-radius: 3px;
     align-self: center;
     padding: 3px;
+    user-select: none;
 }
 
 .links {
@@ -83,9 +84,11 @@ aside {
         flex-direction: column;
         gap: 1em;
     }
+
     .toy {
         margin-top: 0;
     }
+
     aside {
         margin: auto;
     }

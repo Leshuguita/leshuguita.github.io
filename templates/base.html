@@ -66,7 +66,6 @@
         }
         function lang_path(l, path) {
             let p = langless_path(path)
-            console.log(p)
             if (l && l != "es") {
                 return `/${l}${p}`
             } else {
@@ -197,15 +196,13 @@
         let flags = {{ config.extra.lang_icons | json_encode() | safe }};
         let tips = {{ config.extra.lang_tooltips | json_encode() | safe }};
         function set_lang_href(element, l) {
-            console.log(element)
-            console.log(lang_path(l, current_path()))
+
             element.href = lang_path(l, current_path())
             element.innerHTML = flags[l]
             element.title = tips[l]
         }
         // switch lang buttons
         let langs = document.getElementsByClassName("switch_lang")
-        console.log(langs)
         for (let i = 0; i < langs.length; i++) {
             let elem = langs.item(i);
             let lang = Object.keys(translations)[i]
