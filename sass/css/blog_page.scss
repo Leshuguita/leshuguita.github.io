@@ -90,13 +90,13 @@ pre,
 code,
 kbd {
     font-family: "Fira Code", monospace;
-    font-size: 14pt;
+    font-size: 13pt;
 }
 
 // code bg
 code,
 pre.z-code {
-    background-color: var(--navbar);
+    background-color: var(--syntax-bg);
     border-radius: 6pt;
 }
 
@@ -129,10 +129,10 @@ kbd {
     min-width: 17pt;
     padding: 2pt;
     margin: 0 2pt;
-    background-color: var(--nav_hover);
+    background-color: var(--key-col);
     border-radius: 6pt;
     // border: 1px solid var(--subtext);
-    box-shadow: inset 0 -2pt var(--navbar);
+    box-shadow: inset 0 -2pt var(--key-shadow);
 }
 
 // Responsive stuff
