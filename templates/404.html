@@ -18,7 +18,11 @@
 <a id="back_link">{{ macros::smallicon(i="back") }} <span id="back">{{ trans(key="back_404", lang=lang) }}</span></a>
 {# since 404 page uses the default lang only, translate it client-side #}
 <script>
-    document.getElementById("back_link").href = document.referrer;
+    if (document.referrer) {
+        document.getElementById("back_link").href = document.referrer;
+    } else {
+        document.getElementById("back_link").remove()
+    }
     if (current_lang) {
         document.title = trans("title_404");
         document.getElementById("title").textContent = trans("title_404");
