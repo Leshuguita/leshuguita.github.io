@@ -67,10 +67,10 @@ In chilean pesos (CLP), a 19% <abbr title="Value-Added Tax">VAT</abbr> is includ
 
 A few other programs are free:
 
-- [Birdfont](https://birdfont.org/) ([source code](https://github.com/johanmattssonm/birdfont))
-  Windows, Linux, Mac and BSD
-- [FontForge](https://fontforge.org/en-US/) ([source code](https://github.com/fontforge/fontforge))
-  Windows, Mac and Linux
+- [Birdfont](https://birdfont.org/) ([source code](https://github.com/johanmattssonm/birdfont)):\
+  Windows, Linux, Mac and BSD.
+- [FontForge](https://fontforge.org/en-US/) ([source code](https://github.com/fontforge/fontforge)):\
+  Windows, Mac and Linux.
 
 {% tangent(title="Price formats") %}
 When writing this post, I needed a way to tell CLP and USD apart (both use the same symbol locally, $). The ISO standard is to just use letters, "xxx CLP" and "xxx USD". I don't really like it, it's kinda boring that neither gets to use its symbol. Also, for conistency, I'd have to use "xxx EUR", even when the euro symbol € is not ambiguous at all.

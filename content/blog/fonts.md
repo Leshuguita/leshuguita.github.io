@@ -67,10 +67,10 @@ En pesos chilenos se incluye el <abbr title="Impuesto al Valor Agregado">IVA</ab
 
 
 Otros programas son gratis:
-- [Birdfont](https://birdfont.org/) ([fuente](https://github.com/johanmattssonm/birdfont))
-  Windows, Linux, Mac y BSD
-- [FontForge](https://fontforge.org/en-US/) ([fuente](https://github.com/fontforge/fontforge))
-  Windows, Mac y Linux
+- [Birdfont](https://birdfont.org/) ([fuente](https://github.com/johanmattssonm/birdfont)):\
+  Windows, Linux, Mac y BSD.
+- [FontForge](https://fontforge.org/en-US/) ([fuente](https://github.com/fontforge/fontforge)):\
+  Windows, Mac y Linux.
 
 {% tangent(title="Formatos de Monedas") %}
 Al escribir éste artículo, tuve que buscar una forma de diferenciar entre CLP y USD (ya que ambos usan el mismo símbolo, $). El estandar internacional ISO es "xxx CLP" y "xxx USD", pero no me gusta. Creo que es muy fome no usar simbolo para ninguno. Además, por consistencia, tendría que usar "xxx EUR", siendo que el simbolo de euros € no es para nada ambiguo.
