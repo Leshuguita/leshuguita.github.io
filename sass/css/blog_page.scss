@@ -24,8 +24,8 @@ figure {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--navbar);
-    border: 3px solid var(--navbar);
+    background-color: var(--fig-bg);
+    border: 3px solid var(--fig-bg);
     border-radius: 6pt;
     overflow: clip;
 
@@ -47,6 +47,26 @@ figure {
     }
 }
 
+// tangents
+details {
+    padding: 0.3em 1em;
+    background-color: var(--fig-bg);
+    border-radius: 6pt;
+
+    summary {
+        cursor: s-resize;
+    }
+
+    summary:after {
+        content: "/ᐠ > ⩊ <マ";
+        float: right;
+        color: var(--subtext);
+    }
+}
+
+details[open] summary {
+    cursor: n-resize;
+}
 
 hr {
     border: none;
