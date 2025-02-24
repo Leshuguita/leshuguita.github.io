@@ -68,7 +68,7 @@ details {
         cursor: n-resize;
     }
 
-    summary:after {
+    summary:before {
         content: "/ᐠ > ⩊ <マ";
         float: right;
     }
@@ -192,6 +192,17 @@ kbd {
     main {
         width: 100%;
         box-sizing: border-box;
-        padding: 0 2em;
+        padding: 1em 2em;
+    }
+}
+
+// Responsive stuff
+@media screen and (max-width: 850px) {
+    main {
+        padding: 1em 1em;
+    }
+
+    figure {
+        max-width: 100%;
     }
 }

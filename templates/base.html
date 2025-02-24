@@ -38,10 +38,12 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/colors.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/icon_font.css">
     <meta name="color-scheme" content="dark light">
+
     {% block head %}{% endblock %}
     {% if not current_path %}
     {# client-side translation stuff #}

@@ -14,6 +14,7 @@
         height: auto;
         flex: 2;
         object-fit: contain;
+        max-height: 350px;
     }
 
     .p_info {
@@ -110,8 +111,11 @@
     display: flex;
     justify-content: center;
     gap: 2em;
-    margin: 1em 0;
+    margin: 1em auto;
+    width: 100%;
     color: var(--subtext);
+    overflow-x: hidden;
+    max-width: 80vw;
 
     .end_cat {
         font-family: monospace;
@@ -130,13 +134,17 @@
 // Responsive stuff
 @media screen and (max-width: 1250px) {
     main {
-        width: auto;
+        width: unset;
         padding: 0 2em;
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 500px) {
     .project {
         flex-direction: column;
+    }
+
+    main {
+        padding: 0 1em;
     }
 }
