@@ -68,6 +68,15 @@ details[open] summary {
     cursor: n-resize;
 }
 
+.tgt_name {
+    color: var(--subtext);
+    font-style: italic;
+
+    .tgt_title {
+        color: var(--text);
+    }
+}
+
 hr {
     border: none;
     border-top: solid 1px;

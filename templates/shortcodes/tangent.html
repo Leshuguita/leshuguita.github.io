@@ -1,7 +1,7 @@
 <details>
     <summary>
-        <span class="tgt_name">{{ trans(key="tangent", lang=lang) }}</span>
-        <span class="tgt_title">{{ title }}</span>
+        {% set t = "<span class='tgt_title'>" ~ title ~ "</span>" %}
+        <span class="tgt_name">{{ trans(key="tangent", lang=lang) | replace(from="%s", to=t) | safe }}</span>
     </summary>
     {{ body | markdown | safe }}
 </details>

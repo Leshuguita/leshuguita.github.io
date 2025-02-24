@@ -91,3 +91,7 @@ I don't have an Apple computer, so any options that only support MacOS are inmed
 Thus, I have two options: Birdfont and FontForge. After trying out both, neither was perfect:
 - Birdfont is a more modern program, but it's interface is a bit confusing, and not everything works quite right (For example, not everything can be undone, especially in the metrics part of the program).
 - FontForge seems to be able to do a lot more, and even if its interface is a bit old, with lots of menus and windows, it's not that hard to navigate. However, it tends to crash when saving a project, even leaving the file completely empty, losing everyting in the project.
+
+I ended up choosing FontForge, since the bits I need (for kerning) seem to work a bit better. I just need to remember to keep lots of backups.
+
+## FontForge

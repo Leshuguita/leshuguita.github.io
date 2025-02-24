@@ -91,3 +91,7 @@ No tengo ningun computador de Apple, lo que inmediatamente descarta todas las op
 Por lo tanto, tengo dos opciones: Birdfont y FontForge. Despues de probar ambas, ninguna me convenció del todo:
 - Birdfont es un programa más moderno, pero su interfaz es confusa, y no funciona bien del todo (Por ejemplo, no todos los cambios se pueden deshacer con <kbd>CTRL</kbd>+<kbd>Z</kbd>. En particular, los de la sección de métricas).
 - FontForge es más completo, y si bien su interfaz es mas bien anticuada, con muchos menús y ventanas, no es tan difícil de navegar. Sin embargo, tiende a caerse de la nada al guardar el proyecto, a veces dejando el archivo completamente vacío, perdiendo todo lo que se habia hecho anteriormente.
+
+Decidí usar FontForge, pues la parte que necesito (la de _kerning_) parece funcionar mejor. Solo tengo que recordar hacer copias de seguridad bien seguido.
+
+## FontForge
