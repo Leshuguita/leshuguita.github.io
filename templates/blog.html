@@ -32,28 +32,28 @@ Blog
     {% for page in section.pages %}
     <article class="blog_entry">
         <div class="blog_data">
-        <a href="{{ page.permalink | safe }}">
-            <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
-        </a>
-        <span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
-        {% if page.description %}
-        {# if there's a description, show that #}
+            <a href="{{ page.permalink | safe }}">
+                <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
+            </a>
+            <span class="date">{{ macros::date(d=page.date) }}</span>
+            {% if page.description %}
+            {# if there's a description, show that #}
 
-        <p>{{ page.description | safe }}</p>
-        {% elif page.summary %}
-        {# if there's no description, bun an explicit summary show that #}
+            <p>{{ page.description | safe }}</p>
+            {% elif page.summary %}
+            {# if there's no description, bun an explicit summary show that #}
 
-        {{ page.summary | safe }}
-        {% else %}
-        {# shows the first paragraph as a preview #}
-        {% set s = page.content | split(pat="</p>") %}
-        {% set o = s[0] ~ "</p>" %}
-        {{ o | safe }}
-        {% endif %}
+            {{ page.summary | safe }}
+            {% else %}
+            {# shows the first paragraph as a preview #}
+            {% set s = page.content | split(pat="</p>") %}
+            {% set o = s[0] ~ "</p>" %}
+            {{ o | safe }}
+            {% endif %}
         </div>
         {% if page.extra.cover_img %}
         <div class="img_column">
-            <img src="{{ page.extra.cover_img }}"/>
+            <img src="{{ page.extra.cover_img }}" />
         </div>
         {% endif %}
     </article>

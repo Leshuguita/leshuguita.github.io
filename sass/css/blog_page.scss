@@ -54,22 +54,21 @@ details {
     border-radius: 6pt;
 
     summary {
-        cursor: s-resize;
+        color: var(--subtext);
+        cursor: n-resize;
     }
 
     summary:after {
         content: "/ᐠ > ⩊ <マ";
         float: right;
-        color: var(--subtext);
     }
 }
 
 details[open] summary {
-    cursor: n-resize;
+    cursor: s-resize;
 }
 
 .tgt_name {
-    color: var(--subtext);
     font-style: italic;
 
     .tgt_title {

@@ -15,3 +15,7 @@
     {{ config.extra.icons[i] }}
 </span>
 {% endmacro smallicon %}
+
+{% macro date(d) %}
+{{ d | date(format=trans(key="date_format", lang=lang), locale=trans(key="date_locale", lang=lang)) }}
+{% endmacro date %}

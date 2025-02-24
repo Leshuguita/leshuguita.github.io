@@ -20,7 +20,8 @@ smart_punctuation = true
 render_emoji = true
 
 [translations]
-date_format = "%d-%m-%Y"
+date_format = "%-d de %B de %Y"
+date_locale = "es_CL"
 index = "Inicio"
 projects = "Proyectos"
 blog = "Blog"
@@ -49,6 +50,7 @@ back_404 = "Volver a la página anterior"
 
 [languages.en.translations]
 date_format = "%-d %B %Y"
+date_locale = "en_GB"
 index = "Home"
 projects = "Projects"
 blog = "Blog"

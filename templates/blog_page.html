@@ -9,13 +9,33 @@
 {% if page.extra.code %}
 <link rel="stylesheet" href="/css/code_highlight.css">
 {% endif %}
-<meta name="author" content="
-	{% if page.authors %}
-		{{ page.authors | join(sep=', ') }}
-	{% else %}
-		{{ config.author }}
-	{% endif %}
-">
+
+<meta property="og:locale" content="{{ lang }}">
+{% for l,v in config.languages %}
+{# technically should have terrytory too (en_US, es_CL, etc) but whatever #}
+<meta property="og:locale:alternate" content="{{ l }}">
+{% endfor %}
+<meta property="og:title" content="{{ page.title }}">
+{% if page.authors %}
+{% set author = page.authors | join(sep=', ') %}
+{% else %}
+{% set author = config.author %}
+{% endif %}
+<meta name="author" content="{{ author }}">
+{% if page.description %}
+{# if there's a description, show that #}
+{% set desc = page.description %}
+{% elif page.summary %}
+{# if there's no description, bun an explicit summary show that #}
+{% set desc = page.summary %}
+{% else %}
+{# shows the first paragraph as a preview #}
+{% set desc = page.content | split(pat='</p>') %}
+{% endif %}
+<meta name="description" content="{{ desc }}">
+<meta property="og:description" content="{{ desc }}">
+
+
 {% if page.extra.math %}
 
 {# katex stylesheet #}
@@ -51,7 +71,7 @@
 	<h1 class="title">
 		{{ page.title | markdown(inline=true) | safe }}
 	</h1>
-	<span class="date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }}</span>
+	<span class="date">{{ macros::date(d=page.date) }}</span>
 </header>
 <hr class="start_rule">
 <article>

@@ -31,7 +31,7 @@
                 <h2 class="p_title">{{ project.title | markdown(inline=true) | safe }}</h2>
             </a>
             {{ project.content | safe }}
-            <span class="p_date">{{ project.date | date(format=trans(key="date_format", lang=lang)) }}</span>
+            <span class="p_date">{{ macros::date(d=project.date) }}</span>
         </div>
     </div>
     {% endfor %}
