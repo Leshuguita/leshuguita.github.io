@@ -18,7 +18,8 @@ My new font, in the pause menu.
 Then I continued on with my game. As I added more and more text, I found some character combinations that didn't look too nice.
 
 {% img_figure(url="/blog/fonts/ex_1.png") %}
-"o" and "t" are a bit too far apart
+"o" and "t" are a bit\
+too far apart
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_2.png") %}
@@ -26,7 +27,8 @@ The same goes for "fo"
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_3.png") %}
-And even more so for "Ta"
+And even more so\
+for "Ta"
 {% end %}
 
 Modern computer typefaces can adjust the spacing between specific pairs of characters. For example, a lot of fonts reduce the space between a "A" followed by a "V" so that their parallel lines are closer together.<br>

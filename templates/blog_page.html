@@ -74,7 +74,7 @@
 	<span class="date">{{ macros::date(d=page.date) }}</span>
 </header>
 <hr class="start_rule">
-<article>
+<article {% if trans(key="no_first_indent" ,lang=lang)=="true" %} class="no-first-indent" {% endif %}>
 	{{ page.content | safe }}
 </article>
 <hr class="end_rule">

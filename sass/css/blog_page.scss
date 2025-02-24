@@ -17,6 +17,16 @@ p {
     text-align: justify;
 }
 
+article.no-first-indent {
+
+    p:first-of-type,
+    h2+p,
+    h3+p,
+    h4+p {
+        text-indent: 0;
+    }
+}
+
 figure {
     width: max-content;
     max-width: 80%;

@@ -16,7 +16,7 @@ Mi tipo de letra, en el menú de pausa del juego.
 Luego, pasaron unos dias en que seguí trabajando en el juego. Al añadir más texto, fui encontrando combinaciones de caracteres que no se veian tan bonitas.
 
 {% img_figure(url="/blog/fonts/ex_1.png") %}
-Hay un mucho espacio\
+Hay mucho espacio\
 entre "o" y "t"
 {% end %}
 
@@ -25,7 +25,8 @@ Entre "f" y "o" igual
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_3.png") %}
-Y es muy obvio entre "T" y "a"
+Y es muy obvio\
+entre "T" y "a"
 {% end %}
 
 Los tipos de letra que usan los computadores en la actualidad permiten, entre otras cosas, ajustar el espacio entre pares de letras específicos. Por ejemplo, muchos dipos de letra reducen el espacio entre una "A" seguida de una "V" de forma que las lineas paralelas coincidan, y se reduzca el espacio vacío entre ellas. En el tipo de letra de este blog, se puede ver comparando la distancia entre "AM" con "AV". A esto se le llama "Acoplamiento", o en inglés, _"Kerning"_

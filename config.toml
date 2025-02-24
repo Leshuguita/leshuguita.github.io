@@ -20,12 +20,16 @@ smart_punctuation = true
 render_emoji = true
 
 [translations]
+# locale format options
 date_format = "%-d de %B de %Y"
 date_locale = "es_CL"
+no_first_indent = "false"
+
 index = "Inicio"
 projects = "Proyectos"
 blog = "Blog"
 page_name = "Mi pagina"
+
 
 index_title = "¿Qué hay aquí?"
 about_me = "En esta página hay una <a href='/projects'> lista de cosas que he hecho</a>, y un <a href='/blog'>blog</a> al que a veces subo cosas."
@@ -51,6 +55,8 @@ back_404 = "Volver a la página anterior"
 [languages.en.translations]
 date_format = "%-d %B %Y"
 date_locale = "en_GB"
+no_first_indent = "true"
+
 index = "Home"
 projects = "Projects"
 blog = "Blog"
