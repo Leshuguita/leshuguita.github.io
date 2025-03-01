@@ -45,29 +45,29 @@ And then, I discovered the mess that are typeface design tools.
 Looking around on the internet, I found a few options. Most of them are paid:
 
 - [Glyphs](https://glyphsapp.com):\
-  Nominally €299, they charge me {{ over(t="CLP",b="$") }}357,245 (~359 €)\
+  Nominally €299, they charge me {{ coin(c="CL",s="$") }}357,245 (~359 €)\
   Mac Only.
 - [Glyphs Mini](https://glyphsapp.com):\
-  Nominally €49, they charge me {{ over(t="CLP",b="$") }}59,728 (~60 €)\
+  Nominally €49, they charge me {{ coin(c="CL",s="$") }}59,728 (~60 €)\
   Mac only as well,\
   It's a more limited version of Glyphs.
 - [FontLab](https://www.fontlab.com/font-editor/fontlab/):\
-  Nominally {{ over(t="USD",b="$") }}499 plus tax, they charge me {{ over(t="CLP",b="$") }}596,204 (~{{ over(t="USD",b="$") }}629)
+  Nominally {{ coin(c="US",s="$") }}499 plus tax, they charge me {{ coin(c="CL",s="$") }}596,204 (~{{ coin(c="US",s="$") }}629)
 - [FontLab Studio](https://www.fontlab.com/font-editor/fontlab-studio-5/):\
-  Nominally {{ over(t="USD",b="$") }}649 plus tax, they charge me {{ over(t="CLP",b="$") }}775,424 (~{{ over(t="USD",b="$") }}818)\
+  Nominally {{ coin(c="US",s="$") }}649 plus tax, they charge me {{ coin(c="CL",s="$") }}775,424 (~{{ coin(c="US",s="$") }}818)\
   Mac and Windows.\
   From what I could gather, and old version of FontLab.
 - [TypeTool](https://www.fontlab.com/font-editor/typetool/):\
-  Nominally {{ over(t="USD",b="$") }}49 plus tax, they charge me {{ over(t="CLP",b="$") }}58,548 (~{{ over(t="USD",b="$") }}61)\
+  Nominally {{ coin(c="US",s="$") }}49 plus tax, they charge me {{ coin(c="CL",s="$") }}58,548 (~{{ coin(c="US",s="$") }}61)\
   Mac and Windows.\
   A simplified version of FontLab Studio.
 - [RoboFont](https://robofont.com/):\
-  €400 or {{ over(t="USD",b="$") }}490, and only charge in euros or dollars.\
+  €400 or {{ coin(c="US",s="$") }}490, and only charge in euros or dollars.\
   Only for Mac
 
 I'm going to complain about the way Glyph Mini displays its price: in the download page it shows "€49", but if you go to purchase it, they'll actually charge you €49.99.
 
-In chilean pesos (CLP), a 19% <abbr title="Value-Added Tax">VAT</abbr> is included, and the exchange rate they offer is not very good.
+In chilean pesos ({{ coin(c="CL",s="$") }}), a 19% <abbr title="Value-Added Tax">VAT</abbr> is included, and the exchange rate they offer is not very good.
 
 A few other programs are free:
 
@@ -77,13 +77,15 @@ A few other programs are free:
   Windows, Mac and Linux.
 
 {% tangent(title="Price formats") %}
-When writing this post, I needed a way to tell CLP and USD apart (both use the same symbol locally, $). The ISO standard is to just use letters, "xxx CLP" and "xxx USD". I don't really like it, it's kinda boring that neither gets to use its symbol. Also, for conistency, I'd have to use "xxx EUR", even when the euro symbol € is not ambiguous at all.
+When writing this post, I needed a way to tell CLP and USD apart (both use the same symbol locally, $). The <abbr title='International Organization for Standardization&#010;("ISO" from the greek "isos", meaning "equal")'>ISO</abbr>  standard is to just use letters, "xxx CLP" and "xxx USD". I don't really like it, it's kinda boring that neither gets to use its symbol. Also, for conistency, I'd have to use "xxx EUR", even when the euro symbol € is not ambiguous at all.
 
-Something that seemed reasonable was to do a mix of both: "CL$xxx" or "CLP$xxx" (though with both 'P' and '$' it feels kinda redundant). While this is fine in english, it's not in spanish. Since this article has versions in both languages, I still needed a different solution.
+Something that seemed reasonable was to do a mix of both: "CL$xxx" or "CLP$xxx" (though with both 'P' and '$' it feels kinda redundant). While this is fine, I don't find it particularly readable.
 
 I also thought of using emojis, like ":chile:$xxx" but it's a bit annoying to write emojis so often, and doesn't look too good.
 
-In the end, I decided to place the ISO code above the symbol, if the symbol is not clear. It's not particularly elegant, but it seems decent enough. When selecting and copying the text, it's copied as "CLP$xxx" which is perfectly fine. I ended up liking how it looks more than "CL$xxx", so I'm using it for english as well.
+Additionally, I tried to place the ISO code above the symbol, if the symbol is not clear: "{{ over(t="CLP",b="$")}}xxx". It's not particularly elegant, but it seemed decent enough. When selecting and copying the text, it's copied as "CLP$xxx" which is perfectly fine. However, it uses up too much of the space beween lines, making the text look cluttered.
+
+In the end, I decided to go for something simmilar to the first option, but with the disambiguating text in a dimmer color: "{{ coin(c="CL",s="$") }}xxx". I think it's easier to read than just "CL$xxx".
 
 I also found out that not all countries write euros the same way around: Spain, Germany, France, and others, use "xxx €", while Ireland and England use "€xxx". I'd assume this is common knowledge in Europe, but I had no idea. 
 {% end %}
