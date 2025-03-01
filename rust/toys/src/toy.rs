@@ -25,6 +25,12 @@ impl Toy for Toys {
             Self::Life(l) => l.name(lang),
         }
     }
+    fn cursor(&self) -> Option<&str> {
+        match self {
+            Self::Boids(b) => b.cursor(),
+            Self::Life(l) => l.cursor(),
+        }
+    }
     fn url(&self, lang: &str) -> &str {
         match self {
             Self::Boids(b) => b.url(lang),
@@ -60,8 +66,12 @@ impl Toy for Toys {
 }
 
 pub trait Toy {
-    /// Namo for the toy, in some lang
+    /// Name for the toy, in some lang
     fn name(&self, lang: &str) -> &str;
+    /// Cursor to show on the toy canvas
+    fn cursor(&self) -> Option<&str> {
+        None
+    }
     /// url for more info about this, if there's any
     fn url(&self, lang: &str) -> &str;
     /// Some text to show on the lower left corner, in some language

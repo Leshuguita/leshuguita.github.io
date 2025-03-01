@@ -130,6 +130,9 @@ impl Life {
     }
 }
 impl Toy for Life {
+    fn cursor(&self) -> Option<&str> {
+        Some("crosshair")
+    }
     fn name(&self, lang: &str) -> &str {
         match lang {
             "es" => "Juego de la Vida",

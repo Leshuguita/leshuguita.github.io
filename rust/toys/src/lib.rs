@@ -68,6 +68,16 @@ pub fn toy_text(lang: &str) -> String {
 }
 
 #[wasm_bindgen]
+pub fn toy_cursor() -> Option<String> {
+    TOY.lock()
+        .unwrap()
+        .as_ref()
+        .unwrap()
+        .cursor()
+        .map(|s| s.to_string())
+}
+
+#[wasm_bindgen]
 /// tell the toy that the mouse moved, with its new position relative to the canvas
 pub fn toy_mouse_move(new_x: f32, new_y: f32, pressed: u8) {
     TOY.lock()

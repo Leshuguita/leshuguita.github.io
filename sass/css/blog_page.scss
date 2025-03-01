@@ -65,7 +65,7 @@ details {
 
     summary {
         color: var(--subtext);
-        cursor: n-resize;
+        cursor: s-resize;
     }
 
     summary:before {
@@ -75,7 +75,7 @@ details {
 }
 
 details[open] summary {
-    cursor: s-resize;
+    cursor: n-resize;
 }
 
 .tgt_name {
@@ -84,6 +84,11 @@ details[open] summary {
     .tgt_title {
         color: var(--text);
     }
+}
+
+// abbr elements show help cursor
+abbr {
+    cursor: help;
 }
 
 hr {
