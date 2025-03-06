@@ -1,7 +1,7 @@
 +++
 title = "Haciendo una Fuente Pixelada"
 description = "¿Qué tan difícil puede ser diseñar un tipo de letra en pixeles?"
-date = 2025-06-02
+date = 2025-03-06
 +++
 
 Como proyecto de vacaciones, me propuse hacer un juego chiquitito. Al construir el sistema para mostrar diálogos, decidí averiguar cómo hacer un tipo de letra (también llamados "tipografías" o "fuentes") propio, pues como el juego es en _pixel art_, hacer un tipo de letra que se vea decente no sonaba tan complicado.

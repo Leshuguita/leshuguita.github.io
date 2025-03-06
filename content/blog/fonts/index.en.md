@@ -1,7 +1,7 @@
 +++
 title = "Making a Pixelated Typeface"
 description = "How hard can designing a pixel typeface be?"
-date = 2025-06-02
+date = 2025-03-06
 +++
 
 As a holiday project, I started making a small game. When building a system to display dialogue to the player, I became curious if I could make a typeface of my own for it. Surely it wouldn't be too hard to make a decent-looking pixelated font for it.
