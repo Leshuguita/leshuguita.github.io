@@ -174,7 +174,7 @@ looses its left bit
 
 And the pause menu tabs:
 
-{% img_figure(url="/blog/fonts/final.png") %}
+{% img_figure(url="/blog/fonts/final_en.png") %}
 You can see the changes in "St" and "at" in "Status",
 and in the "ett" in "Settings"
 {% end %}
