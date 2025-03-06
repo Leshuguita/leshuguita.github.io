@@ -1,5 +1,5 @@
 +++
-title = "Haciendo una Tipografía Pixelada"
+title = "Haciendo una Fuente Pixelada"
 description = "¿Qué tan difícil puede ser diseñar un tipo de letra en pixeles?"
 date = 2025-06-02
 +++
@@ -16,21 +16,21 @@ Luego, pasaron unos días en que seguí trabajando en el juego. Al añadir más 
 
 {% img_figure(url="/blog/fonts/ex_1.png") %}
 Hay mucho espacio\
-entre "o" y "t"
+entre "o" y "t".
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_2.png") %}
-Entre "f" y "o" igual
+Entre "f" y "o" igual.
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_3.png") %}
 Y es muy obvio\
-entre "T" y "a"
+entre "T" y "a".
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_4.png") %}
 Entre "s" y "t" es\
-parecido al primer caso
+parecido al primer caso.
 {% end %}
 
 
@@ -109,25 +109,24 @@ Este pedacito va a parecer tutorial. FontForge tiene [su propio tutorial](https:
 Al abrir la fuente que ya tenía, FontForge muestra todos los caracteres que tiene (y otros vacíos). Al hacer doble click, se abre un editor que permite modificar la forma de cada carácter. Como ya tengo mis caracteres mas o menos listos, no use mucho ésta ventana.
 
 {% img_figure(url="/blog/fonts/ff_main.png") %}
-La ventana principal de FontForge
+La ventana principal de FontForge.
 {% end %}
 
 {% img_figure(url="/blog/fonts/ff_edit.png") %}
-La ventana de edición de glifo
+La ventana de edición de glifo.
 {% end %}
 
 Para cambiar el acoplamiento entre pares, se hace desde el menú superior: `Elemento` > `Atributos Fuente...` > `Lookups` y en la pestaña GPOS. Aquí, se añade un nuevo Lookup, con tipo "Pair Position" y con la característica `kern`. Esto último es importante, pues es lo que le dice a quien dibuje el texto que tu fuente soporta _kerning_.
 
 {% img_figure(url="/blog/fonts/ff_kern.png") %}
-Un nuevo _Lookup_ de acoplado
+Un nuevo _Lookup_ de acoplado.
 {% end %}
 
 Dentro de este nuevo Lookup, se añade una Subtabla. Decidí usar _kerning classes_ (en vez de pares individuales), pues permite ajustar el acoplamiento de varios pares similares a la vez. Por ejemplo, el acoplamiento entre "T" y "o" va a ser igual al de "T" y "a", y por lo tanto "o" y "a" van en la misma clase.
 
 {% img_figure(url="/blog/fonts/ff_kern_m.png") %}
-La ventana de Subtabla de _kerning_\
-Arriba van las clases, abajo cuanto se junta/separa cada par de clases. A la derecha\
-hay una vista previa, y la cajita para editar el acoplado del par de clases actual.
+La ventana de Subtabla de _kerning_.\
+Arriba van las clases, abajo cuanto se junta/separa cada par de clases. A la derecha hay una vista previa, y la cajita para editar el acoplado del par de clases actual.
 {% end %}
 
 Esto es suficiente para que la mayoría de pares se vean bien. Sin embargo, hay un par de letras que complican un poco la cosa: "t" y "f". Ambas tienen un pixel hacia la izquierda, que hace que queden a 2 pixeles de distancia en la base, con todas las letras minúsculas. \
@@ -142,7 +141,7 @@ El primero es de tipo "Single Substitution", y su Subtabla simplemente contiene 
 El segundo es de tipo "Contextual Chaining Substitution", con la característica `calt` (¡Igual de importante que `kern`!), y su subtabla tiene tres clases: una para "t", una para "f", y una para los caracteres para los que se debe usar la alternativa. Arriba van las reglas, en este caso en la forma `clase_anterior | clase_a_reemplazar @\<subtabla_de_reemplazos> |`. Abajo van las clases mencionadas anteriormente.
 
 {% img_figure(url="/blog/fonts/ff_sub.png") %}
-La ventana de Subtabla de Reemplazo Contextual
+La ventana de Subtabla de Reemplazo Contextual.
 {% end %}
 
 Para probar como se ve algún texto arbitrario, se puede usar la ventana de Métricas: `Métrica` > `Abrir ventana de métricas`. Aquí es donde a mi a veces se me cae, así que desarrollé la costumbre de guardar y copiar el proyecto antes de abrir la ventana. Sospecho que la razón de caerse tiene que ver con que uso Wayland, pero no estoy seguro.
@@ -157,7 +156,7 @@ Aquí están los ejemplos que di al principio, con los cambios hechos a la fuent
 
 {% img_figure(url="/blog/fonts/fix_1.png") %}
 Con "o" y "t", la "t"\
-mantiene su palito
+mantiene su palito.
 {% end %}
 
 {% img_figure(url="/blog/fonts/fix_2.png") %}
@@ -173,13 +172,13 @@ se ve bastante mejor.
 
 {% img_figure(url="/blog/fonts/fix_4.png") %}
 Con "s" y "t", la "t"\
-pierde su palito
+pierde su palito.
 {% end %}
 
 Y las pestañas del menú de pausa:
 
 {% img_figure(url="/blog/fonts/final.png") %}
-Los únicos cambios son la "st" de "Estado" y la "it" de "Bitácora", creo
+Los únicos cambios son la "st" de "Estado" y la "it" de "Bitácora", creo.
 {% end %}
 
 Estoy bastante satisfecho con cómo quedó, y no fue tan doloroso de hacer.

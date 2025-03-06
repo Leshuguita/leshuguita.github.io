@@ -126,6 +126,11 @@ details[open] summary {
     cursor: n-resize;
 }
 
+details[open] summary:before {
+    content: "/ᐠ > ▽ <マ";
+}
+
+
 .tgt_name {
     font-style: italic;
 

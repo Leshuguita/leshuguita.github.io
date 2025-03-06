@@ -16,16 +16,16 @@ Then I continued on with my game. As I added more and more text, I found some ch
 
 {% img_figure(url="/blog/fonts/ex_1.png") %}
 "o" and "t" are a bit\
-too far apart
+too far apart.
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_2.png") %}
-The same goes for "fo"
+The same goes for "fo".
 {% end %}
 
 {% img_figure(url="/blog/fonts/ex_3.png") %}
 And even more so\
-for "Ta"
+for "Ta".
 {% end %}
 
 Modern computer typefaces can adjust the spacing between specific pairs of characters. For example, a lot of fonts reduce the space between a "A" followed by a "V" so that their parallel lines are closer together.<br>
@@ -105,23 +105,23 @@ This next bit will be a tutorial, sort of. FontForge has [a fairly good tutorial
 When opening my already built font, FontForge shows all its glyphs. When double clicking on one, a window appears for editing its shape. Since my glyphs and characters are pretty much done, I didn't use this window much.
 
 {% img_figure(url="/blog/fonts/ff_main.png") %}
-FontForge's main window
+FontForge's main window.
 {% end %}
 
 {% img_figure(url="/blog/fonts/ff_edit.png") %}
-The glyph editing window
+The glyph editing window.
 {% end %}
 
 The kerning between character pairs is changed from a different window: `Element` > `Font Info` > `Lookups`, in the GPOS tab. Here, a new Lookup has to be created, with "Pair Position" type and with the `kern` feature. This last bit is important, it's what lets programs know that your font supports kerning.
 
 {% img_figure(url="/blog/fonts/ff_kern.png") %}
-A new kerning Lookup
+A new kerning Lookup.
 {% end %}
 
 Within this new Lookup, we create a new Subtable. I chose to use kerning classes, instead of individual pairs, because this lets me change the kerning for multiple similar pairs at once. For example, the kerning between "T" and "o" is going to be the same as between "T" and "a", and so "o" and "a" can just go in the same class.
 
 {% img_figure(url="/blog/fonts/ff_kern_m.png") %}
-The kerning Subtable window\
+The kerning Subtable window.\
 At the top, you specify classes. At the bottom, the kerning between each pair. To the right,
 there's a preview, and the box to edit the kerning of the current class pair.
 {% end %}
@@ -138,7 +138,7 @@ The first one is of "Single Substitution" type, and its subtable simply holds ch
 The second one is of "Contextual Chaining Substitution" type, with the `calt` feature (just as important as `kern`!"), and its subtable has three classes: one for "t", one for "f", and one for the characters for which the alternate glyph should be used. On top there's the substitution rules, in this case of the form `prefix_class | class_to_replace @\<replacement_subtable> |`. On the bottom, there's the previously mentioned classes.
 
 {% img_figure(url="/blog/fonts/ff_sub.png") %}
-The Contextual Substitution window
+The Contextual Substitution window.
 {% end %}
 
 To test how some text looks, you can use the Metrics window: `Metrics` > `Open metrics window`. Here is where the program often crashes for me, so I got used to saving and copying the project file before opening the window. I'd guess it has something to do with me using Wayland, but I'm not sure.
@@ -153,12 +153,12 @@ Here's the examples from the beginning, after the tweaks:
 
 {% img_figure(url="/blog/fonts/fix_1.png") %}
 With "o" and "t", "t"\
-keeps its left bit
+keeps its left bit.
 {% end %}
 
 {% img_figure(url="/blog/fonts/fix_2.png") %}
 The "T" has a lot of empty space\
-that the "a" can now fill
+that the "a" can now fill.
 {% end %}
 
 {% img_figure(url="/blog/fonts/fix_3.png") %}
@@ -169,7 +169,7 @@ quite a bit better.
 
 {% img_figure(url="/blog/fonts/fix_4.png") %}
 With "s" and "t", "t"\
-looses its left bit
+looses its left bit.
 {% end %}
 
 And the pause menu tabs:

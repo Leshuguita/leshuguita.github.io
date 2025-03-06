@@ -32,7 +32,7 @@ Blog
     {% for page in section.pages %}
     <article class="blog_entry">
         <div class="blog_data">
-            <a href="{{ page.permalink | safe }}">
+            <a href="{{ page.permalink | trim_end_matches(pat='/') | safe }}">
                 <h2>{{ page.title | markdown(inline=true) | safe }}</h2>
             </a>
             <span class="date">{{ macros::date(d=page.date) }}</span>
