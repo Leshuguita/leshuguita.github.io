@@ -129,8 +129,8 @@ a:hover {
     }
 }
 
-// chrome only (will change whenever others support position-anchor!)
-@supports (-webkit-animation: none) {
+// intended for chrome. applies to safari too, though
+@supports (not (-moz-animation: both)) {
 
     // the cat appears a bit more up????
     nav .cat {
