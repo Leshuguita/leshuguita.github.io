@@ -8,6 +8,6 @@ link = "https://codeberg.org/Leshuguita/fresh"
 img = "/img/fresh.webp"
 +++
 
-Un reproductor de musica muy simple, para la terminal. No mantiene una biblioteca de música propia, si no que saca la info. directamente de los archivos de audio, todas las veces.
+Un reproductor de música muy simple, para la terminal. No mantiene una biblioteca de música propia, si no que saca la info. directamente de los archivos de audio, todas las veces.
 
-Tambien puede mostrar la letra, si el archivo canción la incluye.
+También puede mostrar la letra, si el archivo de la canción la incluye.
