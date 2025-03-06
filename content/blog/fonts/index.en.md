@@ -179,4 +179,4 @@ You can see the changes in "St" and "at" in "Status",
 and in the "ett" in "Settings"
 {% end %}
 
-I'm pretty satisfied with how it turned out, at it wasn't _too_ painful.
+I'm pretty satisfied with how it turned out, and it wasn't _too_ painful.
