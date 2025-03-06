@@ -54,7 +54,7 @@
         <div class="toy_caption"><span id="canvas_text">...</span><span id="canvas_caption">...</span></div>
     </div>
     <div class="counter">
-        <img src="https://count.ayaya.beauty/@kirby765?theme=green&padding=3&darkmode=0"
+        <img src="https://count.ayaya.beauty/@kirby76583?theme=green&padding=3&darkmode=0"
             title="{{ trans(key='visits', lang=lang) }}" />
     </div>
 </aside>
@@ -109,16 +109,27 @@
         requestAnimationFrame(update);
     }
 
+    function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect(),
+            scaleX = canvas.width / rect.width,
+            scaleY = canvas.height / rect.height;
+
+        return {
+            x: (evt.clientX - rect.left) * scaleX,
+            y: (evt.clientY - rect.top) * scaleY
+        }
+    }
+
+
     canvas.addEventListener("click", (evt) => {
-        toy_mouse_click(evt.offsetX, evt.offsetY, evt.button);
+        let pos = getMousePos(canvas, evt)
+        toy_mouse_click(pos.x, pos.y, evt.button);
     });
     document.addEventListener("mousemove", (evt) => {
         // assumes canvas is untransformed!
         if (did_init) {
-            let rect = canvas.getBoundingClientRect();
-            let x = evt.clientX - rect.left;
-            let y = evt.clientY - rect.top;
-            toy_mouse_move(x, y, evt.buttons);
+            let pos = getMousePos(canvas, evt)
+            toy_mouse_move(pos.x, pos.y, evt.buttons);
         }
     });
 
