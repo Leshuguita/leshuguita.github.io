@@ -65,24 +65,52 @@
 {% endblock head %}
 
 {% block content %}
-<header>
-	<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
-			{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
-	<h1 class="title">
-		{{ page.title | markdown(inline=true) | safe }}
-	</h1>
-	<span class="date">{{ macros::date(d=page.date) }}</span>
-</header>
-<hr class="start_rule">
-<article {% if trans(key="no_first_indent" ,lang=lang)=="true" %} class="no-first-indent" {% endif %}>
-	{{ page.content | safe }}
-</article>
-<hr class="end_rule">
-<footer class="footer">
-	<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
-			{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
-	<span class="to_top"><a href="#"> {{ macros::smallicon(i="top") }} {{ trans(key="to_top", lang=lang)
-			}}</a></span>
-</footer>
-
+<aside class="toc">
+	{% if page.toc %}
+	<details id="toc_det">
+		<summary>
+			{{ trans(key="table_of_contents",lang=lang) }}
+		</summary>
+		<ul>
+			<li>
+				<a href="#" onclick="close_summary()">{{ trans(key="start", lang=lang) }}</a>
+			</li>
+			{% for h1 in page.toc%}
+			<li><a href="#{{ h1.id | safe }}" onclick="close_summary()">{{ h1.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</details>
+	<script>
+		let details = document.getElementById("toc_det");
+		function close_summary() {
+			console.log("a")
+			if (window.matchMedia('(max-device-width: 1250px)').matches) {
+				details.removeAttribute("open");
+			}
+		}
+	</script>
+	{% endif %}
+</aside>
+<div class="content">
+	<header>
+		<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
+				{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
+		<h1 class="title">
+			{{ page.title | markdown(inline=true) | safe }}
+		</h1>
+		<span class="date">{{ macros::date(d=page.date) }}</span>
+	</header>
+	<hr class="start_rule">
+	<article {% if trans(key="no_first_indent" ,lang=lang)=="true" %} class="no-first-indent" {% endif %}>
+		{{ page.content | safe }}
+	</article>
+	<hr class="end_rule">
+	<footer class="footer">
+		<span class="breadcrumb"><a href={{ get_url(path="blog" , lang=lang) }}>
+				{{ macros::smallicon(i="back") }} {{ trans(key="blog", lang=lang) }}</a></span>
+		<span class="to_top"><a href="#"> {{ macros::smallicon(i="top") }} {{ trans(key="to_top", lang=lang)
+				}}</a></span>
+	</footer>
+</div>
+<div class="r_margin"></div>
 {% endblock content %}
