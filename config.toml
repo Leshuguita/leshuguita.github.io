@@ -29,11 +29,11 @@ index = "Inicio"
 projects = "Proyectos"
 blog = "Blog"
 page_name = "Leshuguita"
-
+cool_links_title = "Otros Sitios"
 
 index_title = "¿Qué hay aquí?"
 about_me = "En esta página hay una <a href='/projects'> lista de cosas que he hecho</a>, y un <a href='/blog'>blog</a> al que a veces subo cosas."
-links ="Enlaces"
+links = "Enlaces"
 contact = "Contacto y esas cosas"
 website_repo = "Repositorio de este sitio"
 visits = "Cantidad de visitas"
@@ -63,6 +63,7 @@ index = "Home"
 projects = "Projects"
 blog = "Blog"
 page_name = "Leshuguita"
+cool_links_title = "Cool Sites"
 
 index_title = "¿What's here...?"
 about_me = "In this website I have a <a href='/en/projects'>list of stuff I've done</a>, and a <a href='/en/blog'>blog</a> where I sometimes post stuff."
@@ -108,4 +109,3 @@ en = "🇬🇧"
 [extra.lang_tooltips]
 es = "Cambiar a Español"
 en = "Switch to English"
-

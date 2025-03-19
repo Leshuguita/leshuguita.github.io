@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block title %} {{ trans(key="cool_links_title",
+lang=lang) }} {% endblock title %} {% block head %}
+<link rel="stylesheet" href="/css/links.css" />
+{% endblock head %} {% block content %}
+<header>
+	<h1 class="title">{{ trans(key="cool_links_title", lang=lang) }}</h1>
+</header>
+
+{{ section.content | safe }} {% endblock content %}

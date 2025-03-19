@@ -1,0 +1,29 @@
+$item_padding: 1.5em;
+$icon_size: 1em;
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	display: flex;
+	gap: 0.5em;
+	flex-direction: column;
+}
+
+// pos relative + absolute means the .favilink padding
+// overlaps the icon => link click area covers the icon too
+li {
+	position: relative;
+	text-indent: hanging $item_padding;
+}
+
+.favilink_icon {
+	z-index: -1;
+	position: absolute;
+	img {
+		height: $icon_size;
+		width: $icon_size;
+	}
+}
+.favilink {
+	padding-left: $item_padding;
+}
