@@ -22,8 +22,18 @@ li {
 	img {
 		height: $icon_size;
 		width: $icon_size;
+		image-rendering: pixelated;
 	}
 }
 .favilink {
 	padding-left: $item_padding;
+}
+
+// Responsive stuff
+@media screen and (max-width: 1250px) {
+	main {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 2em;
+	}
 }

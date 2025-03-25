@@ -1,9 +1,9 @@
-{% set domain = t | regex_replace(pattern=`^([a-z]+://)?(?P<domain>[^/]+).*$`, rep="$domain") %}
+{% set name = t | regex_replace(pattern=`^([a-z]+://)?(www.)?(?P<name>[^/]+).*$`, rep="$name") %}
 {% set base = t | regex_replace(pattern=`^(?P<base>([a-z]+://)?[^/]+).*$`, rep="$base") %}
 <span class="favilink_icon">
-	<img src="{{ base ~ '/favicon.ico' }}" width="16" height="16" /><!--
+	<img src="{% if i %}{{ base ~ i }}{% else %}{{ base ~ '/favicon.ico' }}{% endif %}" width="16" height="16" /><!--
 --></span><!--
 yes html please make comments meaningful, good job
 --><a href="{{ t }}" class="favilink"><!--
--->{{ domain }}<!--
+-->{{ name }}<!--
 --></a>
