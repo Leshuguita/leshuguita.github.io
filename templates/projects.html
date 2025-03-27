@@ -1,50 +1,53 @@
-{% extends "base.html" %}
-
-{% block title %}
-{{ trans(key="projects", lang=lang) }}
-{% endblock title %}
-
-{% block head %}
-<link rel="stylesheet" href="/css/projects.css">
-<link rel="stylesheet" href="/css/tic80_font.css">
-<link rel="stylesheet" href="/css/dweller_font.css">
-{% endblock head %}
-
-{% block content %}
-<h1 class="title">
-    {{ trans(key="projects", lang=lang) }}
-</h1>
-
+{% extends "base.html" %} {% block title %} {{ trans(key="projects", lang=lang)
+}} {% endblock title %} {% block head %}
+<link rel="stylesheet" href="/css/projects.css" />
+<link rel="stylesheet" href="/css/tic80_font.css" />
+<link rel="stylesheet" href="/css/dweller_font.css" />
+<link rel="stylesheet" href="/css/minecraft_font.css" />
+{% endblock head %} {% block content %}
+<h1 class="title">{{ trans(key="projects", lang=lang) }}</h1>
 
 {% set tags = [] %}
 <div class="projects">
-    {% for project in section.pages %}
-    {% set_global tags = tags | concat(with=project.extra.tags) %}
-    <div class="project {{ project.extra.css_class }} {{ project.extra.tags | join(sep=' ')}}">
-        {% if project.extra.img %}
-        {% set meta = get_image_metadata(path=project.extra.img, allow_missing=true) %}
-        <img src="{{ project.extra.img }}" {% if meta %}width="{{ meta.width }}" height="{{ meta.height }}" {% endif
-            %} />
-        {% endif %}
-        <div class="p_info">
-            <a href="{{ project.extra.link }}">
-                <h2 class="p_title">{{ project.title | markdown(inline=true) | safe }}</h2>
-            </a>
-            {{ project.content | safe }}
-            <span class="p_date">{{ macros::date(d=project.date) }}</span>
-        </div>
-    </div>
-    {% endfor %}
+	{% for project in section.pages %} {% set_global tags = tags |
+	concat(with=project.extra.tags) %}
+	<div
+		class="project {{ project.extra.css_class }} {{ project.extra.tags | join(sep=' ')}}"
+	>
+		{% if project.extra.img %} {% set meta =
+		get_image_metadata(path=project.extra.img, allow_missing=true) %}
+		<img
+			src="{{ project.extra.img }}"
+			{%
+			if
+			meta
+			%}width="{{ meta.width }}"
+			height="{{ meta.height }}"
+			{%
+			endif
+			%}
+		/>
+		{% endif %}
+		<div class="p_info">
+			<a href="{{ project.extra.link }}">
+				<h2 class="p_title">
+					{{ project.title | markdown(inline=true) | safe }}
+				</h2>
+			</a>
+			{{ project.content | safe }}
+			<span class="p_date">{{ macros::date(d=project.date) }}</span>
+		</div>
+	</div>
+	{% endfor %}
 </div>
 <div class="end">
-    <span class="end_lines">&#8195;&#8195;&#8195;&#8195;&#8195;</span>
-    <pre class="end_cat">ᓚ₍ ^. .^₎</pre>
-    <span class="end_lines">&#8195;&#8195;&#8195;&#8195;&#8195;</span>
-
+	<span class="end_lines">&#8195;&#8195;&#8195;&#8195;&#8195;</span>
+	<pre class="end_cat">ᓚ₍ ^. .^₎</pre>
+	<span class="end_lines">&#8195;&#8195;&#8195;&#8195;&#8195;</span>
 </div>
 
 {# Add all existing tags to a set, for use in js later #}
 <script>
-    let tags = new Set(["{{ tags | join(sep = '", "') | safe}}"]);
+	let tags = new Set(["{{ tags | join(sep = '", "') | safe}}"]);
 </script>
 {% endblock content %}
