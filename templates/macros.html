@@ -1,21 +1,9 @@
 {% macro icon(i) %}
-<span class="icons">
-    {{ config.extra.icons[i] }}
-</span>
-{% endmacro icon %}
-
-{% macro bigicon(i) %}
-<span class="icons_big">
-    {{ config.extra.icons[i] }}
-</span>
-{% endmacro bigicon %}
-
-{% macro smallicon(i) %}
-<span class="icons_small">
-    {{ config.extra.icons[i] }}
-</span>
-{% endmacro smallicon %}
-
-{% macro date(d) %}
-{{ d | date(format=trans(key="date_format", lang=lang), locale=trans(key="date_locale", lang=lang)) }}
-{% endmacro date %}
+<span class="icons"> {{ config.extra.icons[i] }} </span>
+{% endmacro icon %} {% macro bigicon(i) %}
+<span class="icons_big"> {{ config.extra.icons[i] }}</span>
+{% endmacro bigicon %} {% macro smallicon(i) %}
+<span class="icons_small"> {{ config.extra.icons[i] }} </span>
+{% endmacro smallicon %} {% macro date(d) %} {{ d |
+date(format=trans(key="date_format", lang=lang), locale=trans(key="date_locale",
+lang=lang)) }} {% endmacro date %}

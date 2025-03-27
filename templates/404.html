@@ -1,43 +1,62 @@
-{% extends "base.html" %}
-
-{% block title %}
-{{ trans(key="title_404", lang=lang) }}
-{% endblock title %}
-
-{% block head %}
-<link rel="stylesheet" href="/css/404.css">
-{% endblock head %}
-
-{% block content %}
-<h2 id="title">
-    {{ trans(key="title_404", lang=lang) }}
-</h2>
-<div id="text">
-    {{ trans(key="body_404", lang=lang) }}
-</div>
-<a id="back_link">{{ macros::smallicon(i="back") }} <span id="back">{{ trans(key="back_404", lang=lang) }}</span></a>
-{# since 404 page uses the default lang only, translate it client-side #}
+{% extends "base.html" %} {% block title %} {{ trans(key="title_404", lang=lang)
+}} {% endblock title %} {% block head %}
+<link rel="stylesheet" href="/css/404.css" />
+{% endblock head %} {% block content %}
+<h2 id="title">{{ trans(key="title_404", lang=lang) }}</h2>
+<div id="text">{{ trans(key="body_404", lang=lang) }}</div>
+{# since 404 page uses the default lang only, translate it (and add it)
+client-side #}
 <script>
-    if (document.referrer) {
-        document.getElementById("back_link").href = document.referrer;
-    } else {
-        document.getElementById("back_link").remove()
-    }
-    if (current_lang) {
-        document.title = trans("title_404");
-        document.getElementById("title").textContent = trans("title_404");
+	function htmlToNode(html) {
+		const template = document.createElement("template");
+		template.innerHTML = html;
+		const nNodes = template.content.childNodes.length;
+		if (nNodes !== 1) {
+			throw new Error(
+				`html parameter must represent a single node; got ${nNodes}. ` +
+					"Note that leading or trailing spaces around an element in your " +
+					'HTML, like " <img/> ", get parsed as text nodes neighbouring ' +
+					"the element; call .trim() on your input to avoid this.",
+			);
+		}
+		return template.content.firstChild;
+	}
 
-        document.getElementById("back").textContent = trans("back_404");
-    }
-    let text = document.getElementById("text")
-    if (langless_path(current_path()).startsWith("/blog")) {
-        if (current_lang) {
-            text.textContent = trans("blog_404");
-        } else {
-            text.textContent = "{{ trans(key = 'blog_404', lang = lang) }}";
-        }
-    } else if (current_lang) {
-        text.textContent = trans("body_404");
-    }
+	let content = document.getElementsByTagName("main")[0];
+
+	let back_text = document.createElement("span");
+	back_text.id = "back";
+	back_text.textContent = "{{ trans(key='back_404', lang=lang) }}";
+
+	let back_link = document.createElement("a");
+	back_link.id = "back_link";
+	back_link.appendChild(
+		htmlToNode(
+			"{{ macros::smallicon(i='back') | addslashes | trim | safe }}",
+		),
+	);
+	back_link.appendChild(back_text);
+
+	console.log(document.referrer);
+	if (document.referrer) {
+		back_link.href = document.referrer;
+		content.appendChild(back_link);
+	}
+	if (current_lang) {
+		document.title = trans("title_404");
+		document.getElementById("title").textContent = trans("title_404");
+
+		document.getElementById("text").textContent = trans("body_404");
+	}
+	if (langless_path(current_path()).startsWith("/blog")) {
+		if (current_lang) {
+			back_text.textContent = trans("blog_404");
+		} else {
+			back_text.textContent =
+				"{{ trans(key = 'blog_404', lang = lang) }}";
+		}
+	} else if (current_lang) {
+		back_text.textContent = trans("back_404");
+	}
 </script>
 {% endblock content %}
