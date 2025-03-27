@@ -1,140 +1,167 @@
-{% extends "base.html" %}
-
-{% block title %}
-{{ trans(key="page_name", lang=lang) }}
-{% endblock title %}
-
-{% block head %}
-<link rel="stylesheet" href="/css/index.css">
-{% endblock head %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %} {{ trans(key="page_name", lang=lang)
+}} {% endblock title %} {% block head %}
+<link rel="stylesheet" href="/css/index.css" />
+{% endblock head %} {% block content %}
 <div class="info">
-    <section>
-        <h1 class="title">
-            {{ trans(key="index_title", lang=lang) }}
-        </h1>
-        {{ trans(key="about_me", lang=lang) | safe }}
-    </section>
-    <section>
-        <h2 class="links_title">
-            {{ trans(key="links", lang=lang) }}
-        </h2>
-        <ul class="links">
-            <li>
-                {{ macros::bigicon(i="git") }}
-                <a href="https://github.com/leshuguita/leshuguita.github.io">{{ trans(key="website_repo", lang=lang)
-                    }}</a>
-            </li>
-        </ul>
-    </section>
-    <section>
-        <h2 class="contact">
-            {{ trans(key="contact", lang=lang) }}
-        </h2>
-        <ul class="links">
-            <li>
-                {{ macros::bigicon(i="github") }}
-                <a href="https://github.com/leshuguita">https://github.com/leshuguita</a>
-            </li>
-            <li>
-                {{ macros::bigicon(i="codeberg") }}
-                <a href="https://codeberg.org/leshuguita">https://codeberg.org/leshuguita</a>
-            </li>
-            <li>
-                {{ macros::bigicon(i="mail") }}
-                <a href="mailto:leshuguita.saiyan@gmail.com">leshuguita.saiyan@gmail.com</a>
-            </li>
-        </ul>
-    </section>
+	<section>
+		<h1 class="title">{{ trans(key="index_title", lang=lang) }}</h1>
+		{{ trans(key="about_me", lang=lang) | safe }}
+	</section>
+	<section>
+		<h2 class="links_title">{{ trans(key="links", lang=lang) }}</h2>
+		<ul class="links">
+			<li>
+				{{ macros::bigicon(i="git") }}
+				<a href="https://github.com/leshuguita/leshuguita.github.io"
+					>{{ trans(key="website_repo", lang=lang) }}</a
+				>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2 class="contact">{{ trans(key="contact", lang=lang) }}</h2>
+		<ul class="links">
+			<li>
+				{{ macros::bigicon(i="github") }}
+				<a href="https://github.com/leshuguita"
+					>https://github.com/leshuguita</a
+				>
+			</li>
+			<li>
+				{{ macros::bigicon(i="codeberg") }}
+				<a href="https://codeberg.org/leshuguita"
+					>https://codeberg.org/leshuguita</a
+				>
+			</li>
+			<li>
+				{{ macros::bigicon(i="mail") }}
+				<a href="mailto:leshuguita.saiyan@gmail.com"
+					>leshuguita.saiyan@gmail.com</a
+				>
+			</li>
+		</ul>
+	</section>
 </div>
 <aside>
-    <div id="toy_container" class="toy">
-        <canvas id="toy_canvas" width="500" height="375"></canvas>
-        <div class="toy_caption"><span id="canvas_text">...</span><span id="canvas_caption">...</span></div>
-    </div>
-    <div class="counter">
-        <img src="https://count.ayaya.beauty/@kirby76583?theme=green&padding=3&darkmode=0"
-            title="{{ trans(key='visits', lang=lang) }}" />
-    </div>
+	<div class="counter">
+		<img
+			src="https://count.ayaya.beauty/@kirby76583?theme=green&padding=3&darkmode=0"
+			title="{{ trans(key='visits', lang=lang) }}"
+		/>
+	</div>
 </aside>
 
 <script type="module" src="/toys.js"></script>
 <script type="module">
-    import init, { init_random_toy, update_toy, toy_name, toy_url, toy_mouse_move, toy_mouse_click, toy_text, toy_cursor } from '/toys.js';
+	import init, {
+		init_random_toy,
+		update_toy,
+		toy_name,
+		toy_url,
+		toy_mouse_move,
+		toy_mouse_click,
+		toy_text,
+		toy_cursor,
+	} from "/toys.js";
 
-    let caption = document.getElementById("canvas_caption");
-    let text = document.getElementById("canvas_text");
+	// build toy (since it needs javascript anyways, add it with js so that it doesnt appear with js off)
+	let text = document.createElement("span");
+	text.id = "canvas_text";
 
-    let last = null
-    function update(t) {
-        let ta = t / 1000.0
-        update_toy("toy_canvas", ta - last);
-        last = ta
+	let caption = document.createElement("span");
+	caption.id = "canvas_caption";
 
-        text.innerHTML = toy_text("{{ lang }}");
+	let caption_div = document.createElement("div");
+	caption_div.className = "toy_caption";
+	caption_div.appendChild(text);
+	caption_div.appendChild(caption);
 
-        requestAnimationFrame(update);
-    }
+	let canvas = document.createElement("canvas");
+	canvas.id = "toy_canvas";
+	canvas.width = 500;
+	canvas.height = 375;
 
-    let did_init = false
+	let toy = document.createElement("div");
+	toy.id = "toy_container";
+	toy.className = "toy";
+	toy.appendChild(canvas);
+	toy.appendChild(caption_div);
 
-    let canvas = document.getElementById("toy_canvas");
-    async function run() {
-        await init();
+	let aside = document.getElementsByTagName("aside")[0];
 
-        did_init = true;
+	let last = null;
+	function update(t) {
+		let ta = t / 1000.0;
+		update_toy("toy_canvas", ta - last);
+		last = ta;
 
-        init_random_toy("toy_canvas");
+		text.innerHTML = toy_text("{{ lang }}");
 
-        let name = toy_name("{{ lang }}");
-        let url = toy_url("{{ lang }}");
+		requestAnimationFrame(update);
+	}
 
-        let c = toy_cursor();
-        if (c) {
-            canvas.style.cursor = c;
-        }
+	let did_init = false;
 
-        if (url != "") {
-            let n = document.createElement("a");
-            n.id = caption.id;
-            n.href = url;
-            n.innerHTML = name;
-            n.target = "_blank";
-            caption.replaceWith(n);
-        } else {
-            caption.innerHTML = name;
+	async function run() {
+		await init();
 
-        }
-        requestAnimationFrame(update);
-    }
+		did_init = true;
 
-    function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect(),
-            scaleX = canvas.width / rect.width,
-            scaleY = canvas.height / rect.height;
+		init_random_toy("toy_canvas");
 
-        return {
-            x: (evt.clientX - rect.left) * scaleX,
-            y: (evt.clientY - rect.top) * scaleY
-        }
-    }
+		let name = toy_name("{{ lang }}");
+		let url = toy_url("{{ lang }}");
 
+		console.log(toy);
 
-    canvas.addEventListener("click", (evt) => {
-        let pos = getMousePos(canvas, evt)
-        toy_mouse_click(pos.x, pos.y, evt.button);
-    });
-    document.addEventListener("mousemove", (evt) => {
-        // assumes canvas is untransformed!
-        if (did_init) {
-            let pos = getMousePos(canvas, evt)
-            toy_mouse_move(pos.x, pos.y, evt.buttons);
-        }
-    });
+		let c = toy_cursor();
+		if (c) {
+			canvas.style.cursor = c;
+		}
 
-    run();
+		if (url != "") {
+			let n = document.createElement("a");
+			n.id = caption.id;
+			n.href = url;
+			n.innerHTML = name;
+			n.target = "_blank";
+			caption.replaceWith(n);
+		} else {
+			caption.innerHTML = name;
+		}
+		requestAnimationFrame(update);
+	}
 
+	function getMousePos(canvas, evt) {
+		var rect = canvas.getBoundingClientRect(),
+			scaleX = canvas.width / rect.width,
+			scaleY = canvas.height / rect.height;
+
+		return {
+			x: (evt.clientX - rect.left) * scaleX,
+			y: (evt.clientY - rect.top) * scaleY,
+		};
+	}
+
+	canvas.addEventListener("click", (evt) => {
+		let pos = getMousePos(canvas, evt);
+		toy_mouse_click(pos.x, pos.y, evt.button);
+	});
+	document.addEventListener("mousemove", (evt) => {
+		// assumes canvas is untransformed!
+		if (did_init) {
+			let pos = getMousePos(canvas, evt);
+			toy_mouse_move(pos.x, pos.y, evt.buttons);
+		}
+	});
+
+	const observer = new MutationObserver(() => {
+		console.log("a");
+		run();
+		observer.disconnect();
+	});
+	observer.observe(aside, { childList: true });
+	aside.prepend(toy);
 </script>
 
 {% endblock content %}
