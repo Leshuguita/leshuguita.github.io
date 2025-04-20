@@ -1,0 +1,9 @@
+{% set chars = [] %}
+{% for char in body | trim %}
+	{% set char = char | replace(from=" ", to="&#32;") %}
+	{# by putting each char into a span like this, it waves nicely #}
+	{# words cannot be selected by double-clicking in firefox (chrome handles it just fine) #}
+	{# probably has some accessibility issues as well, but i dunno #}
+	{% set_global chars = chars | concat(with="<span style='--i:" ~ loop.index0 ~ ";'>" ~ char ~ "</span>") %}
+{% endfor %}
+<span class="wavy">{{ chars | join(sep="") | safe }}</span>

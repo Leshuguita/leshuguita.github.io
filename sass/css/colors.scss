@@ -1,85 +1,89 @@
 @mixin dark_colors {
-    --text: #cad3f5;
-    --subtext: #939ab7;
-    --links: #8aadf4;
+	--text: #cad3f5;
+	--subtext: #939ab7;
+	--links: #8aadf4;
+	--selection-bg: #8aadf4;
+	--selection-fg: #24273a;
 
-    --base: #24273a;
-    --navbar: #181926;
-    --nav_hover: #363a4f;
+	--base: #24273a;
+	--navbar: #181926;
+	--nav_hover: #363a4f;
 
-    --fig-bg: #1e2030;
+	--fig-bg: #1e2030;
 
-    --key-col: #363a4f;
-    --key-shadow: #1e2030;
+	--key-col: #363a4f;
+	--key-shadow: #1e2030;
 
-    --syntax-bg: #1e2030; // mantle
-    --syntax-fg: #cad3f5; // text
-    --syntax-gray: #939ab7; // overlay2
-    --syntax-gray2: #6e738d; // overlay0
-    --syntax-light-purple: #b7bdf8; // lavender
-    --syntax-purple: #c6a0f6; // mauve
-    --syntax-blue: #8aadf4; // blue
-    --syntax-light-cyan: #91d7e3; // sky
-    --syntax-cyan: #8bd5ca; // teal
-    --syntax-green: #a6da95; // green
-    --syntax-light-yellow: #f4dbd6; //rosewater (not really yellow i guess)
-    --syntax-yellow: #eed49f; //yellow
-    --syntax-light-orange: #f0c6c6; // flamingo
-    --syntax-orange: #f5a97f; // peach
-    --syntax-light-red: #ee99a0; // maroon
-    --syntax-red: #ed8796; // red
-    --syntax-pink: #f5bde6; // pink
+	--syntax-bg: #1e2030; // mantle
+	--syntax-fg: #cad3f5; // text
+	--syntax-gray: #939ab7; // overlay2
+	--syntax-gray2: #6e738d; // overlay0
+	--syntax-light-purple: #b7bdf8; // lavender
+	--syntax-purple: #c6a0f6; // mauve
+	--syntax-blue: #8aadf4; // blue
+	--syntax-light-cyan: #91d7e3; // sky
+	--syntax-cyan: #8bd5ca; // teal
+	--syntax-green: #a6da95; // green
+	--syntax-light-yellow: #f4dbd6; //rosewater (not really yellow i guess)
+	--syntax-yellow: #eed49f; //yellow
+	--syntax-light-orange: #f0c6c6; // flamingo
+	--syntax-orange: #f5a97f; // peach
+	--syntax-light-red: #ee99a0; // maroon
+	--syntax-red: #ed8796; // red
+	--syntax-pink: #f5bde6; // pink
 }
 
 @mixin light_colors {
-    --text: #181926; // macchiato crust
-    --subtext: #5c5f77;
-    --links: #1e66f5;
+	--text: #181926; // macchiato crust
+	--subtext: #5c5f77;
+	--links: #1e66f5;
+	--selection-bg: #1e66f5;
+	--selection-fg: #eff1f5;
 
-    --base: #eff1f5;
-    --navbar: #ccd0da;
-    --nav_hover: #e6e9ef;
+	--base: #eff1f5;
+	--navbar: #ccd0da;
+	--nav_hover: #e6e9ef;
 
-    --fig-bg: #dce0e8;
+	--fig-bg: #dce0e8;
 
-    --key-col: #ccd0da;
-    --key-shadow: #acb0be;
+	--key-col: #ccd0da;
+	--key-shadow: #acb0be;
 
-    --syntax-bg: #dce0e8; // crust
-    --syntax-fg: #4c4f69; // macchiato crust
-    --syntax-gray: #7c7f93; // overlay2
-    --syntax-gray2: #9ca0b0; // overlay0
-    --syntax-light-purple: #7287fd; // lavender
-    --syntax-purple: #7287fd; // mauve
-    --syntax-blue: #1e66f5; // blue
-    --syntax-light-cyan: #04a5e5; // sky
-    --syntax-cyan: #179299; // teal
-    --syntax-green: #40a02b; // green
-    --syntax-light-yellow: #40a02b; //rosewater (not really yellow i guess)
-    --syntax-yellow: #df8e1d; //yellow
-    --syntax-light-orange: #dd7878; // flamingo
-    --syntax-orange: #fe640b; // peach
-    --syntax-light-red: #e64553; // maroon
-    --syntax-red: #d20f39; // red
-    --syntax-pink: #ea76cb; // pink
+	--syntax-bg: #dce0e8; // crust
+	--syntax-fg: #4c4f69; // macchiato crust
+	--syntax-gray: #7c7f93; // overlay2
+	--syntax-gray2: #9ca0b0; // overlay0
+	--syntax-light-purple: #7287fd; // lavender
+	--syntax-purple: #7287fd; // mauve
+	--syntax-blue: #1e66f5; // blue
+	--syntax-light-cyan: #04a5e5; // sky
+	--syntax-cyan: #179299; // teal
+	--syntax-green: #40a02b; // green
+	--syntax-light-yellow: #40a02b; //rosewater (not really yellow i guess)
+	--syntax-yellow: #df8e1d; //yellow
+	--syntax-light-orange: #dd7878; // flamingo
+	--syntax-orange: #fe640b; // peach
+	--syntax-light-red: #e64553; // maroon
+	--syntax-red: #d20f39; // red
+	--syntax-pink: #ea76cb; // pink
 }
 
-@media(prefers-color-scheme: dark) {
-    :root {
-        @include dark_colors;
-    }
+@media (prefers-color-scheme: dark) {
+	:root {
+		@include dark_colors;
+	}
 }
 
-@media(prefers-color-scheme: light) {
-    :root {
-        @include light_colors;
-    }
+@media (prefers-color-scheme: light) {
+	:root {
+		@include light_colors;
+	}
 }
 
 :root.dark {
-    @include dark_colors;
+	@include dark_colors;
 }
 
 :root.light {
-    @include light_colors;
+	@include light_colors;
 }

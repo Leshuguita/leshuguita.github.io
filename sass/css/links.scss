@@ -15,7 +15,6 @@ li {
 	position: relative;
 	text-indent: hanging $item_padding;
 }
-
 .favilink_icon {
 	z-index: -1;
 	position: absolute;
@@ -27,6 +26,32 @@ li {
 }
 .favilink {
 	padding-left: $item_padding;
+}
+
+$amplitude: 0.1em;
+@keyframes wave {
+	from {
+		transform: translate(0, -$amplitude);
+	}
+	to {
+		transform: translate(0, $amplitude);
+	}
+}
+.wavy {
+	white-space: nowrap;
+	span {
+		white-space: preserve-spaces;
+		font-family: inherit;
+		margin: 0;
+		animation-name: wave;
+		display: inline-block;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate-reverse;
+		animation-timing-function: ease-in-out;
+		// nice, negative time works
+		animation-delay: calc(-100s + 0.1s * var(--i));
+	}
 }
 
 // Responsive stuff

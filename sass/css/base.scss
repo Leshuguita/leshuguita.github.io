@@ -1,139 +1,143 @@
+::selection {
+	background-color: var(--selection-bg);
+	color: var(--selection-fg);
+}
+
 body {
-    font-family: "Linux Libertine O", "Linux libertine", "Garamond", serif;
-    font-size: 17pt;
-    margin: 0;
-    color: var(--text);
-    background-color: var(--base);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+	font-family: "Linux Libertine O", "Linux libertine", "Garamond", serif;
+	font-size: 17pt;
+	margin: 0;
+	color: var(--text);
+	background-color: var(--base);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 nav {
-    width: 100vw;
-    min-width: 100vw;
-    max-width: 100vw;
-    height: 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--navbar);
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    overflow-x: auto;
-    overflow-y: hidden;
+	width: 100vw;
+	min-width: 100vw;
+	max-width: 100vw;
+	height: 2em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--navbar);
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	overflow-x: auto;
+	overflow-y: hidden;
+	user-select: none;
 
-    .cat {
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        translate: 0 -3pt;
-    }
+	.cat {
+		aspect-ratio: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		translate: 0 -3pt;
+	}
 
-    .left {
-        display: flex;
-        height: 100%;
+	.left {
+		display: flex;
+		height: 100%;
 
-        .tab {
-            height: 100%;
-            padding: 0 0.5em;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            color: var(--text);
-            text-decoration: none;
-            user-select: none;
-            white-space: nowrap;
-        }
+		.tab {
+			height: 100%;
+			padding: 0 0.5em;
+			display: flex;
+			align-items: center;
+			font-weight: bold;
+			color: var(--text);
+			text-decoration: none;
+			white-space: nowrap;
+		}
 
-        .tab.current {
-            background-color: var(--base);
-        }
+		.tab.current {
+			background-color: var(--base);
+		}
 
-        .tab.current.inexact {
-            box-sizing: border-box;
-            margin: 3px 0;
-            height: calc(100% - 6px);
-            border-radius: 6pt;
-        }
+		.tab.current.inexact {
+			box-sizing: border-box;
+			margin: 3px 0;
+			height: calc(100% - 6px);
+			border-radius: 6pt;
+		}
 
-        a.tab.current.inexact:hover {
-            margin: 0;
-            height: 100%;
-            border-radius: 0;
-        }
+		a.tab.current.inexact:hover {
+			margin: 0;
+			height: 100%;
+			border-radius: 0;
+		}
 
-        a.tab:hover {
-            background-color: var(--nav_hover);
-            text-decoration: underline;
-            text-decoration-style: wavy;
-            text-decoration-thickness: 1px;
-        }
-    }
+		a.tab:hover {
+			background-color: var(--nav_hover);
+			text-decoration: underline;
+			text-decoration-style: wavy;
+			text-decoration-thickness: 1px;
+		}
+	}
 
-    .right {
-        height: 100%;
-        display: flex;
-        padding-right: 10px;
-        align-items: center;
+	.right {
+		height: 100%;
+		display: flex;
+		padding-right: 10px;
+		align-items: center;
 
-        #switch_theme,
-        a.switch_lang {
-            font-size: 16pt;
-            height: calc(100% - 6px);
-            border-radius: 10px;
-            aspect-ratio: 1;
-            padding: 0;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-family: "Icons";
-        }
+		#switch_theme,
+		a.switch_lang {
+			font-size: 16pt;
+			height: calc(100% - 6px);
+			border-radius: 10px;
+			aspect-ratio: 1;
+			padding: 0;
+			background: none;
+			border: none;
+			color: var(--text);
+			font-family: "Icons";
+		}
 
-        a.switch_lang {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: default;
-        }
+		a.switch_lang {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: default;
+		}
 
-        #switch_theme:hover,
-        a.switch_lang:hover {
-            background-color: var(--nav_hover);
-        }
-
-    }
+		#switch_theme:hover,
+		a.switch_lang:hover {
+			background-color: var(--nav_hover);
+			text-decoration: none;
+		}
+	}
 }
 
 main {
-    width: 60%;
+	width: 60%;
 }
 
 a {
-    color: var(--links);
-    text-decoration: none;
+	color: var(--links);
+	text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 1px;
+	text-decoration: underline;
+	text-decoration-style: wavy;
+	text-decoration-thickness: 1px;
 }
 
 // Responsive stuff
 @media screen and (max-width: 1250px) {
-    body {
-        font-size: 12pt;
-    }
+	body {
+		font-size: 12pt;
+	}
 }
 
 // intended for chrome. applies to safari too, though
 @supports (not (-moz-animation: both)) {
-
-    // the cat appears a bit more up????
-    nav .cat {
-        translate: 0;
-    }
+	// the cat appears a bit more up????
+	nav .cat {
+		translate: 0;
+	}
 }
