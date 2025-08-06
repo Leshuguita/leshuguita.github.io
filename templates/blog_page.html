@@ -30,7 +30,7 @@
 {% set desc = page.summary %}
 {% else %}
 {# shows the first paragraph as a preview #}
-{% set desc = page.content | split(pat='</p>') %}
+{% set desc = page.content | split(pat="</p>") | first | striptags %}
 {% endif %}
 <meta name="description" content="{{ desc }}">
 <meta property="og:description" content="{{ desc }}">
