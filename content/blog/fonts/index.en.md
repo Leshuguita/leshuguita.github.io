@@ -42,10 +42,10 @@ And then, I discovered the mess that are typeface design tools.
 Looking around on the internet, I found a few options. Most of them are paid:
 
 - [Glyphs](https://glyphsapp.com):\
-  Nominally €299, they charge me {{ coin(c="CL",s="$") }}357,245 (~359 €)\
+  Nominally €299, they charge me {{ coin(c="CL",s="$") }}357,245 (~€359)\
   Mac Only.
 - [Glyphs Mini](https://glyphsapp.com):\
-  Nominally €49, they charge me {{ coin(c="CL",s="$") }}59,728 (~60 €)\
+  Nominally €49, they charge me {{ coin(c="CL",s="$") }}59,728 (~€60)\
   Mac only as well,\
   It's a more limited version of Glyphs.
 - [FontLab](https://www.fontlab.com/font-editor/fontlab/):\
@@ -84,10 +84,10 @@ Additionally, I tried to place the ISO code above the symbol, if the symbol is n
 
 In the end, I decided to go for something similar to the first option, but with the disambiguating text in a dimmer color: "{{ coin(c="CL",s="$") }}xxx". I think it's easier to read than just "CL$xxx".
 
-I also found out that not all countries write euros the same way around: Spain, Germany, France, and others, use "xxx €", while Ireland and England use "€xxx". I'd assume this is common knowledge in Europe, but I had no idea. 
+I also found out that not all countries write euros the same way around: Spain, Germany, France, and others, use "xxx €", while Ireland and England use "€xxx". I'd assume this is common knowledge in Europe, but I had no idea.
 {% end %}
 
-Ok, maybe saying its a _mess_ was a bit of an exaggeration. But the prices _are_ way too high for small personal projects. 
+Ok, maybe saying its a _mess_ was a bit of an exaggeration. But the prices _are_ way too high for small personal projects.
 
 I don't have an Apple computer, so any options that only support MacOS are immediately discarded. Also, since the whole point of this is to make a font for a small game I'm making in my free time, and that will most likely be free, it doesn't make much sense to go with a paid option: They're either way too expensive, or they're a bit too limited.
 
