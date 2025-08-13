@@ -3,7 +3,7 @@ Extra frontmatter values for *blog pages* (in `[extra]` section):
 - math: bool ~ if this entry needs math or not (client-side with katex, _for now_)
 - code: bool ~ if this entry needs code block highlighting or not (cuz the css is kinda big!)
 
-Extra frontmatter values for *projexcts* (in `[extra]` section):
+Extra frontmatter values for *projects* (in `[extra]` section):
 - tags: [String] ~ list of tags of this project
 - css_class: String ~ css class to use for this entry
 - link: Url ~ target of this entry

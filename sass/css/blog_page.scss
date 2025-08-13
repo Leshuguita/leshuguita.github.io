@@ -1,285 +1,304 @@
 main {
-    padding-top: 1em;
-    padding-bottom: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
 
-    display: flex;
-    width: 100%;
+	display: flex;
+	width: 100%;
 }
 
 div.content {
-    width: 60%;
+	width: 60%;
 }
 
 div.r_margin {
-    width: 20%;
+	width: 20%;
 }
 
 aside.toc {
-    align-self: flex-start;
-    position: sticky;
-    top: 2.5em;
-    width: 20%;
-    padding: 0 0.5em;
-    box-sizing: border-box;
+	align-self: flex-start;
+	position: sticky;
+	top: 2.5em;
+	width: 20%;
+	padding: 0 0.5em;
+	box-sizing: border-box;
 
-    summary {
-        color: var(--text);
-    }
+	summary {
+		color: var(--text);
+	}
 
-    summary:before {
-        color: var(--subtext);
-        content: "₍^_ _^₎⟆";
-        float: right;
-    }
+	summary:before {
+		color: var(--subtext);
+		content: "₍^_ _^₎⟆";
+		float: right;
+	}
 
-    details[open] summary:before {
-        content: "₍^ . . ^₎⟆";
-    }
+	details[open] summary:before {
+		content: "₍^ . . ^₎⟆";
+	}
 
-    ul {
-        list-style-type: none;
-        margin: 0.2em 0 0 0.5em;
-        padding: 0;
-    }
+	ul {
+		list-style-type: none;
+		margin: 0.2em 0 0 0.5em;
+		padding: 0;
 
-    a.active {
-        font-weight: bold;
-    }
+		li {
+			margin: 0.2em 0;
+			padding-left: 0.2em;
+			border-left: 2pt solid var(--subtext);
+		}
+	}
 
-    a {
-        color: var(--text);
-    }
+	a.active {
+		font-weight: bold;
+	}
+
+	a {
+		color: var(--text);
+	}
 }
 
 h1.title {
-    margin: 0;
+	margin: 0;
+	font-size: 2em;
+}
+
+h1 {
+	font-size: 1.5em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+h3,
+h4,
+h5,
+h6 {
+	font-size: 1em;
 }
 
 .date {
-    color: var(--subtext);
+	color: var(--subtext);
 }
 
 p {
-    margin: 1em 0;
-    text-indent: 1em;
-    text-align: justify;
+	margin: 1em 0;
+	text-indent: 1em;
+	text-align: justify;
 }
 
 article.no-first-indent {
-
-    p:first-of-type,
-    h2+p,
-    h3+p,
-    h4+p {
-        text-indent: 0;
-    }
+	p:first-of-type,
+	h2 + p,
+	h3 + p,
+	h4 + p {
+		text-indent: 0;
+	}
 }
 
 figure {
-    width: max-content;
-    max-width: 80%;
-    margin: 1em auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--fig-bg);
-    border: 3px solid var(--fig-bg);
-    border-radius: 6pt;
-    overflow: clip;
+	width: max-content;
+	max-width: 80%;
+	margin: 1em auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--fig-bg);
+	border: 3px solid var(--fig-bg);
+	border-radius: 6pt;
+	overflow: clip;
 
-    img {
-        max-width: 100%;
-    }
+	img {
+		max-width: 100%;
+	}
 
-    figcaption {
-        margin: 0 0.5em;
-        margin-top: 3pt;
-        text-align: center;
-    }
+	figcaption {
+		margin: 0 0.5em;
+		margin-top: 3pt;
+		text-align: center;
+	}
 
-    p {
-        margin: 0;
-        text-indent: 0;
-        text-align: justify;
-        text-align-last: center;
-    }
+	p {
+		margin: 0;
+		text-indent: 0;
+		text-align: justify;
+		text-align-last: center;
+	}
 }
 
 // tangents
 details {
-    padding: 0.3em 1em;
-    background-color: var(--fig-bg);
-    border-radius: 6pt;
+	padding: 0.3em 1em;
+	background-color: var(--fig-bg);
+	border-radius: 6pt;
 
-    summary {
-        color: var(--subtext);
-        cursor: s-resize;
-    }
+	summary {
+		color: var(--subtext);
+		cursor: s-resize;
+	}
 
-    summary:before {
-        content: "/ᐠ > ⩊ <マ";
-        float: right;
-    }
+	summary:before {
+		content: "/ᐠ > ⩊ <マ";
+		float: right;
+	}
 }
 
 details[open] summary {
-    cursor: n-resize;
+	cursor: n-resize;
 }
 
 details[open] summary:before {
-    content: "/ᐠ > ▽ <マ";
+	content: "/ᐠ > ▽ <マ";
 }
 
-
 .tgt_name {
-    font-style: italic;
+	font-style: italic;
 
-    .tgt_title {
-        color: var(--text);
-    }
+	.tgt_title {
+		color: var(--text);
+	}
 }
 
 // abbr elements show help cursor
 abbr {
-    cursor: help;
+	cursor: help;
 }
 
 hr {
-    border: none;
-    border-top: solid 1px;
-    margin: 0.5em 1em;
-    color: var(--subtext);
+	border: none;
+	border-top: solid 1px;
+	margin: 0.5em 1em;
+	color: var(--subtext);
 }
 
 hr.start_rule,
 hr.end_rule {
-    line-height: 1px;
-    height: 2px;
-    overflow: visible;
-    text-align: center;
-    border-left: none;
-    border-right: none;
-    border-top: solid 1px;
-    border-bottom: solid 1px;
+	line-height: 1px;
+	height: 2px;
+	overflow: visible;
+	text-align: center;
+	border-left: none;
+	border-right: none;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
 }
 
 hr.end_rule {
-    scale: -1 1;
+	scale: -1 1;
 }
 
 hr.start_rule:after,
 hr.end_rule:after {
-    content: "ᓚᘏᗢ";
-    background-color: var(--base);
-    display: inline;
-    padding: 0 0.5em;
+	content: "ᓚᘏᗢ";
+	background-color: var(--base);
+	display: inline;
+	padding: 0 0.5em;
 }
 
 footer {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 2em;
+	display: flex;
+	justify-content: space-evenly;
+	gap: 2em;
 }
 
 // inline code, code block and keyboard key fonts
 pre,
 code,
 kbd {
-    font-family: "Fira Code", monospace;
-    font-size: 76%;
+	font-family: "Fira Code", monospace;
+	font-size: 76%;
 }
 
 code {
-    padding: 1pt 3pt;
+	padding: 1pt 3pt;
 }
 
 // code bg
 code,
 pre.z-code {
-    background-color: var(--syntax-bg);
-    border-radius: 6pt;
+	background-color: var(--syntax-bg);
+	border-radius: 6pt;
 }
 
 // code blocks
 pre.z-code {
-    padding: 0.5em;
-    overflow: auto;
+	padding: 0.5em;
+	overflow: auto;
 }
 
 pre.z-code[data-linenos] {
+	table {
+		td {
+			padding: 0;
+		}
 
-    table {
-        td {
-            padding: 0;
-        }
-
-        td:nth-of-type(1) {
-            padding-right: 0.5em;
-            user-select: none;
-            color: var(--subtext);
-            text-align: right;
-        }
-    }
+		td:nth-of-type(1) {
+			padding-right: 0.5em;
+			user-select: none;
+			color: var(--subtext);
+			text-align: right;
+		}
+	}
 }
 
 // keyboard keys
 kbd {
-    display: inline-block;
-    text-align: center;
-    padding: 2pt 5pt;
-    margin: 0 2pt;
-    background-color: var(--key-col);
-    border-radius: 6pt;
-    // border: 1px solid var(--subtext);
-    box-shadow: inset 0 -2pt var(--key-shadow);
+	display: inline-block;
+	text-align: center;
+	padding: 2pt 5pt;
+	margin: 0 2pt;
+	background-color: var(--key-col);
+	border-radius: 6pt;
+	// border: 1px solid var(--subtext);
+	box-shadow: inset 0 -2pt var(--key-shadow);
 }
 
 // anchor offset to account for navbar (which has 2em height)
 :target::before {
-    content: '';
-    display: block;
-    height: 3em;
-    margin-top: -3em;
+	content: "";
+	display: block;
+	height: 3em;
+	margin-top: -3em;
 }
 
 // Responsive stuff
 @media screen and (max-width: 1250px) {
-    main {
-        flex-direction: column;
-        padding-top: 0;
-    }
+	main {
+		flex-direction: column;
+		padding-top: 0;
+	}
 
-    aside.toc {
-        z-index: 1;
-        width: 100%;
-        top: 2em;
-        padding: 0;
+	aside.toc {
+		z-index: 1;
+		width: 100%;
+		top: 2em;
+		padding: 0;
 
-        details {
-            padding-top: 0;
-            background-color: var(--navbar);
-            border-radius: 0;
-        }
-    }
+		details {
+			padding-top: 0;
+			background-color: var(--navbar);
+			border-radius: 0;
+		}
+	}
 
-    div.r_margin {
-        display: none;
-    }
+	div.r_margin {
+		display: none;
+	}
 
-    div.content {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 1em 2em;
-    }
+	div.content {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 1em 2em;
+	}
 }
 
 // Responsive stuff
 @media screen and (max-width: 850px) {
-    div.content {
-        padding: 1em 1em;
-    }
+	div.content {
+		padding: 1em 1em;
+	}
 
-    figure {
-        max-width: 100%;
-    }
+	figure {
+		max-width: 100%;
+	}
 }
