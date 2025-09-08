@@ -3,11 +3,11 @@ current_url %} {% set u = get_url(path=path, lang=lang) ~ "/" %} {% set
 is_current = current_url==u %} {# blog subpages also count for blog #} {% set
 starts_with = current_url is starting_with(u) %} {% set is_blog = key == "blog"
 %} {% if is_current %}
-<span class="tab current"> {{trans(key=key, lang=lang)}} </span>
+<span class="tab current {{key}}_tab"> {{trans(key=key, lang=lang)}} </span>
 {% else %}
 <a
 	href="{{ get_url(path=path, lang=lang) }}"
-	class="tab {% if is_blog and starts_with %}current inexact{% endif %}"
+	class="tab {% if is_blog and starts_with %}current inexact{% endif %} {{key}}_tab"
 >
 	{{trans(key=key, lang=lang)}}
 </a>

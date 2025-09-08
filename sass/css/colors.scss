@@ -31,10 +31,17 @@
 	--syntax-light-red: #ee99a0; // maroon
 	--syntax-red: #ed8796; // red
 	--syntax-pink: #f5bde6; // pink
+
+	--home-col: #8aadf4; // blue
+	--projects-col: #8bd5ca; // teal
+	--blog-col: #a6da95; // green
+	--links-col: #eed49f; // yellow
+
+	--theme-switch: #eed49f; // yellow
 }
 
 @mixin light_colors {
-	--text: #181926; // macchiato crust
+	--text: #24273a; // macchiato base
 	--subtext: #5c5f77;
 	--links: #1e66f5;
 	--selection-bg: #1e66f5;
@@ -59,13 +66,20 @@
 	--syntax-light-cyan: #04a5e5; // sky
 	--syntax-cyan: #179299; // teal
 	--syntax-green: #40a02b; // green
-	--syntax-light-yellow: #40a02b; //rosewater (not really yellow i guess)
+	--syntax-light-yellow: #dc8a78; //rosewater (not really yellow i guess)
 	--syntax-yellow: #df8e1d; //yellow
 	--syntax-light-orange: #dd7878; // flamingo
 	--syntax-orange: #fe640b; // peach
 	--syntax-light-red: #e64553; // maroon
 	--syntax-red: #d20f39; // red
 	--syntax-pink: #ea76cb; // pink
+
+	--home-col: #1e66f5; // blue
+	--projects-col: #179299; // teal
+	--blog-col: #40a02b; // green
+	--links-col: #df8e1d; // yellow
+
+	--theme-switch: #7287fd; // mauve
 }
 
 @media (prefers-color-scheme: dark) {
