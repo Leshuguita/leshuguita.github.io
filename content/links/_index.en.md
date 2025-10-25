@@ -10,3 +10,4 @@ Some interesting and/or useful websites I've found:
 - {{ favilink(t="https://nadeko.net/") }}: A bunch of privacy-related services (invidious, rimgo, breezewiki...), hosted in Chile.
 - {{ favilink(t="https://www.kartkrew.org/", i="/theme/images/kkd_logo_V3_white.svg") }}: A very good game, Dr. Robotnik's Ring Racers. It's a Sonic-themed racing game using Doom's engine. It has a bunch of community-made [addons](https://mb.srb2.org/forums/ring-racers-addons-more-discussion.113/), and it's [open source.](https://git.srb2.org/KartKrew/)
 - {{ favilink(t="https://sharyap.com/",i="/icon.ico") }}: Shar's personal page. Very pretty, with nice sounds and {% wavy() %}immaculate vibes{% end %}.
+- {{ favilink(t="https://temstuff.neocities.org/", i="/Buttons/temsmile.ico") }}: Temmie's personal page (artist for Undertale and Deltarune, among other things). Pretty simple, but looks cute.
