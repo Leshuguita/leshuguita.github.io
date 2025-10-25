@@ -4,6 +4,12 @@
 	<img src="{% if i %}{{ base ~ i }}{% else %}{{ base ~ '/favicon.ico' }}{% endif %}" width="16" height="16" /><!--
 --></span><!--
 yes html please make comments meaningful, good job
---><a href="{{ t }}" class="favilink"><!--
+-->{% if b %}
+<a href="{{ t }}" class="img_button">
+	<img src="{{ b }}" width="88" height="31">
+</a>
+{% endif %}
+<a href="{{ t }}" class="favilink"><!--
 -->{{ name }}<!--
---></a>
+--></a><!--
+-->{{ body | trim | markdown(inline=true) | safe }}

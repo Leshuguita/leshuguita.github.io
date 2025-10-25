@@ -28,6 +28,13 @@ li {
 	padding-left: $item_padding;
 }
 
+// buttons
+.img_button {
+	float: right;
+	image-rendering: pixelated;
+}
+
+// waving text
 $amplitude: 0.1em;
 @keyframes wave {
 	from {
