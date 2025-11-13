@@ -50,7 +50,35 @@ It expects you to know basic algebra, and there's a short review of what you nee
 
 _The lectures are on the top navigation bar!_
 
+## University of Utah
+
+Prof. Matthew Flatt has material available for courses he teaches [here](https://users.cs.utah.edu/~mflatt/courses.html).
+I link to some specific ones I've checked out.
+
+### [Networking and Security](https://users.cs.utah.edu/~mflatt/cs6014/)
+Has videos recorded by Prof. Matthew Flatt, and the slides used in them.
+
+### [Programming Languages](https://my.eng.utah.edu/~cs3520/f24/schedule.html)
+A Programming Languages course, done in [the Shplait languge](https://docs.racket-lang.org/shplait/index.html).
+Assumes knowledge of data structures and, in general, knowing how to program.
+Covers interpreters, functions (and first-class functions), mutability, compilation, objects and classes,
+types and macros.
+
+Has videos recorded by Prof. Matthew Flatt, and the slides used in them.
+
+## Northeastern University
+
+Prof. Benjamin Lerner publishes the notes for his courses [here](https://blerner.github.io/teaching.html).
+I link to some specific ones I've checked out.
+
+### [Compiler Design](https://course.ccs.neu.edu/cs4410sp25/)
+Covers the implementation of efficient compilers, using Ocaml. Assumes knowledge of
+prgramming languages, and of programming in C.
+
 ## Internet
+
+### [Programming Languages: Application and Interpretation](https://www.plai.org/)
+A very good free book on programming languages, used as a base for courses in a lot of universities.
 
 ### [Ray Tracing in One Weekend](https://raytracing.github.io/)
 Three books on ray tracing. They guide you on building a rendered from scratch.

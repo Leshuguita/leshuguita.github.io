@@ -105,6 +105,8 @@ La mayoría (si no todos) sus videos tienen también subtítulos en español.
 
 ## Universidad de Chile
 
+El profesor Éric Tanter tiene disponible el material de sus cursos, enfocados en lenguajes de programación, [aquí](https://pleiad.cl/teaching)
+
 - [**Introducción a la Programación**](https://github.com/bpoblete/CC1002) \
   Un curso básico de programación en Python. Empieza de cero, enseñando
   de a poco el lenguaje en sí, junto con conceptos básicos sobre programación y
@@ -127,6 +129,11 @@ La mayoría (si no todos) sus videos tienen también subtítulos en español.
 	Asume conocidos los temas de Matemáticas Discretas, y se ven temas de lenguajes
 	y computabilidad: autómatas finitos, de pila, gramáticas libres de contexto,
 	máquinas de Turing y problemas de clase P y NP.
+
+- [**Diseño e Implementación de Compiladores**](https://users.dcc.uchile.cl/~etanter/CC5116/) \
+	Un curso sobre diseño de compiladores donde se implementa un compilador en
+	Ocaml. Los apuntes están disponibles en inglés, pero los videos son en español.
+	Asume conocimientos de lenguajes de programación, y de programación en C y _assembly_.
 
 ## Internet
 
