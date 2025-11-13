@@ -13,7 +13,7 @@ Blog and videos about Linux, Open Source, and related stuff.
 - {% favilink(t="https://www.farah.cl/") %}:
 Interesting articles, in particular [the ones about keyboards](https://www.farah.cl/Keyboardery/) ([and some more in spanish](https://www.farah.cl/Tecladismos/)).
 {% end %}
-- {% favilink(t="https://nadeko.net/") %}:
+- {% favilink(t="https://nadeko.net/", b="https://nadeko.net/banners/nadekodotnetbanner.png") %}:
 A bunch of privacy-related services (invidious, rimgo, breezewiki...), hosted in Chile.
 {% end %}
 - {% favilink(t="https://www.kartkrew.org/", i="/theme/images/kkd_logo_V3_white.svg") %}:
@@ -22,6 +22,6 @@ A very good game, Dr. Robotnik's Ring Racers. It's a Sonic-themed racing game us
 - {% favilink(t="https://sharyap.com/",i="/icon.ico") %}:
 Shar's personal page. Very pretty, with nice sounds and {%/* wavy() */%}immaculate vibes{%/* end */%}.
 {% end %}
-- {% favilink(t="https://temstuff.neocities.org/", i="/Buttons/temsmile.ico") %}:
+- {% favilink(t="https://temstuff.neocities.org/", i="/Buttons/temsmile.ico", b="https://64.media.tumblr.com/5249466109a089aa220762aa2075205c/a51f6f9947d2d663-78/s100x200/16dfd414c2d035315f340988656362bebc79d515.gif") %}:
 Temmie's personal page (artist for Undertale and Deltarune, among other things). Pretty simple, but looks cute.
 {% end %}
