@@ -79,7 +79,8 @@ starts_with = current_url is starting_with(u) %} {% set is_blog = key == "blog"
 				{{ self::tab(path="", key="index") }} {{
 				self::tab(path="projects", key="projects") }} {{
 				self::tab(path="blog", key="blog") }} {{ self::tab(path="links",
-				key="cool_links_title") }}
+				key="cool_links_title") }} {{ self::tab(path="learning",
+				key="learning_title") }}
 			</div>
 			<div class="right">
 				{# language switching #} {% for l,v in config.languages %} {% if

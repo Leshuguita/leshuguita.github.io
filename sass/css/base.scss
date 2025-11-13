@@ -96,6 +96,10 @@ nav {
 			text-decoration-color: var(--links-col);
 			border-top-color: var(--links-col);
 		}
+		a.tab.learning_title_tab:hover {
+			text-decoration-color: var(--learning-col);
+			border-top-color: var(--learning-col);
+		}
 
 		.tab.current.index_tab {
 			border-top-color: var(--home-col);
@@ -108,6 +112,9 @@ nav {
 		}
 		.tab.current.cool_links_title_tab {
 			border-top-color: var(--links-col);
+		}
+		.tab.current.learning_title_tab {
+			border-top-color: var(--learning-col);
 		}
 	}
 

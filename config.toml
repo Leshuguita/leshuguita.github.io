@@ -30,9 +30,10 @@ projects = "Proyectos"
 blog = "Blog"
 page_name = "Leshuguita"
 cool_links_title = "Otros Sitios"
+learning_title = "Rec. Académicos"
 
 index_title = "¿Qué hay aquí?"
-about_me = "En esta página hay una <a href='/projects'> lista de cosas que he hecho</a>, y un <a href='/blog'>blog</a> al que a veces subo cosas."
+about_me = "En esta página hay una <a href='/projects'> lista de cosas que he hecho</a>, y un <a href='/blog'>blog</a> al que a veces subo cosas. También junto <a href='/learning'>recursos útiles para aprender</a> cosas."
 links = "Enlaces"
 contact = "Contacto y esas cosas"
 website_repo = "Repositorio de este sitio"
@@ -45,6 +46,8 @@ atom_feed = "Feed de Atom"
 rss_feed = "Feed de RSS"
 
 tangent = "(Entre paréntesis: %s)"
+
+lecture_videos = "Videos de clases"
 
 tooltip_dark = "Cambiar a Modo Oscuro"
 tooltip_light = "Cambiar a Modo Claro"
@@ -64,9 +67,10 @@ projects = "Projects"
 blog = "Blog"
 page_name = "Leshuguita"
 cool_links_title = "Cool Sites"
+learning_title = "Learning"
 
 index_title = "¿What's here...?"
-about_me = "In this website I have a <a href='/en/projects'>list of stuff I've done</a>, and a <a href='/en/blog'>blog</a> where I sometimes post stuff."
+about_me = "In this website I have a <a href='/en/projects'>list of stuff I've done</a>, and a <a href='/en/blog'>blog</a> where I sometimes post stuff. I also gather userful <a href='/learning'>learning resources</a>."
 links = "Links"
 contact = "Contact info. and stuff"
 website_repo = "Repository for this website"
@@ -79,6 +83,8 @@ atom_feed = "Atom feed"
 rss_feed = "RSS feed"
 
 tangent = "Tangent: %s"
+
+lecture_videos = "Recorded lectures"
 
 tooltip_dark = "Change to Dark Mode"
 tooltip_light = "Change to Light Mode"
