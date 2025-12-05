@@ -125,6 +125,19 @@
 	}
 }
 
+.project.picto {
+	font-family: "Picto", monospace;
+	border-image: url(/css/picto_border.png) 4 fill round;
+	image-rendering: pixelated;
+	border-image-width: 8px;
+	padding: 10px;
+	color: black;
+
+	a {
+		color: #5555ff;
+	}
+}
+
 .end {
 	display: flex;
 	justify-content: center;
