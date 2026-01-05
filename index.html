@@ -1,0 +1,314 @@
+  
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<title> Leshuguita </title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/colors.css" />
+		<link rel="stylesheet" href="/css/base.css" />
+		<link rel="stylesheet" href="/css/icon_font.css" />
+		<meta name="color-scheme" content="dark light" />
+
+		
+<link rel="stylesheet" href="/css/index.css" />
+ 
+	</head>
+
+	<body>
+		<nav>
+			<div class="left">
+				<span class="cat">
+<span class="icons">  </span>
+</span>
+				       
+<span class="tab current index_tab"> Inicio </span>
+          
+<a
+	href="https://leshuguita.github.io/projects"
+	class="tab  projects_tab"
+>
+	Proyectos
+</a>
+          
+<a
+	href="https://leshuguita.github.io/blog"
+	class="tab  blog_tab"
+>
+	Blog
+</a>
+          
+<a
+	href="https://leshuguita.github.io/links"
+	class="tab  cool_links_title_tab"
+>
+	Otros Sitios
+</a>
+          
+<a
+	href="https://leshuguita.github.io/learning"
+	class="tab  learning_title_tab"
+>
+	Rec. Académicos
+</a>
+  
+			</div>
+			<div class="right">
+				   
+				<a
+					class="switch_lang"
+					href="https://leshuguita.github.io/en"
+					title="Switch to English"
+					>🇬🇧</a
+				>
+
+				 
+			</div>
+		</nav>
+		<main>
+<div class="info">
+	<section>
+		<h1 class="title">¿Qué hay aquí?</h1>
+		En esta página hay una <a href='/projects'> lista de cosas que he hecho</a>, y un <a href='/blog'>blog</a> al que a veces subo cosas. También junto <a href='/learning'>recursos útiles para aprender</a> cosas.
+	</section>
+	<section>
+		<h2 class="links_title">Enlaces</h2>
+		<ul class="links">
+			<li>
+				
+<span class="icons_big"> </span>
+
+				<a href="https://github.com/leshuguita/leshuguita.github.io"
+					>Repositorio de este sitio</a
+				>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h2 class="contact">Contacto y esas cosas</h2>
+		<ul class="links">
+			<li>
+				
+<span class="icons_big"> 󰊤</span>
+
+				<a href="https://github.com/leshuguita"
+					>https://github.com/leshuguita</a
+				>
+			</li>
+			<li>
+				
+<span class="icons_big"> </span>
+
+				<a href="https://codeberg.org/leshuguita"
+					>https://codeberg.org/leshuguita</a
+				>
+			</li>
+			<li>
+				
+<span class="icons_big"> </span>
+
+				<a href="mailto:leshuguita.saiyan@gmail.com"
+					>leshuguita.saiyan@gmail.com</a
+				>
+			</li>
+		</ul>
+	</section>
+</div>
+<aside>
+	<div class="counter">
+		<img
+			src="https://count.ayaya.beauty/@kirby76583?theme=green&padding=3&darkmode=0"
+			title="Cantidad de visitas"
+		/>
+	</div>
+</aside>
+
+<script type="module" src="/toys.js"></script>
+<script type="module">
+	import init, {
+		init_random_toy,
+		update_toy,
+		toy_name,
+		toy_url,
+		toy_mouse_move,
+		toy_mouse_click,
+		toy_text,
+		toy_cursor,
+	} from "/toys.js";
+
+	// build toy (since it needs javascript anyways, add it with js so that it doesnt appear with js off)
+	let text = document.createElement("span");
+	text.id = "canvas_text";
+
+	let caption = document.createElement("span");
+	caption.id = "canvas_caption";
+
+	let caption_div = document.createElement("div");
+	caption_div.className = "toy_caption";
+	caption_div.appendChild(text);
+	caption_div.appendChild(caption);
+
+	let canvas = document.createElement("canvas");
+	canvas.id = "toy_canvas";
+	canvas.width = 500;
+	canvas.height = 375;
+
+	let toy = document.createElement("div");
+	toy.id = "toy_container";
+	toy.className = "toy";
+	toy.appendChild(canvas);
+	toy.appendChild(caption_div);
+
+	let aside = document.getElementsByTagName("aside")[0];
+
+	let last = null;
+	function update(t) {
+		let ta = t / 1000.0;
+		update_toy("toy_canvas", ta - last);
+		last = ta;
+
+		text.innerHTML = toy_text("es");
+
+		requestAnimationFrame(update);
+	}
+
+	let did_init = false;
+
+	async function run() {
+		await init();
+
+		did_init = true;
+
+		init_random_toy("toy_canvas");
+
+		let name = toy_name("es");
+		let url = toy_url("es");
+
+		console.log(toy);
+
+		let c = toy_cursor();
+		if (c) {
+			canvas.style.cursor = c;
+		}
+
+		if (url != "") {
+			let n = document.createElement("a");
+			n.id = caption.id;
+			n.href = url;
+			n.innerHTML = name;
+			n.target = "_blank";
+			caption.replaceWith(n);
+		} else {
+			caption.innerHTML = name;
+		}
+		requestAnimationFrame(update);
+	}
+
+	function getMousePos(canvas, evt) {
+		var rect = canvas.getBoundingClientRect(),
+			scaleX = canvas.width / rect.width,
+			scaleY = canvas.height / rect.height;
+
+		return {
+			x: (evt.clientX - rect.left) * scaleX,
+			y: (evt.clientY - rect.top) * scaleY,
+		};
+	}
+
+	canvas.addEventListener("click", (evt) => {
+		let pos = getMousePos(canvas, evt);
+		toy_mouse_click(pos.x, pos.y, evt.button);
+	});
+	document.addEventListener("mousemove", (evt) => {
+		// assumes canvas is untransformed!
+		if (did_init) {
+			let pos = getMousePos(canvas, evt);
+			toy_mouse_move(pos.x, pos.y, evt.buttons);
+		}
+	});
+
+	const observer = new MutationObserver(() => {
+		console.log("a");
+		run();
+		observer.disconnect();
+	});
+	observer.observe(aside, { childList: true });
+	aside.prepend(toy);
+</script>
+
+</main>
+		<script>
+			let right = document.getElementsByClassName("right")[0];
+			   let button = document.createElement("button");
+			   button.id = "switch_theme";
+			   button.addEventListener("click", toggle_colors);
+			   right.prepend(button);
+
+			   // Set either light colors, or dark colors, depending on bool
+			   function set_colors(dark) {
+			       if (dark) {
+			           document.documentElement.classList.remove("light");
+			           document.documentElement.classList.add("dark");
+			       } else {
+			           document.documentElement.classList.remove("dark");
+			           document.documentElement.classList.add("light");
+			       }
+			       update_button(dark);
+			       save(dark);
+			   }
+
+			   function is_currently_dark() {
+			       if (document.documentElement.classList.contains("light")) {
+			           return false;
+			       } else if (document.documentElement.classList.contains("dark")) {
+			           return true;
+			       } else {
+			           if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			               return true;
+			           } else {
+			               return false;
+			           }
+			       }
+			   }
+
+			   function update_button(dark) {
+			       if (dark) {
+			           button.innerHTML = "";
+			           
+			           button.title = "Cambiar a Modo Claro";
+			           
+			       } else {
+			           button.innerHTML = "";
+			           
+			           button.title = "Cambiar a Modo Oscuro";
+			           
+			       }
+			       
+
+			   }
+
+			   function save(dark) {
+			       let theme = "light";
+			       if (dark) { theme = "dark"; }
+			       document.defaultView.localStorage.setItem("theme", theme)
+			   }
+
+			   function read() {
+			       let t = document.defaultView.localStorage.getItem("theme");
+			       if (t) {
+			           return t == "dark";
+			       }
+			       return null;
+			   }
+
+			   function toggle_colors() {
+			       set_colors(!is_currently_dark());
+			   }
+
+
+			   set_colors(read() != null ? read() : is_currently_dark())
+		</script>
+		
+	</body>
+</html>
