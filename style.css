@@ -1,0 +1,31 @@
+::selection {
+	background-color: var(--selection-bg);
+	color: var(--selection-fg);
+}
+body {
+	font-family: "Libertinus Serif", "Linux Libertine", "Garamond", serif;
+	font-size: 17pt;
+	margin: 0;
+	color: var(--text);
+	background-color: var(--base);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+main {
+	width: 60%;
+}
+a {
+	color: var(--links);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	text-decoration-style: wavy;
+	text-decoration-thickness: 1px;
+}
+@media screen and (max-width: 1250px) {
+	body {
+		font-size: 12pt;
+	}
+}
